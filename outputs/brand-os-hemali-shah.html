@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hemali Shah — Brand OS · Purely Personal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Poppins:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2A7C78;
+  --primary-dark: #1E5E5B;
+  --primary-light: #35A09B;
+  --primary-rgb: 42, 124, 120;
+  --accent: #C9922A;
+  --accent-rgb: 201, 146, 42;
+  --bg-page: #0A0A0A;
+  --bg-card: #111111;
+  --bg-card-2: #181818;
+  --bg-card-3: #1F1F1F;
+  --border: rgba(255,255,255,0.07);
+  --border-bright: rgba(255,255,255,0.13);
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.60);
+  --text-muted: rgba(255,255,255,0.30);
+  --r-sm: 8px; --r-md: 16px; --r-lg: 24px; --r-xl: 32px; --r-pill: 9999px;
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.45);
+  --shadow-glow: 0 0 48px rgba(42,124,120,0.22);
+  --shadow-primary: 0 8px 32px rgba(42,124,120,0.32);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Poppins', system-ui, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg-page); color: var(--text-primary); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-card); }
+::-webkit-scrollbar-thumb { background: rgba(42,124,120,0.45); border-radius: 3px; }
+::selection { background: rgba(42,124,120,0.3); }
+
+/* COVER */
+.cover { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: var(--bg-page); }
+.cover::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(42,124,120,0.18) 0%, transparent 70%); pointer-events: none; }
+.cover__inner { text-align: center; padding: 60px 40px; position: relative; z-index: 1; max-width: 700px; }
+.cover__brand { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); margin-bottom: 48px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.cover__brand-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); display: inline-block; }
+.cover__name { font-family: var(--font-display); font-size: clamp(42px, 7vw, 72px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; color: var(--text-primary); margin-bottom: 12px; }
+.cover__project { font-family: var(--font-display); font-size: clamp(20px, 3.5vw, 32px); font-weight: 700; font-style: italic; color: var(--primary); margin-bottom: 28px; }
+.cover__subtitle { font-family: var(--font-body); font-size: 15px; color: var(--text-secondary); margin-bottom: 8px; }
+.cover__date { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); margin-bottom: 48px; }
+.cover__pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 48px; }
+.pill { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 18px; border-radius: var(--r-pill); border: 1px solid var(--border-bright); color: var(--text-secondary); background: var(--bg-card); }
+.cover__tagline { font-family: var(--font-display); font-size: 18px; font-style: italic; color: var(--text-muted); }
+
+/* TABS */
+.tabs-wrap { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+.tabs { display: flex; max-width: 1100px; margin: 0 auto; padding: 0 24px; overflow-x: auto; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { font-family: var(--font-body); font-size: 13px; font-weight: 500; color: var(--text-muted); padding: 18px 22px; border: none; background: none; cursor: pointer; white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; letter-spacing: 0.02em; }
+.tab:hover { color: var(--text-secondary); }
+.tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+/* PANELS */
+.panel { display: none; max-width: 1100px; margin: 0 auto; padding: 56px 32px 80px; }
+.panel.active { display: block; }
+
+/* SECTION */
+.section { margin-bottom: 64px; }
+.section-label { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--primary); margin-bottom: 14px; }
+.section-title { font-family: var(--font-display); font-size: clamp(26px, 4vw, 38px); font-weight: 800; letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: 20px; line-height: 1.15; }
+.section-body { font-size: 15px; line-height: 1.82; color: var(--text-secondary); }
+
+/* CARDS */
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 28px 32px; }
+.card-label { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); margin-bottom: 10px; }
+.card-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+.card-body { font-size: 15px; line-height: 1.78; color: var(--text-secondary); }
+
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+
+/* TABLE */
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.data-table th { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border-bright); }
+.data-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.65; }
+.data-table td:first-child { color: var(--text-muted); font-size: 13px; font-weight: 500; white-space: nowrap; width: 200px; }
+.data-table td:last-child { color: var(--text-secondary); }
+.data-table tr:last-child td { border-bottom: none; }
+.table-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 24px; }
+
+/* HIGHLIGHT CARD */
+.highlight { background: linear-gradient(135deg, rgba(42,124,120,0.14) 0%, rgba(42,124,120,0.06) 100%); border: 1px solid rgba(42,124,120,0.3); border-radius: var(--r-lg); padding: 32px 36px; }
+.highlight-quote { font-family: var(--font-display); font-size: clamp(18px, 2.8vw, 26px); font-weight: 700; font-style: italic; color: var(--text-primary); line-height: 1.45; margin-bottom: 12px; }
+.highlight-attr { font-size: 13px; color: var(--primary); font-weight: 500; }
+
+/* ACCENT CARD */
+.accent-card { background: var(--bg-card-2); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px 28px; }
+.accent-card .num { font-family: var(--font-display); font-size: 36px; font-weight: 900; color: var(--primary); line-height: 1; margin-bottom: 6px; }
+.accent-card .lbl { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.accent-card .desc { font-size: 14px; line-height: 1.65; color: var(--text-secondary); }
+
+/* PILLAR CARDS */
+.pillar { background: var(--bg-card-2); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px 26px; position: relative; overflow: hidden; }
+.pillar::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--primary); }
+.pillar-num { font-family: var(--font-mono); font-size: 11px; color: var(--primary); margin-bottom: 8px; letter-spacing: 0.1em; }
+.pillar-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; font-style: italic; }
+.pillar-body { font-size: 13.5px; line-height: 1.72; color: var(--text-secondary); }
+.pillar-tag { display: inline-block; font-size: 11px; font-weight: 600; color: var(--primary); background: rgba(42,124,120,0.12); padding: 4px 12px; border-radius: var(--r-pill); margin-top: 12px; }
+
+/* UVP */
+.uvp-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 28px 32px; position: relative; }
+.uvp-size { font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 12px; }
+.uvp-text { font-family: var(--font-display); font-size: clamp(16px, 2.2vw, 22px); font-weight: 700; color: var(--text-primary); line-height: 1.45; }
+.copy-btn { position: absolute; top: 14px; right: 14px; font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); background: var(--bg-card-3); border: 1px solid var(--border-bright); border-radius: var(--r-sm); padding: 5px 12px; cursor: pointer; opacity: 0; transition: opacity 0.2s, color 0.2s; }
+.uvp-card:hover .copy-btn, .hook-item:hover .copy-btn, .tagline-item:hover .copy-btn { opacity: 1; }
+.copy-btn.copied { color: #22C55E; border-color: rgba(34,197,94,0.3); opacity: 1; }
+
+/* HOOKS */
+.hooks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.hook-item { background: var(--bg-card-2); border: 1px solid var(--border); border-radius: var(--r-md); padding: 18px 20px; position: relative; }
+.hook-num { font-family: var(--font-mono); font-size: 11px; color: var(--primary); margin-bottom: 8px; display: block; }
+.hook-neg .hook-num { color: rgba(239,68,68,0.8); }
+.hook-text { font-size: 14px; line-height: 1.65; color: var(--text-secondary); }
+
+/* TAGLINES */
+.tagline-item { background: var(--bg-card-2); border: 1px solid var(--border); border-radius: var(--r-md); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; position: relative; margin-bottom: 10px; }
+.tagline-text { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--text-primary); font-style: italic; }
+.tag-badge { font-size: 11px; font-weight: 600; color: var(--accent); background: rgba(201,146,42,0.12); padding: 4px 12px; border-radius: var(--r-pill); white-space: nowrap; }
+.tag-rec { color: var(--primary); background: rgba(42,124,120,0.12); }
+
+/* JOURNEY STEPS */
+.journey { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; }
+.journey-step { background: var(--bg-card); border: 1px solid var(--border); padding: 28px 24px; position: relative; text-align: center; }
+.journey-step:not(:last-child)::after { content: '→'; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); font-size: 18px; color: var(--primary); z-index: 1; }
+.journey-step:first-child { border-radius: var(--r-lg) 0 0 var(--r-lg); }
+.journey-step:last-child { border-radius: 0 var(--r-lg) var(--r-lg) 0; }
+@media (max-width: 700px) {
+  .journey { grid-template-columns: 1fr; }
+  .journey-step { border-radius: 0 !important; }
+  .journey-step:first-child { border-radius: var(--r-lg) var(--r-lg) 0 0 !important; }
+  .journey-step:last-child { border-radius: 0 0 var(--r-lg) var(--r-lg) !important; }
+  .journey-step:not(:last-child)::after { content: '↓'; right: auto; top: auto; bottom: -18px; left: 50%; transform: translateX(-50%); }
+}
+.step-num { font-family: var(--font-mono); font-size: 11px; color: var(--primary); margin-bottom: 8px; }
+.step-name { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+.step-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.62; }
+
+/* BEFORE/AFTER */
+.before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--border); }
+.before { background: var(--bg-card-2); padding: 28px; }
+.after { background: rgba(42,124,120,0.10); border-left: 1px solid rgba(42,124,120,0.25); padding: 28px; }
+.ba-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
+.before .ba-label { color: rgba(239,68,68,0.7); }
+.after .ba-label { color: var(--primary); }
+.ba-item { font-size: 14px; color: var(--text-secondary); line-height: 1.65; padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; gap: 10px; align-items: flex-start; }
+.ba-item:last-child { border-bottom: none; }
+.ba-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+.before .ba-dot { background: rgba(239,68,68,0.6); }
+.after .ba-dot { background: var(--primary); }
+
+/* DO/DONT */
+.do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.do-card { background: rgba(34,197,94,0.07); border: 1px solid rgba(34,197,94,0.2); border-radius: var(--r-lg); padding: 24px; }
+.dont-card { background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.2); border-radius: var(--r-lg); padding: 24px; }
+.do-dont-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+.do-card .do-dont-label { color: #22C55E; }
+.dont-card .do-dont-label { color: #EF4444; }
+.do-dont-item { font-size: 14px; color: var(--text-secondary); padding: 8px 0; border-bottom: 1px solid var(--border); line-height: 1.6; display: flex; gap: 10px; }
+.do-dont-item:last-child { border-bottom: none; }
+@media (max-width: 640px) { .do-dont { grid-template-columns: 1fr; } .before-after { grid-template-columns: 1fr; } }
+
+/* OFFER CARDS */
+.offer-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 28px 32px; }
+.offer-name { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+.offer-price { font-family: var(--font-mono); font-size: 22px; font-weight: 500; color: var(--accent); margin-bottom: 16px; }
+.offer-row { display: flex; gap: 10px; font-size: 13.5px; color: var(--text-secondary); padding: 7px 0; border-bottom: 1px solid var(--border); line-height: 1.6; }
+.offer-row:last-child { border-bottom: none; }
+.offer-key { color: var(--text-muted); min-width: 120px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+.status-badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 12px; border-radius: var(--r-pill); }
+.status-dev { background: rgba(245,158,11,0.15); color: #F59E0B; }
+.status-idea { background: rgba(255,255,255,0.08); color: var(--text-muted); }
+.status-active { background: rgba(34,197,94,0.12); color: #22C55E; }
+
+/* PERSONA CARD */
+.persona-card { background: linear-gradient(135deg, rgba(42,124,120,0.12) 0%, rgba(201,146,42,0.06) 100%); border: 1px solid rgba(42,124,120,0.25); border-radius: var(--r-xl); padding: 36px 40px; }
+
+/* COLOR SWATCHES */
+.swatches { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+.swatch { border-radius: var(--r-md); padding: 20px 16px; flex: 1; min-width: 120px; }
+.swatch-name { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 4px; }
+.swatch-hex { font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.6); }
+
+/* VILLAIN */
+.villain-card { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.18); border-radius: var(--r-lg); padding: 32px 36px; }
+.villain-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(239,68,68,0.8); margin-bottom: 12px; }
+.villain-text { font-family: var(--font-display); font-size: clamp(15px, 2vw, 18px); font-style: italic; color: var(--text-secondary); line-height: 1.7; }
+
+/* ENEMY CARD */
+.enemy-card { background: rgba(201,146,42,0.07); border: 1px solid rgba(201,146,42,0.2); border-radius: var(--r-lg); padding: 32px 36px; }
+.enemy-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+.enemy-text { font-family: var(--font-display); font-size: clamp(15px, 2vw, 18px); font-style: italic; color: var(--text-secondary); line-height: 1.7; }
+
+/* POSITIONING STATEMENT */
+.pos-statement { background: var(--bg-card); border: 1px solid var(--border-bright); border-radius: var(--r-lg); padding: 32px 36px; position: relative; }
+.pos-for { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+.pos-who { font-size: 15px; color: var(--text-secondary); margin-bottom: 12px; }
+.pos-is { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
+.pos-unlike { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
+.pos-because { font-size: 14px; color: var(--text-secondary); }
+
+/* STORY STEPS */
+.story-steps { display: flex; flex-direction: column; gap: 0; }
+.story-step { display: flex; gap: 0; }
+.story-line { display: flex; flex-direction: column; align-items: center; width: 40px; flex-shrink: 0; }
+.story-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--primary); border: 2px solid var(--bg-page); flex-shrink: 0; z-index: 1; }
+.story-connector { width: 2px; flex: 1; background: var(--border-bright); min-height: 20px; }
+.story-step:last-child .story-connector { display: none; }
+.story-content { padding: 0 0 32px 20px; flex: 1; }
+.story-num { font-family: var(--font-mono); font-size: 11px; color: var(--primary); margin-bottom: 4px; }
+.story-head { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; }
+.story-body { font-size: 14px; color: var(--text-secondary); line-height: 1.75; }
+
+/* VOICE TAGS */
+.voice-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.voice-tag { background: rgba(42,124,120,0.12); border: 1px solid rgba(42,124,120,0.25); border-radius: var(--r-pill); padding: 6px 16px; font-size: 13px; color: var(--primary); font-weight: 500; }
+.avoid-tag { background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: var(--r-pill); padding: 6px 16px; font-size: 13px; color: var(--text-muted); text-decoration: line-through; }
+
+/* REVEAL ANIMATION */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-group .reveal:nth-child(1) { transition-delay: 0s; }
+.reveal-group .reveal:nth-child(2) { transition-delay: 0.08s; }
+.reveal-group .reveal:nth-child(3) { transition-delay: 0.16s; }
+.reveal-group .reveal:nth-child(4) { transition-delay: 0.24s; }
+.reveal-group .reveal:nth-child(5) { transition-delay: 0.32s; }
+.reveal-group .reveal:nth-child(6) { transition-delay: 0.40s; }
+
+/* FOOTER */
+footer { padding: 32px 40px; border-top: 1px solid var(--border); margin-top: 80px; display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin-left: auto; margin-right: auto; }
+.footer-brand { font-family: var(--font-display); font-size: 17px; font-weight: 800; color: var(--primary); }
+.footer-by { font-family: var(--font-body); font-size: 13px; color: var(--text-muted); margin-left: 10px; }
+.footer-meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+
+@media (max-width: 640px) {
+  .panel { padding: 36px 18px 60px; }
+  .card { padding: 20px 20px; }
+  .journey-step:not(:last-child)::after { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover__inner">
+    <div class="cover__brand"><span class="cover__brand-dot"></span>BUSINESS AUTHORITY FOUNDATION · PURELY PERSONAL</div>
+    <h1 class="cover__name">Hemali Shah</h1>
+    <p class="cover__project">She Travels</p>
+    <p class="cover__subtitle">Complete Brand Strategy</p>
+    <p class="cover__date">June 2026</p>
+    <div class="cover__pills">
+      <span class="pill">ICP</span>
+      <span class="pill">Messaging House</span>
+      <span class="pill">Rule of 1</span>
+      <span class="pill">Brand Positioning</span>
+      <span class="pill">Business Inbox</span>
+    </div>
+    <p class="cover__tagline">"A journey back to yourself."</p>
+  </div>
+</section>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab active" data-tab="icp">ICP</button>
+    <button class="tab" data-tab="messaging">Messaging House</button>
+    <button class="tab" data-tab="rule1">Rule of 1</button>
+    <button class="tab" data-tab="positioning">Brand Positioning</button>
+    <button class="tab" data-tab="inbox">Business Inbox</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ TAB 1: ICP -->
+<div id="icp" class="panel active">
+
+  <div class="section reveal">
+    <div class="section-label">Ideal Customer Profile</div>
+    <h2 class="section-title">Who She Travels is built for</h2>
+  </div>
+
+  <!-- Business Snapshot -->
+  <div class="section reveal">
+    <div class="section-label">Business Snapshot</div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <tr><td>Founder</td><td>Hemali Shah</td></tr>
+        <tr><td>Brand</td><td>She Travels (project of City One Tourism & Travel)</td></tr>
+        <tr><td>Industry / Niche</td><td>Menopausal wellness travel — women 40–60+, UAE</td></tr>
+        <tr><td>Who They Serve</td><td>Women navigating menopause, midlife transitions, burnout, and empty nest syndrome</td></tr>
+        <tr><td>Core Offer</td><td>Transformational retreat experiences: 2-night staycation · 4-day destination retreat · 7–10 night premium journey</td></tr>
+        <tr><td>Mission</td><td>To help women reset, realign, and rise through soulful travel, holistic healing, and genuine sisterhood</td></tr>
+        <tr><td>Primary Outcome</td><td>Women return home reset, realigned, rejuvenated, heard, connected, confident, and younger from the inside out</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ICP Table -->
+  <div class="section reveal">
+    <div class="section-label">Ideal Client Profile</div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <tr><td>Who They Are</td><td>Women 40–60+ in UAE — homemakers, professionals, executives, entrepreneurs, founders, and business owners</td></tr>
+        <tr><td>Life Stage</td><td>Peri-menopausal, menopausal, or post-menopausal · Empty nesters · Midlife transition</td></tr>
+        <tr><td>Decision Type</td><td>Individual — making a personal investment in herself, often for the first time in her life</td></tr>
+        <tr><td>Geography</td><td>UAE (Dubai primary) · Future: broader GCC</td></tr>
+        <tr><td>Budget Range</td><td>AED 2,000 (entry) to AED 12,000 (premium journey)</td></tr>
+        <tr><td>Where She Hangs Out</td><td>LinkedIn (professionals) · Instagram (lifestyle) · Facebook (homemakers 40+) · BNI · Dubai Hills community · District One community · WhatsApp groups</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Core Problems -->
+  <div class="section">
+    <div class="section-label">Core Problems She Wants Solved</div>
+    <div class="grid-2 reveal-group">
+      <div class="pillar reveal">
+        <div class="pillar-num">PROBLEM 01</div>
+        <div class="pillar-title">"I don't know who I am anymore."</div>
+        <div class="pillar-body">After decades of living for her family, her work, and everyone else, she looks in the mirror and doesn't recognise the woman looking back. She's not just tired — she's invisible to herself.</div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">PROBLEM 02</div>
+        <div class="pillar-title">"I have no time left for myself."</div>
+        <div class="pillar-body">She's running the business, running the family, running everyone else's life — but nobody is running hers. She's exhausted from the constant juggle with nothing left for herself.</div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">PROBLEM 03</div>
+        <div class="pillar-title">"Nobody understands what I'm going through."</div>
+        <div class="pillar-body">Suffering through menopause without support or community. Her family criticises her mood swings. The world tells her to push through. She suffers in silence — alone in a journey millions of women share.</div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">PROBLEM 04</div>
+        <div class="pillar-title">"I look good outside. I feel empty inside."</div>
+        <div class="pillar-body">She maintains the appearance, shows up, performs. But the happiness is missing from within. The outside and the inside don't match — and she's exhausted by the gap between them.</div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">PROBLEM 05</div>
+        <div class="pillar-title">"I'm lonely. I want women who truly get it."</div>
+        <div class="pillar-body">She sees women who seem happy and successful and feels a quiet ache: "Why not me? Where did I go?" She longs for a community of women who understand without explanation.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Before / After -->
+  <div class="section reveal">
+    <div class="section-label">Desired Transformation</div>
+    <div class="before-after">
+      <div class="before">
+        <div class="ba-label">Before She Travels</div>
+        <div class="ba-item"><span class="ba-dot"></span>Exhausted, invisible to herself, questioning who she is</div>
+        <div class="ba-item"><span class="ba-dot"></span>Suffering through menopause without understanding or support</div>
+        <div class="ba-item"><span class="ba-dot"></span>Telling everyone "I'm fine" while carrying the weight alone</div>
+        <div class="ba-item"><span class="ba-dot"></span>Scrolling Instagram, booking holidays, returning the same</div>
+        <div class="ba-item"><span class="ba-dot"></span>Guilty about wanting something just for herself</div>
+        <div class="ba-item"><span class="ba-dot"></span>Longing for community that truly understands</div>
+      </div>
+      <div class="after">
+        <div class="ba-label">After She Travels</div>
+        <div class="ba-item"><span class="ba-dot"></span>Reset, realigned, rejuvenated — recognises herself again</div>
+        <div class="ba-item"><span class="ba-dot"></span>Menopause understood, navigated, no longer navigated alone</div>
+        <div class="ba-item"><span class="ba-dot"></span>Heard, understood, relieved — the weight finally lifted</div>
+        <div class="ba-item"><span class="ba-dot"></span>New daily practices: meditation, journaling, yoga, affirmations</div>
+        <div class="ba-item"><span class="ba-dot"></span>Boundaries set — choosing herself without guilt</div>
+        <div class="ba-item"><span class="ba-dot"></span>A sisterhood that continues after the retreat ends</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Behavioral Insights -->
+  <div class="section reveal">
+    <div class="section-label">Behavioral & Decision Insights</div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <tr><td>Buying Triggers</td><td>When she finally says "enough." When she hears another woman say she "came back different." When the weight of emptiness becomes heavier than the fear of change.</td></tr>
+        <tr><td>Emotional Drivers</td><td>Freedom from invisible roles · Desire to feel understood · Fear of losing herself permanently · "Is this all there is?" · Longing for women who uplift rather than drain</td></tr>
+        <tr><td>Common Objections</td><td>"My family needs me" · "Is it selfish to do this for myself?" · "Will this actually work?" · "I don't have the time"</td></tr>
+        <tr><td>Decision Speed</td><td>Considered — she has waited a long time to prioritise herself; this is an emotionally significant decision</td></tr>
+        <tr><td>Trust Factors</td><td>Hemali's lived experience · 14 years of travel expertise · TripAdvisor Awards 2016–2025 · Word of mouth from BNI, WOW, community groups · Real transformation stories</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ICP Persona -->
+  <div class="section reveal">
+    <div class="section-label">ICP Persona Summary</div>
+    <div class="persona-card">
+      <div class="card-label">The Waiting Woman</div>
+      <p class="card-body" style="font-size:16px; line-height:1.85; color: var(--text-primary);">She is between 42 and 58 years old, living in Dubai, UAE. She might be running her own business, managing a household, or balancing both with breathtaking competence that nobody outside her home ever questions. She has given the best years of her energy to her family, her career, and her community — and somewhere along the way, quietly and without announcement, she lost the thread back to herself. Menopause arrived without warning and without a support system, bringing mood swings her family didn't understand and hot flashes that arrived at the worst possible moments. She scrolls Instagram for inspiration, books regular holidays hoping something will shift, and tells everyone she's fine. She's not fine. She's exhausted, invisible to herself, and quietly longing for a space where women truly understand what she's carrying — and she's finally, tentatively, ready to choose herself.</p>
+    </div>
+  </div>
+
+  <!-- Content Direction -->
+  <div class="section reveal">
+    <div class="section-label">Content Direction from ICP</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Topics that resonate</div>
+        <div class="card-body">Menopause told honestly · The invisible weight of giving everything · Women's transformation stories · Freedom from guilt · Travel as soul work · The five pillars of healing · What sisterhood feels like for women 40+</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Tone that connects</div>
+        <div class="card-body">Warm, direct, emotionally honest, empowering — never preachy. Woman to woman. From someone who has been exactly where she is.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Proof she needs</div>
+        <div class="card-body">Real transformation stories with specific before/after detail · Hemali's lived experience navigating menopause · 14 years of trusted travel expertise · Community membership proof</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Language to avoid</div>
+        <div class="card-body">Generic "empowerment" or "self-love" · Anything that positions her as broken · "Anti-aging" language · Clinical menopause terminology · "You need to have it together before you come"</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end ICP -->
+
+<!-- ═══════════════════════════════════════════════ TAB 2: MESSAGING HOUSE -->
+<div id="messaging" class="panel">
+
+  <div class="section reveal">
+    <div class="section-label">Messaging House</div>
+    <h2 class="section-title">What She Travels says and how it says it</h2>
+  </div>
+
+  <!-- Central Tension -->
+  <div class="section reveal">
+    <div class="highlight">
+      <div class="card-label">The Central Tension</div>
+      <div class="highlight-quote">"She has been the caretaker, the backbone, the constant — for everyone but herself."</div>
+      <p class="card-body" style="margin-top:16px;">She wakes up exhausted, looks in the mirror and doesn't recognise the woman looking back, and feels a creeping loneliness that regular holidays, weight loss programs, and motivational Instagram accounts cannot touch. She wants to feel free, understood, and alive again — but she doesn't know how to start, or whether she even deserves to.</p>
+    </div>
+  </div>
+
+  <!-- UVPs -->
+  <div class="section">
+    <div class="section-label">Unique Value Proposition</div>
+    <div style="display:flex; flex-direction:column; gap:16px;" class="reveal-group">
+      <div class="uvp-card reveal">
+        <button class="copy-btn" onclick="copyText(this, 'uvp-short')">Copy</button>
+        <div class="uvp-size">Short · 10–15 words</div>
+        <div class="uvp-text" id="uvp-short">Transformational travel retreats for women ready to reset, realign, and rise.</div>
+      </div>
+      <div class="uvp-card reveal">
+        <button class="copy-btn" onclick="copyText(this, 'uvp-med')">Copy</button>
+        <div class="uvp-size">Medium · 25–35 words</div>
+        <div class="uvp-text" id="uvp-med">She Travels creates soulful retreat experiences for women 40–60+ navigating menopause and midlife transitions — combining meaningful travel, holistic wellness, and genuine sisterhood through a five-pillar healing framework designed to help women reclaim themselves.</div>
+      </div>
+      <div class="uvp-card reveal">
+        <button class="copy-btn" onclick="copyText(this, 'uvp-long')">Copy</button>
+        <div class="uvp-size">Long · 50–75 words</div>
+        <div class="uvp-text" id="uvp-long">She Travels is the only transformational retreat experience built specifically for women navigating menopause and midlife transitions. Through our five-pillar framework — Mind, Body, Energy, Emotion, and Connection — we combine meaningful travel, holistic wellness, and genuine sisterhood to create a space where women 40–60+ can finally pause, be heard, and return to themselves. Not just a trip. A journey back to yourself.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Messaging Pillars -->
+  <div class="section">
+    <div class="section-label">Messaging Pillars</div>
+    <div style="display:flex; flex-direction:column; gap:18px;" class="reveal-group">
+      <div class="pillar reveal" style="padding: 28px 32px;">
+        <div class="pillar-num">PILLAR 01</div>
+        <div class="pillar-title">"You don't need to earn your freedom. You just need to claim it."</div>
+        <div class="pillar-body">The deepest block this woman faces is guilt — the belief that choosing herself is selfish. This pillar dismantles that belief at its root. Women who join She Travels return home having discovered that giving themselves permission was the first and most powerful act of transformation.</div>
+        <span class="pillar-tag">In their words: "It is their turn. She is waiting for her turn."</span>
+      </div>
+      <div class="pillar reveal" style="padding: 28px 32px;">
+        <div class="pillar-num">PILLAR 02</div>
+        <div class="pillar-title">"We don't travel for the photograph. We travel for the soul."</div>
+        <div class="pillar-body">This woman has been on regular holidays and returned the same — because those trips had no depth. She Travels offers something profoundly different: meaningful travel that changes you from the inside. Sangeeta traveled to Singapore and returned a woman who navigates her own life differently — literally and metaphorically.</div>
+        <span class="pillar-tag">In their words: "It's not about for social media. We travel for our soul."</span>
+      </div>
+      <div class="pillar reveal" style="padding: 28px 32px;">
+        <div class="pillar-num">PILLAR 03</div>
+        <div class="pillar-title">"When the woman of the house is happy, the family is happy."</div>
+        <div class="pillar-body">This reframes the guilt. Choosing herself is not selfish — it is the most generous thing she can do for her family and her community. Her transformation ripples outward. From family to community to the next generation.</div>
+        <span class="pillar-tag">In their words: "When family is happy, it spreads to the community. And from the community, to the world."</span>
+      </div>
+      <div class="pillar reveal" style="padding: 28px 32px;">
+        <div class="pillar-num">PILLAR 04</div>
+        <div class="pillar-title">"You are not alone in this."</div>
+        <div class="pillar-body">Loneliness and feeling misunderstood is the core emotional pain she carries. The moment she discovers other women are navigating the same experience, something essential shifts. The sharing circle — women discovering each other's stories and feeling heard for the first time.</div>
+        <span class="pillar-tag">In their words: "Conscious conversation that reminds them they are not alone in this."</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top 5 Problems -->
+  <div class="section">
+    <div class="section-label">Top 5 Problems & Solutions</div>
+    <div style="display:flex; flex-direction:column; gap:16px;" class="reveal-group">
+      <div class="card reveal">
+        <div class="card-label">Problem 1</div>
+        <div class="card-title" style="font-size:17px;">"I look good on the outside but feel empty on the inside."</div>
+        <div class="card-body">Her solution: Five-pillar retreat works simultaneously on mind, body, energy, emotion, and connection — creating alignment between her outer appearance and inner experience. What makes it different: not a spa day or gym program — it addresses the soul, not just the surface. Transformation: she no longer performs happiness — she feels it.</div>
+      </div>
+      <div class="card reveal">
+        <div class="card-label">Problem 2</div>
+        <div class="card-title" style="font-size:17px;">"I don't know who I am anymore."</div>
+        <div class="card-body">Her solution: Guided self-discovery through meditation, journaling, sharing circles, and meaningful travel in a small group of women navigating the same loss. What makes it different: led by Hemali, who has personally navigated this exact loss of self. Transformation: she reconnects with her identity and reclaims herself.</div>
+      </div>
+      <div class="card reveal">
+        <div class="card-label">Problem 3</div>
+        <div class="card-title" style="font-size:17px;">"Nobody understands what I'm going through."</div>
+        <div class="card-body">Her solution: Intimate group of 10–12 women, sharing circles where vulnerability is welcomed, and a founder who says: "I have been exactly where you are." What makes it different: not therapy, not a support group — genuine sisterhood in a beautiful destination. Transformation: she feels heard and understood, some for the first time in years.</div>
+      </div>
+      <div class="card reveal">
+        <div class="card-label">Problem 4</div>
+        <div class="card-title" style="font-size:17px;">"I'm exhausted from giving everyone else my time."</div>
+        <div class="card-body">Her solution: A carefully designed retreat that exists entirely for her — no family obligations, no work, no performing. Every element curated for her from arrival to farewell. What makes it different: full structured permission to pause — something nobody else has given her. Transformation: returns rejuvenated, energised, and realigned.</div>
+      </div>
+      <div class="card reveal">
+        <div class="card-label">Problem 5</div>
+        <div class="card-title" style="font-size:17px;">"I've tried everything and nothing has worked."</div>
+        <div class="card-body">Her solution: The combination of meaningful travel + five-pillar holistic healing + genuine sisterhood — a blue ocean experience never built for this specific woman before. What makes it different: not generic, not a regular holiday — a first-of-its-kind experience for exactly where she is right now. Transformation: reset, realigned, rejuvenated, and risen.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Emotional Landscape -->
+  <div class="section">
+    <div class="section-label">Emotional Landscape</div>
+    <div class="grid-2 reveal-group">
+      <div class="card reveal">
+        <div class="card-label">What drives her to act</div>
+        <div class="card-body">
+          <div class="ba-item" style="border-color: var(--border);"><span class="ba-dot" style="background: var(--primary);"></span><div><strong style="color:var(--text-primary);">Identity:</strong> "I want to be seen as a woman who chose herself — not just everyone else."</div></div>
+          <div class="ba-item" style="border-color: var(--border);"><span class="ba-dot" style="background: var(--primary);"></span><div><strong style="color:var(--text-primary);">Achievement:</strong> "I want to finally feel like myself again."</div></div>
+          <div class="ba-item" style="border-color: var(--border);"><span class="ba-dot" style="background: var(--primary);"></span><div><strong style="color:var(--text-primary);">Relief:</strong> "I want to stop pretending I'm fine when I'm not."</div></div>
+          <div class="ba-item" style="border-color: var(--border); border:none;"><span class="ba-dot" style="background: var(--primary);"></span><div><strong style="color:var(--text-primary);">Connection:</strong> "I want to feel truly understood by women who get it."</div></div>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-label">What blocks her</div>
+        <div class="card-body">
+          <div class="ba-item" style="border-color: var(--border);"><span class="ba-dot" style="background: rgba(239,68,68,0.7);"></span><div><strong style="color:var(--text-primary);">Fear:</strong> "Am I even worth this investment?"</div></div>
+          <div class="ba-item" style="border-color: var(--border);"><span class="ba-dot" style="background: rgba(239,68,68,0.7);"></span><div><strong style="color:var(--text-primary);">Resource:</strong> "I don't believe my needs matter enough to make the time."</div></div>
+          <div class="ba-item" style="border-color: var(--border);"><span class="ba-dot" style="background: rgba(239,68,68,0.7);"></span><div><strong style="color:var(--text-primary);">Belief:</strong> "I should be putting my family first." (Self-care is selfish.)</div></div>
+          <div class="ba-item" style="border-color: var(--border); border:none;"><span class="ba-dot" style="background: rgba(239,68,68,0.7);"></span><div><strong style="color:var(--text-primary);">Timing:</strong> "Maybe after the next project / holiday / milestone..."</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand Voice -->
+  <div class="section reveal">
+    <div class="section-label">Brand Voice</div>
+    <div class="grid-2" style="gap:16px;">
+      <div class="card">
+        <div class="card-label">Voice — Warm</div>
+        <div class="card-body">Speaks woman to woman, not expert to student. Every communication carries the warmth of a trusted friend who has been exactly where you are.<br><br><em style="color:var(--primary);">Do: "I know what it feels like to look in the mirror and not recognise yourself."</em><br><em style="color:rgba(239,68,68,0.7);">Don't: "Our program addresses the psychological impact of midlife transitions."</em></div>
+      </div>
+      <div class="card">
+        <div class="card-label">Voice — Emotionally Honest</div>
+        <div class="card-body">Names what she's feeling before she's ready to name it herself. Doesn't shy away from hard truths.<br><br><em style="color:var(--primary);">Do: "You're not fine. And the bravest thing you can do is admit it."</em><br><em style="color:rgba(239,68,68,0.7);">Don't: "Many women struggle with the challenges of this life stage."</em></div>
+      </div>
+      <div class="card">
+        <div class="card-label">Voice — Direct</div>
+        <div class="card-body">No fluff, no buzzwords, no performance. Every sentence earns its place.<br><br><em style="color:var(--primary);">Do: "It's your turn. Finally."</em><br><em style="color:rgba(239,68,68,0.7);">Don't: "We empower women to embrace their authentic journey."</em></div>
+      </div>
+      <div class="card">
+        <div class="card-label">Voice — Elevating</div>
+        <div class="card-body">Lifts her up without making her feel broken. Assumes she is already strong — this experience helps her remember that.<br><br><em style="color:var(--primary);">Do: "You already have everything you need. This is just the space to find it again."</em><br><em style="color:rgba(239,68,68,0.7);">Don't: "We'll help fix what's holding you back."</em></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px;">
+      <div class="card-label">Words to use</div>
+      <div class="voice-grid">
+        <span class="voice-tag">reset</span><span class="voice-tag">realign</span><span class="voice-tag">rise</span><span class="voice-tag">soulful</span><span class="voice-tag">meaningful</span><span class="voice-tag">healing</span><span class="voice-tag">sisterhood</span><span class="voice-tag">reclaim</span><span class="voice-tag">liberated</span><span class="voice-tag">transformation</span><span class="voice-tag">pause</span><span class="voice-tag">heard</span><span class="voice-tag">understood</span><span class="voice-tag">freedom</span><span class="voice-tag">your turn</span><span class="voice-tag">journey back</span>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px;">
+      <div class="card-label">Words to avoid</div>
+      <div class="voice-grid">
+        <span class="avoid-tag">empowerment</span><span class="avoid-tag">self-love</span><span class="avoid-tag">anti-aging</span><span class="avoid-tag">fix</span><span class="avoid-tag">hormonal issues</span><span class="avoid-tag">ladies</span><span class="avoid-tag">amazing</span><span class="avoid-tag">program</span><span class="avoid-tag">struggle</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end Messaging -->
+
+<!-- ═══════════════════════════════════════════════ TAB 3: RULE OF 1 -->
+<div id="rule1" class="panel">
+
+  <div class="section reveal">
+    <div class="section-label">Rule of 1</div>
+    <h2 class="section-title">One avatar. One problem. One solution. One outcome.</h2>
+  </div>
+
+  <!-- Core Four -->
+  <div class="section">
+    <div class="grid-4 reveal-group">
+      <div class="accent-card reveal">
+        <div class="lbl">One Avatar</div>
+        <div class="desc" style="color:var(--text-primary); font-family:var(--font-display); font-size:17px; font-weight:700;">The Waiting Woman</div>
+        <div class="desc" style="margin-top:8px;">She has given everything to everyone. She is finally ready for her turn.</div>
+      </div>
+      <div class="accent-card reveal">
+        <div class="lbl">One Problem</div>
+        <div class="desc" style="color:var(--text-primary); font-family:var(--font-display); font-size:17px; font-weight:700;">The Silent Theft of Self</div>
+        <div class="desc" style="margin-top:8px;">Decades of living for everyone else — leaving her invisible, empty, disconnected.</div>
+      </div>
+      <div class="accent-card reveal">
+        <div class="lbl">One Solution</div>
+        <div class="desc" style="color:var(--text-primary); font-family:var(--font-display); font-size:17px; font-weight:700;">Pause → Let Go → Rise</div>
+        <div class="desc" style="margin-top:8px;">A four-day retreat journey that gives her back to herself.</div>
+      </div>
+      <div class="accent-card reveal">
+        <div class="lbl">One Outcome</div>
+        <div class="desc" style="color:var(--text-primary); font-family:var(--font-display); font-size:17px; font-weight:700;">She Reclaims Herself</div>
+        <div class="desc" style="margin-top:8px;">Reset, realigned, rejuvenated, heard, free — and younger from the inside out.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Avatar Scene -->
+  <div class="section reveal">
+    <div class="section-label">The Avatar — A Day in Her Life</div>
+    <div class="card">
+      <div class="card-label">The Waiting Woman</div>
+      <p class="card-body" style="font-size:16px; line-height:1.85; margin-bottom:20px;">It is 6:30am. She has already made breakfast, answered three WhatsApp messages from family, and checked her work email. The mirror catches her for a second — she looks presentable, composed, capable. But behind the put-together face, something pulls. She used to know exactly who she was. She used to feel something when she laughed that wasn't performance. The mood swings come without warning now. The hot flashes arrive at the worst times. Her family looks at her with confusion or quiet frustration — not understanding what's happening. She doesn't fully understand it either.</p>
+      <p class="card-body" style="font-size:16px; line-height:1.85; margin-bottom:20px;">She types "women's retreat Dubai" into Google. Then closes the tab. "Maybe later," she tells herself. She has been saying maybe later for three years.</p>
+      <div class="highlight" style="margin-top:20px;">
+        <div class="card-label">Her Internal Monologue</div>
+        <div class="highlight-quote">"I am so tired of pretending I'm fine. I want to feel like myself again. I want to feel like there's still something that belongs just to me."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Journey -->
+  <div class="section reveal">
+    <div class="section-label">One Solution — 3-Step Journey</div>
+    <div class="journey">
+      <div class="journey-step">
+        <div class="step-num">STEP 01</div>
+        <div class="step-name">Pause</div>
+        <div class="step-desc">She arrives. Curated welcome kit waiting. Nothing she must do for anyone else. Grounding meditation. Conscious dining. Stillness. She exhales for the first time in months.</div>
+      </div>
+      <div class="journey-step">
+        <div class="step-num">STEP 02</div>
+        <div class="step-name">Let Go & Reconnect</div>
+        <div class="step-desc">Yoga, breathwork, fire ceremony, meaningful travel, sharing circle. She releases what was holding her down and reconnects with what was waiting inside her.</div>
+      </div>
+      <div class="journey-step">
+        <div class="step-num">STEP 03</div>
+        <div class="step-name">Return Renewed</div>
+        <div class="step-desc">She boards home reset, realigned, and risen. New practices. New sisters. A new permission — to keep choosing herself.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Villain -->
+  <div class="section reveal">
+    <div class="villain-card">
+      <div class="villain-label">The Villain Statement</div>
+      <div class="villain-text">"The real problem in The Waiting Woman's story is the invisible cultural demand that she give everything and need nothing — which shows up as exhaustion, emotional depletion, and menopause misunderstood by everyone around her — makes her feel undeserving and invisible to herself — and represents the unfair truth that the most giving women in the world are consistently the last to be given to."</div>
+    </div>
+  </div>
+
+  <!-- Positive Hooks -->
+  <div class="section">
+    <div class="section-label">7 Positive Hooks — Paint the Win</div>
+    <div class="hooks-grid reveal-group">
+      <div class="hook-item reveal">
+        <span class="hook-num">01 ✦</span>
+        <p class="hook-text">What 4 days in stillness, sisterhood, and soulful travel can do for a woman who hasn't stopped in years.</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+      <div class="hook-item reveal">
+        <span class="hook-num">02 ✦</span>
+        <p class="hook-text">She came back different. Not younger in age — younger in energy. That's what She Travels does.</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+      <div class="hook-item reveal">
+        <span class="hook-num">03 ✦</span>
+        <p class="hook-text">There is a version of you on the other side of this retreat. She is calmer, clearer, and more herself than she's been in years.</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+      <div class="hook-item reveal">
+        <span class="hook-num">04 ✦</span>
+        <p class="hook-text">10 women. 4 days. 5 pillars. One retreat that gives you back to yourself.</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+      <div class="hook-item reveal">
+        <span class="hook-num">05 ✦</span>
+        <p class="hook-text">When was the last time something was entirely for you? Not for your family. Not for work. Just for you.</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+      <div class="hook-item reveal">
+        <span class="hook-num">06 ✦</span>
+        <p class="hook-text">Sangeeta was afraid to navigate Singapore alone. Three months later, she navigated Dubai without GPS — from memory. One trip changed how she moves through the world.</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+      <div class="hook-item reveal">
+        <span class="hook-num">07 ✦</span>
+        <p class="hook-text">You've given everyone your time. Now it's your turn.</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Negative Hooks -->
+  <div class="section">
+    <div class="section-label">7 Negative Hooks — Call Out the Pain</div>
+    <div class="hooks-grid reveal-group">
+      <div class="hook-item hook-neg reveal">
+        <span class="hook-num">01 ✕</span>
+        <p class="hook-text">The problem isn't that you're burnt out. It's that nobody has designed anything for this specific version of you — until now.</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+      <div class="hook-item hook-neg reveal">
+        <span class="hook-num">02 ✕</span>
+        <p class="hook-text">Another holiday won't fix it. Neither will another self-help book. What's missing is a space that was actually built for where you are right now.</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+      <div class="hook-item hook-neg reveal">
+        <span class="hook-num">03 ✕</span>
+        <p class="hook-text">You are not fine. And pretending you are is costing you more than you know.</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+      <div class="hook-item hook-neg reveal">
+        <span class="hook-num">04 ✕</span>
+        <p class="hook-text">Every year you wait is another year you spend invisible to yourself. That's the real cost of "maybe later."</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+      <div class="hook-item hook-neg reveal">
+        <span class="hook-num">05 ✕</span>
+        <p class="hook-text">Nobody talks about what menopause actually does to a woman's identity — not just her body. That silence is what She Travels is ending.</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+      <div class="hook-item hook-neg reveal">
+        <span class="hook-num">06 ✕</span>
+        <p class="hook-text">The wellness industry keeps selling generic retreats to women who need something specific. She Travels was built because that gap was unacceptable.</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+      <div class="hook-item hook-neg reveal">
+        <span class="hook-num">07 ✕</span>
+        <p class="hook-text">You don't need to lose weight to deserve this. You don't need to have it together to deserve this. You just need to be ready to choose yourself.</p>
+        <button class="copy-btn" onclick="copyParent(this)">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7-Part Brand Story -->
+  <div class="section reveal">
+    <div class="section-label">7-Part Brand Story</div>
+    <div class="story-steps">
+      <div class="story-step">
+        <div class="story-line"><div class="story-dot"></div><div class="story-connector"></div></div>
+        <div class="story-content">
+          <div class="story-num">01 — A CHARACTER</div>
+          <div class="story-head">She is the woman who shows up for everyone.</div>
+          <div class="story-body">She is 47, runs a business or household in Dubai, and hasn't taken a real breath in three years. She looks put-together. She gives generously. But somewhere between the family, the work, and the invisible expectations, she lost the thread back to herself. Menopause arrived with mood swings nobody understood and hot flashes in meetings. Her family didn't get it. She barely got it herself.</div>
+        </div>
+      </div>
+      <div class="story-step">
+        <div class="story-line"><div class="story-dot"></div><div class="story-connector"></div></div>
+        <div class="story-content">
+          <div class="story-num">02 — HAS A PROBLEM</div>
+          <div class="story-head">External exhaustion. Internal invisibility. Philosophical injustice.</div>
+          <div class="story-body">Externally: exhausted — physical, mental, and emotional, all at once. Internally: invisible — unseen by the people around her, unrecognisable to herself. Philosophically: a woman who has given everything should not have to beg for permission to take something back.</div>
+        </div>
+      </div>
+      <div class="story-step">
+        <div class="story-line"><div class="story-dot"></div><div class="story-connector"></div></div>
+        <div class="story-content">
+          <div class="story-num">03 — MEETS A GUIDE</div>
+          <div class="story-head">Hemali Shah has been exactly where you are.</div>
+          <div class="story-body">She navigated menopause without understanding it — while building a business and keeping a family together and projecting confidence she didn't always feel. The understanding she gained from that journey became She Travels — backed by 14 years of award-winning travel expertise (TripAdvisor Service Excellence 2016–2025) and lived credibility no certificate can replicate.</div>
+        </div>
+      </div>
+      <div class="story-step">
+        <div class="story-line"><div class="story-dot"></div><div class="story-connector"></div></div>
+        <div class="story-content">
+          <div class="story-num">04 — WHO GIVES THEM A PLAN</div>
+          <div class="story-head">Pause. Let Go. Return Renewed.</div>
+          <div class="story-body">Step 1: Arrive, breathe, and let go of everything you've been carrying. Step 2: Through yoga, breathwork, energy healing, fire ceremonies, and honest sharing circles — release what no longer serves you and reconnect with who you truly are. Step 3: Go home reset, realigned, and risen — with new practices, new sisters, and a new relationship with yourself.</div>
+        </div>
+      </div>
+      <div class="story-step">
+        <div class="story-line"><div class="story-dot"></div><div class="story-connector"></div></div>
+        <div class="story-content">
+          <div class="story-num">05 — CALLS THEM TO ACTION</div>
+          <div class="story-head">Direct & Transitional CTAs</div>
+          <div class="story-body"><strong style="color:var(--primary);">Direct:</strong> Book your place in the Reset & Reconnect Retreat — September 2026. Spaces limited to 10–12 women.<br><br><strong style="color:var(--accent);">Transitional:</strong> Follow She Travels on Instagram and LinkedIn. Your journey begins the moment you say yes to yourself.</div>
+        </div>
+      </div>
+      <div class="story-step">
+        <div class="story-line"><div class="story-dot"></div><div class="story-connector"></div></div>
+        <div class="story-content">
+          <div class="story-num">06 — HELPS THEM AVOID FAILURE</div>
+          <div class="story-head">The cost of "maybe later."</div>
+          <div class="story-body">If nothing changes, nothing changes. Another year passes. Another season of putting everyone else first. The woman you used to be doesn't disappear overnight — she fades slowly, quietly, until one day you can't remember the last time you laughed without performing it. That's the real cost of waiting.</div>
+        </div>
+      </div>
+      <div class="story-step">
+        <div class="story-line"><div class="story-dot"></div><div class="story-connector"></div></div>
+        <div class="story-content">
+          <div class="story-num">07 — ENDS IN SUCCESS</div>
+          <div class="story-head">She chose herself. Finally.</div>
+          <div class="story-body">She returns home lighter and clearer than she's been in years. She starts mornings with five minutes of stillness — not because she should, but because she wants to. She has boundaries, and they feel necessary — not selfish. She has sisters from the retreat who understand her without explanation. When she looks in the mirror now, she recognises the woman looking back.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end Rule of 1 -->
+
+<!-- ═══════════════════════════════════════════════ TAB 4: BRAND POSITIONING -->
+<div id="positioning" class="panel">
+
+  <div class="section reveal">
+    <div class="section-label">Brand Positioning</div>
+    <h2 class="section-title">The space She Travels owns — alone</h2>
+  </div>
+
+  <!-- Category -->
+  <div class="section reveal">
+    <div class="table-wrap">
+      <table class="data-table">
+        <tr><td>You are NOT</td><td>A travel agency · A generic wellness retreat · A women's networking event · A menopause clinic or therapy service</td></tr>
+        <tr><td>You operate AS</td><td>The world's first menopausal wellness travel experience — where meaningful travel, five-pillar holistic healing, and genuine sisterhood converge for women 40–60+ navigating menopause and midlife</td></tr>
+        <tr><td>Category shifted from</td><td>"Women's retreat" or "wellness travel"</td></tr>
+        <tr><td>Category shifted to</td><td>"Transformational menopausal wellness travel" — a category She Travels owns alone</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Positioning Territory -->
+  <div class="section reveal">
+    <div class="highlight">
+      <div class="card-label">Core Positioning Territory</div>
+      <div class="highlight-quote">"She Travels is the transformational wellness retreat for women 40–60+ navigating menopause and midlife — combining meaningful travel, five-pillar holistic healing, and genuine sisterhood, led by a founder who has lived the journey."</div>
+    </div>
+  </div>
+
+  <!-- Strategic Anchors -->
+  <div class="section">
+    <div class="section-label">Strategic Anchors</div>
+    <div class="grid-2 reveal-group">
+      <div class="card reveal">
+        <div class="card-label">Frame of Reference</div>
+        <div class="card-title" style="font-size:17px;">Transformational Women's Wellness Travel</div>
+        <div class="card-body">Specifically for women navigating menopause and midlife transitions — not generic wellness, not regular travel</div>
+      </div>
+      <div class="card reveal">
+        <div class="card-label">Point of Difference (POD)</div>
+        <div class="card-title" style="font-size:17px;">Lived Experience + Five Pillars + Travel Expertise</div>
+        <div class="card-body">The only retreat designed specifically for menopausal women, structured around a proprietary five-pillar framework, led by a founder who has personally walked this journey — with 14 years of award-winning travel expertise no competitor can replicate</div>
+      </div>
+      <div class="card reveal">
+        <div class="card-label">Point of Parity (POP)</div>
+        <div class="card-title" style="font-size:17px;">Table Stakes</div>
+        <div class="card-body">Beautiful destinations · Quality accommodation · Professional wellness practitioners · Safe and nurturing group environment</div>
+      </div>
+      <div class="card reveal" style="border-color: rgba(201,146,42,0.25);">
+        <div class="card-label" style="color: var(--accent);">Strategic Sacrifice</div>
+        <div class="card-title" style="font-size:17px;">What She Travels is NOT</div>
+        <div class="card-body">Not for women who want a sightseeing tour, party holiday, or quick fix · Not for men · Not for women under 40 · Deliberately excludes mass-market travel and generic wellness programming<br><br><em>Strong positioning requires exclusion. The power is in the specificity.</em></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formal Positioning Statement -->
+  <div class="section reveal">
+    <div class="section-label">Formal Positioning Statement</div>
+    <div class="pos-statement">
+      <button class="copy-btn" onclick="copyText(this, 'pos-full')">Copy</button>
+      <div id="pos-full">
+        <div class="pos-for">For women 40–60+ in UAE</div>
+        <div class="pos-who">who are navigating menopause, midlife transitions, burnout, and the exhaustion of a life lived for everyone else,</div>
+        <div class="pos-is">She Travels is the transformational wellness retreat experience</div>
+        <div class="pos-who">that combines meaningful travel, five-pillar holistic healing (Mind, Body, Energy, Emotion, Connection), and genuine sisterhood to help women reset, realign, and rise,</div>
+        <div class="pos-unlike">unlike regular travel companies or generic wellness retreats,</div>
+        <div class="pos-because">because it was built by a woman who navigated this exact journey herself — backed by 14 years of award-winning travel expertise and TripAdvisor Service Excellence Awards from 2016 to 2025.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand Architecture -->
+  <div class="section">
+    <div class="section-label">Brand Architecture</div>
+    <div class="grid-3 reveal-group">
+      <div class="card reveal">
+        <div class="card-label">Brand Promise</div>
+        <div class="card-body" style="font-family:var(--font-display); font-size:16px; font-style:italic; color:var(--text-primary);">"She Travels promises women 40–60+ that they will return home reset, realigned, rejuvenated, heard, connected — and more themselves than they have been in years."</div>
+      </div>
+      <div class="card reveal">
+        <div class="card-label">Brand Essence</div>
+        <div style="display:flex; flex-direction:column; gap:8px; margin-top:8px;">
+          <span class="voice-tag" style="text-align:center;">Freedom</span>
+          <span class="voice-tag" style="text-align:center;">Reclamation</span>
+          <span class="voice-tag" style="text-align:center;">Sisterhood</span>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-label">Brand Archetype</div>
+        <div class="card-title" style="font-size:17px;">The Wounded Healer</div>
+        <div class="card-body">Hemali's authority comes from surviving and transforming through the exact experience her clients are navigating — not from credentials. She didn't read about this journey. She lived it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Taglines -->
+  <div class="section reveal">
+    <div class="section-label">Tagline Options</div>
+    <div class="tagline-item">
+      <div class="tagline-text">"A journey back to yourself."</div>
+      <span class="tag-badge tag-rec">✦ Recommended</span>
+    </div>
+    <div class="tagline-item">
+      <div class="tagline-text">"Reset. Realign. Rise."</div>
+      <span class="tag-badge">Transformation</span>
+    </div>
+    <div class="tagline-item">
+      <div class="tagline-text">"Not a holiday. A homecoming."</div>
+      <span class="tag-badge">Differentiation</span>
+    </div>
+    <div class="tagline-item">
+      <div class="tagline-text">"Your turn, finally."</div>
+      <span class="tag-badge">Transformation</span>
+    </div>
+    <div class="tagline-item">
+      <div class="tagline-text">"Travel for your soul, not your feed."</div>
+      <span class="tag-badge">Differentiation</span>
+    </div>
+    <div class="tagline-item">
+      <div class="tagline-text">"The retreat the world forgot to build for you."</div>
+      <span class="tag-badge">Category</span>
+    </div>
+    <div class="tagline-item">
+      <div class="tagline-text">"Where menopause meets meaning."</div>
+      <span class="tag-badge">Category</span>
+    </div>
+  </div>
+
+  <!-- Do's and Don'ts -->
+  <div class="section reveal">
+    <div class="section-label">Strategic Do's & Don'ts</div>
+    <div class="do-dont">
+      <div class="do-card">
+        <div class="do-dont-label">✓ Do</div>
+        <div class="do-dont-item">Lead every piece of content with Hemali's personal story — it is the single differentiator no competitor can copy</div>
+        <div class="do-dont-item">Name menopause openly and unapologetically — the taboo silence is exactly what She Travels breaks</div>
+        <div class="do-dont-item">Speak specifically to women 40–60+ — never water down the specificity to attract a broader audience</div>
+        <div class="do-dont-item">Showcase real transformation stories with specific before/after detail (Sangeeta) — proof before pitch</div>
+        <div class="do-dont-item">Position the five pillars as the methodology — it makes She Travels a system, not just an experience</div>
+      </div>
+      <div class="dont-card">
+        <div class="do-dont-label">✕ Don't</div>
+        <div class="do-dont-item">Use generic "empowerment" or "self-love" language — it blends into the noise She Travels was built to stand apart from</div>
+        <div class="do-dont-item">Compete with travel companies on price, destinations, or logistics — compete on transformation only</div>
+        <div class="do-dont-item">Try to serve everyone or broaden the niche — specificity is the competitive advantage</div>
+        <div class="do-dont-item">Shy away from the word "menopause" to make messaging more comfortable — that specificity is the differentiator</div>
+        <div class="do-dont-item">Market like a wellness brand with beautiful quotes — market like a movement for women ready for their turn</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Strategic Enemy -->
+  <div class="section reveal">
+    <div class="enemy-card">
+      <div class="enemy-label">The Strategic Enemy</div>
+      <div class="enemy-text">"She Travels' true opponent is not another retreat company or travel brand — it is the silent cultural belief that a woman's needs come last, that choosing herself is selfish, and that menopause is something to endure quietly and alone rather than navigate triumphantly in the company of women who understand."</div>
+    </div>
+  </div>
+
+</div><!-- end Positioning -->
+
+<!-- ═══════════════════════════════════════════════ TAB 5: BUSINESS INBOX -->
+<div id="inbox" class="panel">
+
+  <div class="section reveal">
+    <div class="section-label">Business Inbox</div>
+    <h2 class="section-title">Factual business data — operational reference</h2>
+  </div>
+
+  <!-- Business Foundation -->
+  <div class="section reveal">
+    <div class="section-label">Business Foundation</div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <tr><td>Brand</td><td>She Travels (project of City One Tourism & Travel)</td></tr>
+        <tr><td>Parent company</td><td>City One Tourism & Travel — founded and run by Hemali Shah for 14 years</td></tr>
+        <tr><td>What it does</td><td>Transformational wellness retreat experiences for women 40–60+ navigating menopause and midlife transitions in UAE. Combines meaningful travel with five-pillar holistic healing: Mind, Body, Energy, Emotion, Connection.</td></tr>
+        <tr><td>Stage</td><td>Pre-launch — first retreat target September 2026</td></tr>
+        <tr><td>Base</td><td>Dubai, UAE · Primary market: UAE · Future: GCC</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Offer Inventory -->
+  <div class="section">
+    <div class="section-label">Offer Inventory</div>
+    <div style="display:flex; flex-direction:column; gap:20px;" class="reveal-group">
+
+      <div class="offer-card reveal">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <div>
+            <div class="offer-name">Reset & Reconnect Retreat</div>
+            <div class="offer-price">AED 2,000 per woman</div>
+          </div>
+          <span class="status-badge status-dev">In Development</span>
+        </div>
+        <div class="offer-row"><span class="offer-key">What it is</span>2-night staycation wellness retreat in Dubai</div>
+        <div class="offer-row"><span class="offer-key">Who it's for</span>Women 40–60+ in UAE — any background</div>
+        <div class="offer-row"><span class="offer-key">Delivers</span>Rest, reset, community connection, introduction to five-pillar approach</div>
+        <div class="offer-row"><span class="offer-key">Includes</span>Accommodation, breakfast, yoga, meditation, journaling, women's sharing circle</div>
+        <div class="offer-row"><span class="offer-key">Group size</span>10–12 women</div>
+        <div class="offer-row"><span class="offer-key">Launch target</span>September 2026</div>
+      </div>
+
+      <div class="offer-card reveal">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <div>
+            <div class="offer-name">Soulful Woman Escape</div>
+            <div class="offer-price">AED 6,000 per woman</div>
+          </div>
+          <span class="status-badge status-dev">In Development</span>
+        </div>
+        <div class="offer-row"><span class="offer-key">What it is</span>4-day destination retreat outside Dubai — full five-pillar transformation</div>
+        <div class="offer-row"><span class="offer-key">Who it's for</span>Women 40–60+ ready for a deeper experience</div>
+        <div class="offer-row"><span class="offer-key">Day 1 — Pause</span>Arrival, wellness welcome kit, grounding meditation, conscious dining, breathwork, journaling</div>
+        <div class="offer-row"><span class="offer-key">Day 2 — Let Go</span>Sunrise meditation, yoga, breathwork, explore destination, fire ceremony, candle release ritual</div>
+        <div class="offer-row"><span class="offer-key">Day 3 — Reconnect</span>Morning routine, explore destination, successful women's discussion, sharing circle, meditation close</div>
+        <div class="offer-row"><span class="offer-key">Day 4 — Rise</span>Morning routine, farewell breakfast</div>
+        <div class="offer-row"><span class="offer-key">Group size</span>10–12 women</div>
+      </div>
+
+      <div class="offer-card reveal">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <div>
+            <div class="offer-name">Healing Through Travel Journey</div>
+            <div class="offer-price">AED 12,000 per woman <span style="font-size:13px; color:var(--text-muted);">(pricing being refined)</span></div>
+          </div>
+          <span class="status-badge status-idea">Idea Stage</span>
+        </div>
+        <div class="offer-row"><span class="offer-key">What it is</span>7–10 night premium destination retreat — immersive, sustained transformation</div>
+        <div class="offer-row"><span class="offer-key">Who it's for</span>Women 40–60+ seeking deep, extended transformation at a premium destination</div>
+        <div class="offer-row"><span class="offer-key">Group size</span>Smaller intimate group (exact number TBD)</div>
+      </div>
+
+      <div class="offer-card reveal" style="border-color: rgba(42,124,120,0.2);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <div>
+            <div class="offer-name">Community Studio Gatherings</div>
+            <div class="offer-price" style="font-size:16px; color:var(--text-muted);">Pricing TBD</div>
+          </div>
+          <span class="status-badge status-idea">Future</span>
+        </div>
+        <div class="offer-row"><span class="offer-key">What it is</span>Ongoing in-person gatherings at Hemali's yoga studio in Dubai</div>
+        <div class="offer-row"><span class="offer-key">Delivers</span>Continued sisterhood, yoga, sound healing, conscious conversations, inspiration from successful women</div>
+        <div class="offer-row"><span class="offer-key">Purpose</span>Post-retreat integration and ongoing community for She Travels women</div>
+      </div>
+
+    </div>
+    <div class="highlight" style="margin-top:24px;">
+      <div class="card-label">Offer Flow</div>
+      <div class="card-body" style="font-size:14px; display:flex; align-items:center; flex-wrap:wrap; gap:10px;">
+        <span style="color:var(--text-primary); font-weight:500;">Reset & Reconnect (AED 2,000)</span>
+        <span style="color:var(--primary);">→</span>
+        <span style="color:var(--text-primary); font-weight:500;">Soulful Woman Escape (AED 6,000)</span>
+        <span style="color:var(--primary);">→</span>
+        <span style="color:var(--text-primary); font-weight:500;">Healing Journey (AED 12,000)</span>
+        <span style="color:var(--primary);">→</span>
+        <span style="color:var(--text-primary); font-weight:500;">Community Studio</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Proof & Credibility -->
+  <div class="section">
+    <div class="section-label">Proof & Credibility</div>
+    <div class="card reveal" style="margin-bottom:20px;">
+      <div class="card-label">Transformation Story — Sangeeta, Singapore</div>
+      <div class="grid-2" style="gap:0; margin-top:8px;">
+        <div style="padding-right:20px; border-right: 1px solid var(--border);">
+          <div style="font-size:12px; color:rgba(239,68,68,0.7); font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px;">Before</div>
+          <p class="card-body">Hesitant, unconfident in navigating independently despite being a successful business owner. Unhealthy relationship with food — fixated on weight loss rather than feeling well. Afraid to explore independently, defaulting to taxis and asking strangers for directions constantly.</p>
+        </div>
+        <div style="padding-left:20px;">
+          <div style="font-size:12px; color:var(--primary); font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px;">After</div>
+          <p class="card-body">Stopped asking strangers for directions. Trusted her own navigation. Months later in Dubai, GPS stopped working — she navigated home from memory, referencing Singapore. Relationship with food shifted from weight obsession to feeling confident and well.</p>
+        </div>
+      </div>
+      <div class="highlight" style="margin-top:20px;">
+        <div class="highlight-quote">"All the boards are written there. Look up. Navigate yourself towards your goal. That is your station."</div>
+        <div class="highlight-attr">— Hemali to Sangeeta, Singapore MRT</div>
+      </div>
+    </div>
+
+    <div class="section-label">Authority Indicators</div>
+    <div class="grid-4 reveal-group">
+      <div class="accent-card reveal">
+        <div class="num">14</div>
+        <div class="lbl">Years in travel</div>
+        <div class="desc">City One Tourism & Travel — built from scratch, no silver spoon</div>
+      </div>
+      <div class="accent-card reveal">
+        <div class="num">8×</div>
+        <div class="lbl">TripAdvisor Awards</div>
+        <div class="desc">Service Excellence Certificate 2016–2019 and 2022–2025</div>
+      </div>
+      <div class="accent-card reveal">
+        <div class="num">453</div>
+        <div class="lbl">BNI Women Network</div>
+        <div class="desc">Admin for all ladies BNI members across UAE</div>
+      </div>
+      <div class="accent-card reveal">
+        <div class="num">10K+</div>
+        <div class="lbl">LinkedIn Followers</div>
+        <div class="desc">Active and posting — growing authority as She Travels launches</div>
+      </div>
+    </div>
+
+    <div class="table-wrap reveal" style="margin-top:20px;">
+      <table class="data-table">
+        <tr><td>Professional Networks</td><td>BNI (453 women, UAE Admin) · EO Entrepreneurs Organization · Orion Forum (successful business owners) · WOW — Women of Wisdom Group</td></tr>
+        <tr><td>Personal Practice</td><td>Yoga · Meditation · Journaling · Self-help reading · Mentors · Podcasts · Inner circle of successful women</td></tr>
+        <tr><td>Lived Credibility</td><td>Personally navigated menopause, personal failures, and midlife transition. Started traveling alone — scared but choosing freedom — and now delivers that same liberation to every retreat.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Visual Brand Identity -->
+  <div class="section reveal">
+    <div class="section-label">Visual Brand Identity — She Travels</div>
+    <div class="card-label" style="margin-bottom:14px;">Color Palette — Designed for She Travels</div>
+    <div class="swatches">
+      <div class="swatch" style="background:#2A7C78;">
+        <div class="swatch-name">Primary — Healing Sea</div>
+        <div class="swatch-hex">#2A7C78</div>
+      </div>
+      <div class="swatch" style="background:#C9922A;">
+        <div class="swatch-name">Accent — Rising Sun</div>
+        <div class="swatch-hex">#C9922A</div>
+      </div>
+      <div class="swatch" style="background:#1E5E5B;">
+        <div class="swatch-name">Primary Dark</div>
+        <div class="swatch-hex">#1E5E5B</div>
+      </div>
+      <div class="swatch" style="background:#35A09B;">
+        <div class="swatch-name">Primary Light</div>
+        <div class="swatch-hex">#35A09B</div>
+      </div>
+      <div class="swatch" style="background:#F5EFE6; ">
+        <div class="swatch-name" style="color: #333;">Warm Cream</div>
+        <div class="swatch-hex" style="color: #555;">#F5EFE6</div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <tr><td>Heading Font</td><td>Playfair Display — elegant, literary, sophisticated. Signals depth and femininity to the 40–60 woman.</td></tr>
+        <tr><td>Body Font</td><td>Poppins — clean, modern, readable, trustworthy</td></tr>
+        <tr><td>Aesthetic</td><td>Clean, uncluttered, magnetic, soulful, hopeful. "A journey back to yourself." Makes women feel: "This is for me."</td></tr>
+        <tr><td>Design Philosophy</td><td>Decluttered. Women have too much on their plate — the brand gives them breathing room.</td></tr>
+        <tr><td>City One Colors</td><td>White · Black · Red (parent company only — not carried into She Travels)</td></tr>
+        <tr><td>She Travels Website</td><td>Not yet built — next step to establish</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Online Presence -->
+  <div class="section reveal">
+    <div class="section-label">Online Presence & Content Priorities</div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <tr><td>LinkedIn</td><td>Active · 10,000+ followers · Goal: generate leads, attract women leaders and community groups, build She Travels authority</td></tr>
+        <tr><td>Instagram</td><td>Active · Strong presence · Target: lifestyle and wellness women 40–60+</td></tr>
+        <tr><td>Facebook</td><td>Planned activation · Target: homemakers and non-entrepreneurial women 40+</td></tr>
+        <tr><td>She Travels website</td><td>Not yet built</td></tr>
+      </table>
+    </div>
+    <div class="section-label" style="margin-top:24px;">Content Themes</div>
+    <div class="grid-3" style="gap:12px;">
+      <div class="pillar reveal" style="padding:18px 20px;">
+        <div class="pillar-num">CONTENT 01</div>
+        <div class="pillar-title" style="font-size:14px;">Menopause — told honestly</div>
+        <div class="pillar-body" style="font-size:13px;">Breaking the taboo. Naming it openly. Showing women they are not alone.</div>
+      </div>
+      <div class="pillar reveal" style="padding:18px 20px;">
+        <div class="pillar-num">CONTENT 02</div>
+        <div class="pillar-title" style="font-size:14px;">Hemali's personal story</div>
+        <div class="pillar-body" style="font-size:13px;">The most powerful content She Travels has. Her journey is the proof of concept.</div>
+      </div>
+      <div class="pillar reveal" style="padding:18px 20px;">
+        <div class="pillar-num">CONTENT 03</div>
+        <div class="pillar-title" style="font-size:14px;">Real transformation stories</div>
+        <div class="pillar-body" style="font-size:13px;">Sangeeta. Other women. Before/after with real detail. Proof before pitch.</div>
+      </div>
+      <div class="pillar reveal" style="padding:18px 20px;">
+        <div class="pillar-num">CONTENT 04</div>
+        <div class="pillar-title" style="font-size:14px;">Soulful vs. Instagram travel</div>
+        <div class="pillar-body" style="font-size:13px;">What meaningful travel actually does. Why bucket lists miss the point.</div>
+      </div>
+      <div class="pillar reveal" style="padding:18px 20px;">
+        <div class="pillar-num">CONTENT 05</div>
+        <div class="pillar-title" style="font-size:14px;">The five pillars explained</div>
+        <div class="pillar-body" style="font-size:13px;">Mind · Body · Energy · Emotion · Connection — one pillar at a time.</div>
+      </div>
+      <div class="pillar reveal" style="padding:18px 20px;">
+        <div class="pillar-num">CONTENT 06</div>
+        <div class="pillar-title" style="font-size:14px;">Upcoming retreat content</div>
+        <div class="pillar-body" style="font-size:13px;">Malaysia trip August 2026 · September retreat launch announcement</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Communication Guidelines -->
+  <div class="section reveal">
+    <div class="section-label">Communication Guidelines</div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <tr><td>LinkedIn posts</td><td>Direct, warm, story-led. Lead with personal experience. Name menopause openly. Speak woman to woman, not coach to student.</td></tr>
+        <tr><td>Sales conversations</td><td>Emotional before transactional. Lead with "Where are you right now?" not "Here's what you get." Listen first.</td></tr>
+        <tr><td>Client onboarding</td><td>Personal, intentional, warm. The experience begins with the intake form and never feels administrative.</td></tr>
+        <tr><td>Hard limits</td><td>Never market as a sightseeing tour · Never suggest the outcome is looking younger — always feeling younger · Never use language that makes her feel broken · Never compare She Travels to competitors directly — own the category instead</td></tr>
+      </table>
+    </div>
+  </div>
+
+</div><!-- end Inbox -->
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <span class="footer-brand">Purely Personal</span>
+    <span class="footer-by">by Daniel Paul</span>
+  </div>
+  <span class="footer-meta">Business Authority Foundation · Hemali Shah · June 2026</span>
+</footer>
+
+<script>
+// Tab switching
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
+    window.scrollTo({ top: document.querySelector('.tabs-wrap').offsetTop - 10, behavior: 'smooth' });
+    setTimeout(initReveal, 100);
+  });
+});
+
+// Scroll reveal
+function initReveal() {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => io.observe(el));
+}
+initReveal();
+
+// Copy by ID
+function copyText(btn, id) {
+  const el = document.getElementById(id);
+  const text = el ? el.innerText : '';
+  doCopy(btn, text);
+}
+
+// Copy parent text
+function copyParent(btn) {
+  const text = btn.closest('.hook-item, .tagline-item').innerText.replace(/^Copy\s*/,'').replace(/Copy\s*$/,'').trim();
+  doopy(btn, text);
+}
+
+function doopy(btn, text) {
+  dosCopy(btn, text);
+}
+
+function dosCopy(btn, text) {
+  function onSuccess() {
+    btn.textContent = 'Copied ✓';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  }
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(onSuccess).catch(fallback);
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    try { document.execCommand('copy'); onSuccess(); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+  function fallback() {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    try { document.execCommand('copy'); onSuccess(); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+}
+
+function doopy(btn, text) { dosCopy(btn, text); }
+
+// Fix copyParent
+document.querySelectorAll('.hook-item .copy-btn, .tagline-item .copy-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const parent = this.closest('.hook-item, .tagline-item');
+    const clone = parent.cloneNode(true);
+    clone.querySelectorAll('.copy-btn').forEach(b => b.remove());
+    const text = clone.innerText.trim();
+    dosCopy(this, text);
+  });
+});
+</script>
+
+</body>
+</html>

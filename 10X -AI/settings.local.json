@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "PowerShell(bun --version)",
+      "PowerShell(node --version)",
+      "PowerShell(winget install --id Git.Git -e --source winget --accept-package-agreements --accept-source-agreements)",
+      "PowerShell(winget install --id OpenJS.NodeJS.LTS -e --source winget --accept-package-agreements --accept-source-agreements)",
+      "PowerShell(powershell -c \"irm bun.sh/install.ps1 | iex\")",
+      "PowerShell(& \"C:\\\\Program Files\\\\Git\\\\bin\\\\bash.exe\" -c \"git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup\")",
+      "PowerShell($bunPath = \"/c/Users/user/.bun/bin\"; & \"C:\\\\Program Files\\\\Git\\\\bin\\\\bash.exe\" -c \"export PATH=`\"$bunPath`\":`\"$PATH`\" && bun --version && cd ~/.claude/skills/gstack && ./setup\")",
+      "PowerShell(& \"C:\\\\Program Files\\\\Git\\\\bin\\\\bash.exe\" -c $script)",
+      "PowerShell($script = 'export PATH=\"/c/Users/user/.bun/bin:$PATH\" && bun --version && cd ~/.claude/skills/gstack && ./setup')",
+      "Bash(ls \"C:\\\\Users\\\\user\\\\.claude\\\\\" 2>/dev/null || echo \"No .claude dir at user level\")",
+      "Read(//c/Users/user/.claude\" 2>/dev/**)"
+    ]
+  }
+}

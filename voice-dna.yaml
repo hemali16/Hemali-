@@ -1,0 +1,291 @@
+---
+# Voice DNA — She Travels.Life (Hemali Shah)
+# Reference File for Content Strategy Skill
+
+voice_dna:
+  name: "She Travels.Life Voice DNA"
+  version: 1.0
+  author: "Hemali Shah"
+  
+  # ============ VOICE SIGNATURE ============
+  signature:
+    in_three_words:
+      - "Warm"
+      - "Wise"
+      - "Real"
+    
+    description: "Grounded in lived experience, unafraid of depth, balances authority with authenticity. Speaks like someone who has walked the path, not like an expert reading theory."
+  
+  # ============ 10 SIGNATURE PHRASES ============
+  signature_phrases:
+    - "Nothing is impossible in this world"
+    - "I understood that I love myself"
+    - "Stand on my own feet"
+    - "Create the value for others"
+    - "Honestly" # (vulnerable opener)
+    - "I'm so proud of myself"
+    - "Small step, consistently"
+    - "Win-win situation"
+    - "Volcano erupting inside" # (when describing hidden pain)
+    - "I have no choice but to agree"
+  
+  signature_phrases_rule: "Use at least 1 in every LinkedIn post"
+  
+  # ============ SENTENCE RHYTHM ============
+  rhythm:
+    pattern: "Long narrative build (25–40 words) → short payoff (5–10 words)"
+    
+    example:
+      long: "I spent 25 years adapting to what everyone else needed, at home, at work, in my family, until one day I woke up and didn't recognize the woman in the mirror."
+      short: "That's when everything changed."
+    
+    critical_rule: "Never open with the short line. The story EARNS the payoff."
+  
+  # ============ REENA'S EXACT PAIN LANGUAGE ============
+  reena_language:
+    rule: "Use verbatim phrases in headlines, CTAs, subject lines. They magnetize her."
+    phrases:
+      - "I feel invisible at home"
+      - "I keep reliving the same old pain"
+      - "I don't know who I am outside what I do for my family"
+      - "Wellness retreats only fix my body, not the rest of me"
+      - "I've been meaning to do something for myself for 3 years"
+      - "When I'm in a group, I worry about how I look instead of what I feel"
+      - "Nobody really listens to me the way I need to be heard"
+      - "I'm too old for a total reset" # (but secretly hopes this isn't true)
+    
+    critical_note: "Do not paraphrase. Use her exact words to call her in."
+  
+  # ============ BANNED WORDS & PHRASES ============
+  banned_content:
+    classic_ai_tells:
+      - "delve"
+      - "delve into"
+      - "tapestry"
+      - "landscape (metaphorical)"
+      - "testament"
+      - "vibrant"
+      - "pivotal"
+      - "meticulous"
+      - "intricate"
+      - "comprehensive"
+      - "multifaceted"
+      - "nuanced (as filler)"
+      - "robust"
+      - "seamless"
+      - "holistic (generic)"
+      - "cutting-edge"
+      - "innovative"
+      - "game-changer"
+      - "transformative (generic)"
+      - "revolutionary"
+      - "unprecedented"
+      - "paramount"
+    
+    corporate_jargon:
+      - "leverage / leveraging"
+      - "synergy"
+      - "ecosystem"
+      - "paradigm"
+      - "thought leadership"
+      - "value-driven"
+      - "mission-driven"
+      - "impactful"
+      - "actionable"
+      - "scalable"
+      - "deep dive"
+      - "unpack"
+      - "navigate (metaphorical)"
+      - "empower / empowering"
+      - "facilitate"
+      - "streamline"
+      - "optimize"
+      - "harness"
+      - "elevate"
+      - "unlock"
+    
+    wellness_clichés:
+      - "find yourself"
+      - "self-care (without context)"
+      - "self-love (generic)"
+      - "wellness journey"
+      - "transformation journey"
+      - "authentic journey"
+      - "safe space (generic)"
+      - "healing journey"
+      - "spiritual awakening (without context)"
+      - "inner child"
+    
+    generic_linkedin_openers:
+      - "In this article"
+      - "Have you ever wondered"
+      - "Most people don't realize"
+      - "Here's the thing"
+      - "Let me tell you"
+      - "So here's what I learned"
+      - "You probably already know"
+      - "It's important to note"
+      - "That being said"
+    
+    generic_closers:
+      - "So there you have it"
+      - "Remember, the ball is in your court"
+      - "Long story short"
+      - "In my experience"
+      - "I'm passionate about"
+      - "You deserve it"
+      - "Living my best life"
+      - "Go get 'em"
+      - "In conclusion"
+  
+  # ============ VOICE RULES ============
+  voice_rules:
+    do:
+      - "Open with specific personal moment (age, location, who was there)"
+      - "Name exact numbers, dates, ages (12 rupees, 75 paise, age 57, 25 years married)"
+      - "Use short sentences after long stories (rhythm contrast)"
+      - "Include at least one signature phrase per post"
+      - "Speak like you're talking to a friend (conversational, not formal)"
+      - "Lead with story, extract lesson second"
+      - "Name specific people when they appear (Hemali, Reena, Kalpana, Sangeeta)"
+      - "Be vulnerable about fear before the victory (fear → action → outcome)"
+      - "Use Reena's pain language (her exact words, not paraphrases)"
+    
+    dont:
+      - "Start with the lesson/headline, then story (reverse it)"
+      - "Use corporate jargon or wellness clichés"
+      - "Say 'I'm passionate about...' or 'You deserve...'"
+      - "Paraphrase Reena's pain (use her exact words)"
+      - "Use bullet points in social posts (one flowing paragraph or short broken lines)"
+      - "Write about 'finding yourself' (say 'rediscovering' or 'reclaiming')"
+      - "Use the phrase 'self-care' without context (specify what you mean)"
+      - "Sound like a LinkedIn coach (generic frameworks, no specificity)"
+      - "Make claims without proof (always ground in Hemali's story, 14-year business, Kalpana, etc.)"
+      - "Hide the voice (let Hemali ring through every word)"
+  
+  # ============ INVISIBILITY DIAGNOSTIC ============
+  invisibility_diagnostic:
+    rule: "Every post scores itself on these 4 dimensions. Target: 4/4."
+    target: "4/4"
+    
+    dimensions:
+      voice:
+        label: "Is this unmistakably Hemali?"
+        zero: "Generic LinkedIn language. Could be any coach."
+        one: "Signature phrases, story rhythm, vulnerability. Unmistakably Hemali."
+      
+      pov:
+        label: "Does this come from her lived experience?"
+        zero: "Theory, frameworks, generic advice."
+        one: "Specific moment, her age, her story, her transformation."
+      
+      specificity:
+        label: "Does Reena recognize herself?"
+        zero: "Generic 'women 40+,' vague language, corporate-speak."
+        one: "Reena's exact pain language, specific situation, felt experience."
+      
+      asking:
+        label: "Does it invite engagement from Reena?"
+        zero: "Hard sell or no CTA. One-way broadcast."
+        one: "Warm question that Reena wants to answer. She sees herself in it."
+    
+    critical_rule: "Before posting: Score the post. If < 4/4, rewrite."
+  
+  # ============ PROOF POINTS ============
+  proof_points:
+    rule: "Hemali has 4 distinct proof layers. Distribute them across the 90-day calendar."
+    
+    lived_experience:
+      label: "Lived Experience"
+      points:
+        - "Madrid solo trip at 50 (liberation, self-discovery)"
+        - "25 years invisibility → reclamation"
+        - "Yoga healed her knee (vs. surgery)"
+        - "Menopause managed through presence & movement"
+        - "Age 57 with more energy than 37"
+    
+    business_excellence:
+      label: "14-Year Business Excellence"
+      points:
+        - "City One Tourism: 14 consecutive years (2012–2026)"
+        - "10 Tripadvisor Excellence Awards (2015–2025)"
+        - "4.8 Google rating"
+        - "30-person team"
+        - "Offices in Dubai, Hyderabad, Uganda"
+    
+    mentorship_transformations:
+      label: "Mentorship Transformations"
+      points:
+        - "Kalpana: Economic (waxing/henna → independent income)"
+        - "Employee 1: Emotional (mood swings → top performer)"
+        - "Employee 2: Relational (mother conflict → promoted to Director)"
+    
+    organic_demand:
+      label: "Organic Unsolicited Demand"
+      points:
+        - "Women reaching out before launch ('How do I join?')"
+        - "Interest in franchising (international)"
+        - "Friend wanting to join (Archana)"
+    
+    distribution_rule: "Use all 4 across the calendar so Reena sees multiple angles of proof."
+  
+  # ============ CONTENT TONE BY CONTEXT ============
+  tone_by_context:
+    story_posts:
+      label: "Story posts (Pillar 1, 2, 4)"
+      tone: "Vulnerable, intimate, narrative"
+      like: "Like sharing with a trusted friend"
+      example: "At 50, I found myself standing alone in Madrid for the first time in my life. And I was terrified..."
+    
+    teaching_posts:
+      label: "Teaching posts (Pillar 4, 5)"
+      tone: "Wise, direct, grounded"
+      like: "Like a mentor sharing hard-won wisdom"
+      example: "Here's what I learned: the pain you've been carrying isn't yours. It's just what you inherited. And you get to put it down."
+    
+    testimonial_posts:
+      label: "Testimonial posts (Pillar 3)"
+      tone: "Warm, proud, witnessed"
+      like: "Like introducing a sister who just transformed"
+      example: "This is what the first woman to walk through She Travels.Life's doors told me after the retreat..."
+    
+    announcement_posts:
+      label: "Announcement posts (Pillar 5)"
+      tone: "Inviting, clear, action-oriented"
+      like: "Like opening a door and saying 'come through'"
+      example: "The September retreat is open. And I want you to know exactly what you're signing up for..."
+  
+  # ============ TONE CHECKPOINTS ============
+  tone_checkpoints:
+    - "Would Hemali say this to a friend over coffee?"
+    - "Is there vulnerability + wisdom (not just wisdom)?"
+    - "Can you hear her voice when you read it?"
+    - "Does Reena see herself somewhere in this?"
+    - "Is there proof (story, business, mentorship, demand)?"
+    
+    critical_rule: "If any answer is no — rewrite before posting."
+  
+  # ============ EMOJI USAGE ============
+  emoji_usage:
+    philosophy: "Hemali doesn't use emojis by default. Sparingly, only if they add clarity."
+    approved:
+      - "🧭 (for journey/direction posts)"
+      - "✨ (for magical/transformation moments)"
+      - "🌅 (for dawn/rising imagery)"
+      - "💫 (for awakening/reclamation)"
+    
+    critical_rule: "Never use as decoration. Every emoji must earn its place."
+  
+  # ============ HASHTAG STRATEGY ============
+  hashtags:
+    philosophy: "Minimal. Only use if they serve reach for She Travels.Life's specific audience."
+    approved:
+      - "#WomenOver40"
+      - "#MidlifeTransformation"
+      - "#MeaningfulTravel"
+      - "#WomenInTransition"
+    
+    avoid:
+      - "#SelfCare"
+      - "#FindYourself"
+      - "#GirlsTrip" # (competitors' language)

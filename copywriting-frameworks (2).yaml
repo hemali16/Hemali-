@@ -1,0 +1,337 @@
+---
+# Copywriting Frameworks — She Travels.Life
+# Reference File for Content Strategy Skill
+
+copywriting_frameworks:
+  name: "She Travels.Life Copywriting Frameworks"
+  version: 1.0
+  philosophy: "The framework is not the content. The content is Hemali's voice living through the framework."
+  
+  # ============ STORY-FIRST FRAMEWORK (CORE) ============
+  story_first_framework:
+    label: "Story-First Framework (Core for Hemali)"
+    usage: "Default structure for 60% of posts (especially Pillars 1, 2, 4)"
+    
+    arc:
+      1: "Specific moment (age, location, who was there)"
+      2: "What I faced (internal struggle, not external obstacle)"
+      3: "What I realized (the turning point)"
+      4: "What changed (the outcome)"
+      5: "What it means for you (bridge to Reena)"
+    
+    example_template:
+      full: |
+        "At 50, I was standing alone in Madrid for the first time in my life. And I was terrified. I'd never made a decision just for me. I'd always done what was expected.
+        
+        Walking those streets at night, I realized something: I was choosing fear instead of myself. Every time.
+        
+        So I kept walking. Alone. No itinerary. No safety plan.
+        
+        And on day 3, something shifted. I wasn't the same woman who arrived.
+        
+        This is what Reena is seeking. Not a vacation. A rebirth."
+    
+    why_it_works:
+      - "Specific details (age, Madrid, alone, night)"
+      - "Vulnerability (terrified, never made a choice for self)"
+      - "Turning point (realized I was choosing fear)"
+      - "Action (kept walking)"
+      - "Transformation (wasn't the same)"
+      - "Bridge to Reena (names her, shows relevance)"
+  
+  # ============ TEACHING FRAMEWORK ============
+  teaching_framework:
+    label: "Teaching Framework"
+    usage: "For Pillar 4, 5 when Hemali is teaching/reframing"
+    
+    arc:
+      1: "What most people believe (the old story, from Reena's POV)"
+      2: "Why that belief is incomplete (what's missing)"
+      3: "What's actually true (the reframe)"
+      4: "Why it changes everything (implications)"
+      5: "What to do with this (permission, not instruction)"
+    
+    example_template:
+      full: |
+        "Most people believe: 'Midlife is a downhill journey. It's all decline after 40.'
+        
+        But here's what's missing from that story: At 40+, you finally know yourself. You've survived heartbreak, failure, sacrifice. You've earned wisdom.
+        
+        What's actually true: Midlife is a launching pad. You're not declining. You're distilling.
+        
+        Why it changes everything: You stop fighting your age and start leveraging your experience.
+        
+        So here's my permission for you: Stop apologizing for being 40+. Start claiming the power that only comes with time."
+    
+    why_it_works:
+      - "Names the old belief (Reena recognizes it)"
+      - "Shows the gap (acknowledges why she believed it)"
+      - "States the reframe (clear, non-preachy)"
+      - "Shows implications (makes it relevant)"
+      - "Gives permission (not instruction, not sales pitch)"
+  
+  # ============ PROOF FRAMEWORK ============
+  proof_framework:
+    label: "Proof Framework"
+    usage: "For Pillar 3, testimonial posts when sharing proof"
+    
+    arc:
+      1: "Who they were (before, in their context)"
+      2: "What was stuck (their specific pain/limitation)"
+      3: "What changed (what was different in the process)"
+      4: "Who they became (after, measurable or felt)"
+      5: "Why it matters (what it proves about She Travels.Life)"
+    
+    example_template:
+      full: |
+        "Kalpana came to me 5 years ago. She was brilliant but dependent. No income of her own. No confidence in her skills.
+        
+        She was stuck in the belief: 'I'm a homemaker. That's my role.'
+        
+        Then we worked together. Not on confidence talks. On creating value. On small steps. Consistently.
+        
+        Today, Kalpana earns 15,000 rupees per month from her own waxing and henna business. She stands on her own feet. She's proud of herself.
+        
+        This is what She Travels.Life does. It doesn't tell you you're worthy. It shows you how to create evidence of your own worth."
+    
+    why_it_works:
+      - "Names the person (not 'a client,' not generic)"
+      - "Shows the context (married, homemaker, dependent)"
+      - "Names the exact belief (specific to her pain)"
+      - "Shows the process (not just outcome)"
+      - "Gives measurable outcome (15,000 rupees, specific)"
+      - "Ties back to STL (shows what the company promises)"
+  
+  # ============ TESTIMONIAL REFRAMING FRAMEWORK ============
+  testimonial_reframing_framework:
+    label: "Testimonial Reframing Framework"
+    usage: "Pillar 3, client voices when publishing a client's words"
+    
+    arc:
+      1: "Why I'm sharing this (vulnerability about what it means)"
+      2: "Who said it (name, context)"
+      3: "What they shared (their exact words, not paraphrase)"
+      4: "What it reveals (what it proves about the work)"
+      5: "What it's an invitation for (call to action for others)"
+    
+    example_template:
+      full: |
+        "This message made me cry.
+        
+        After the 4-day retreat, a woman wrote:
+        
+        'I came invisible. I left visible to myself. For the first time in 30 years, I know who I am outside of what I do for others.'
+        
+        This is not a testimonial. This is a woman claiming her power.
+        
+        And it proves something I've always known: The transformation doesn't happen because I'm special. It happens because she finally chose herself in a space that held her while she did.
+        
+        If you've ever felt invisible, this is your permission slip. The space exists. The ritual works. And you're worth the pause."
+    
+    why_it_works:
+      - "Hemali's vulnerability (this made me cry)"
+      - "Names the person (builds trust)"
+      - "Uses exact words (not paraphrased)"
+      - "Interprets the meaning (not left to chance)"
+      - "Shows what it proves (about the work, not about her)"
+      - "Invitation, not hard sell (permission slip language)"
+  
+  # ============ CONTROVERSY/REFRAME FRAMEWORK ============
+  controversy_reframe_framework:
+    label: "Controversy/Reframe Framework"
+    usage: "Pillars 1, 4, 5 when going against the grain"
+    
+    arc:
+      1: "What everyone says (the conventional wisdom)"
+      2: "Why it sounds right (the emotional appeal)"
+      3: "But here's what I've seen (Hemali's lived experience)"
+      4: "So here's what's actually true (the reframe)"
+      5: "What to do differently (permission + action)"
+    
+    example_template:
+      full: |
+        "Instagram travel says: 'Collect experiences. Document moments. Share your life.'
+        
+        It sounds right. It sounds like living.
+        
+        But here's what I've seen: Women come home with perfect photos and the same old pain. They performed for the camera instead of showing up for themselves.
+        
+        So here's what's actually true: Real transformation requires you to be unseen. Unperformed. Unapologetic.
+        
+        Travel as a portal for inner work is not Instagram-worthy. It's soul-worthy.
+        
+        So here's my invitation: Stop collecting photos. Start collecting wisdom."
+    
+    why_it_works:
+      - "Acknowledges why the old way appeals (not dismissive)"
+      - "Grounds counter-claim in lived experience (not theory)"
+      - "Reframes the value (soul > shares)"
+      - "Gives permission to be different (unperformed)"
+      - "Invites a different path (not attacking the old one)"
+  
+  # ============ QUESTION FRAMEWORK ============
+  question_framework:
+    label: "Question Framework"
+    usage: "For engagement when Hemali wants deep engagement"
+    
+    arc:
+      1: "Context question (sets up why this matters)"
+      2: "Personal question (makes it about Reena)"
+      3: "Revealing question (gets at the pain)"
+      4: "Permission question (opens possibility)"
+    
+    example_template:
+      full: |
+        "How many times have you chosen what was expected over what you wanted?
+        
+        And when you did choose yourself, how did it feel?
+        
+        Do you remember the last time someone asked you 'What do YOU need?' instead of 'How can I help?'
+        
+        What if midlife was the moment you finally got permission to choose yourself in everything?"
+    
+    why_it_works:
+      - "Context question (acknowledges her pattern)"
+      - "Personal question (makes it about her experience)"
+      - "Revealing question (gets at the pain and the memory of choosing self)"
+      - "Permission question (opens the door)"
+      - "End on Reena's possibility (not Hemali's offer)"
+  
+  # ============ ANNOUNCEMENT FRAMEWORK ============
+  announcement_framework:
+    label: "Announcement Framework"
+    usage: "Pillar 5, for retreat launches when announcing"
+    
+    arc:
+      1: "Why I'm excited (Hemali's authentic emotion)"
+      2: "What it is (clear, specific)"
+      3: "Who it's for (Reena, not everyone)"
+      4: "Why now (urgency without pressure)"
+      5: "How to join (warm invitation)"
+    
+    example_template:
+      full: |
+        "I'm so excited to share this.
+        
+        The September 4-day retreat is open for registration. 8 women. 4 days of silence, story-sharing, the 5-pillar journey, the release ritual, and community that sees you fully.
+        
+        This is for you if you've felt invisible at home and you're ready to choose yourself.
+        
+        We're starting September 10th because the women I've spoken to said: 'I need to do this before winter.' And I believe them.
+        
+        If you're ready, here's how to apply: [link]
+        
+        This retreat will change you. Not because I'm special. But because you finally chose yourself."
+    
+    why_it_works:
+      - "Authentic emotion (excited, proud)"
+      - "Specific details (8 women, 4 days, specific practices)"
+      - "Named for Reena (invisible at home, ready to choose self)"
+      - "Urgency tied to real reason (not artificial pressure)"
+      - "Warm invitation (not aggressive sales copy)"
+      - "Proof at the end (you chose yourself, not Hemali's magic)"
+  
+  # ============ COMMUNITY/BELONGING FRAMEWORK ============
+  community_belonging_framework:
+    label: "Community/Belonging Framework"
+    usage: "Pillar 3 when building belonging and connection"
+    
+    arc:
+      1: "What isolation feels like (in Reena's words)"
+      2: "What she's craving (specific, not vague)"
+      3: "What community actually is (not surface bonding)"
+      4: "Why it changes things (healing happens here)"
+      5: "What's being created (the invitation)"
+    
+    example_template:
+      full: |
+        "You feel invisible. Unheard. Like nobody really listens to you the way you need.
+        
+        What you're craving is to be seen. Fully. Without performing.
+        
+        And community isn't 50 women at a spa pretending to be friends. It's 6–8 women in a circle telling the truth. Holding space. Witnessing transformation.
+        
+        Healing happens here. Not because the space is fancy. But because you're finally not alone in your struggle.
+        
+        She Travels.Life Monthly Community is that circle. Starting next month. 1,500 AED. One evening. One circle. Your people."
+    
+    why_it_works:
+      - "Names her pain (isolation, invisibility)"
+      - "Names what she's craving (specific, not generic)"
+      - "Reframes community (not surface, but deep)"
+      - "Shows why it works (healing through witness)"
+      - "Invites her in (not selling features, selling belonging)"
+  
+  # ============ FRAMEWORK SELECTION GUIDE ============
+  framework_selection_guide:
+    story_first_framework:
+      use_when:
+        - "Sharing Hemali's personal journey (Madrid, yoga, 25 years)"
+        - "Opening a new topic"
+        - "Building authority through lived experience"
+        - "You want emotional resonance (60% of posts)"
+    
+    teaching_framework:
+      use_when:
+        - "Reframing beliefs (midlife, wellness, pain)"
+        - "Sharing wisdom hard-won through experience"
+        - "Pillar 4 (Wisdom Within) content"
+        - "You want clarity + permission"
+    
+    proof_framework:
+      use_when:
+        - "Sharing business results (14 years, Kalpana, employees)"
+        - "Building credibility for She Travels.Life"
+        - "Pillar 3 (Healing in Community) testimonials"
+        - "You want evidence that it works"
+    
+    question_framework:
+      use_when:
+        - "You want engagement (not just reach)"
+        - "Making content feel intimate (Reena answering for herself)"
+        - "Deep connection > viral reach"
+        - "1–2 questions per post"
+    
+    announcement_framework:
+      use_when:
+        - "Launching retreats"
+        - "Opening registration"
+        - "Pillar 5 (Reset-Realign-Rise) calls to action"
+        - "Moving toward conversion"
+    
+    controversy_reframe_framework:
+      use_when:
+        - "Contrasting with competitors"
+        - "Going against industry grain"
+        - "Positioning She Travels.Life as different"
+        - "Pillar 2 (Travel as Portal) content"
+    
+    testimonial_reframing_framework:
+      use_when:
+        - "Sharing client/community member experiences"
+        - "Building social proof"
+        - "Showing transformation"
+        - "Pillar 3 (Healing in Community) content"
+  
+  # ============ FRAMEWORK ROTATION ============
+  framework_rotation:
+    philosophy: "Don't use the same framework twice in a row"
+    rhythm_prevents:
+      - "Reena never gets bored"
+      - "Hemali never sounds repetitive"
+    
+    example_90_day_rotation:
+      week_1: "Story-First (Pillar 1)"
+      week_2: "Teaching (Pillar 4)"
+      week_3: "Story-First (Pillar 2)"
+      week_4: "Question (Engagement)"
+      week_5: "Proof (Kalpana/mentorship)"
+      week_6: "Announcement (Retreat)"
+  
+  # ============ FINAL REMINDER ============
+  critical_principle: |
+    "Remember: The framework is not the content. The content is Hemali's voice living through the framework.
+    
+    Never let the structure show. Let only the humanity and the wisdom come through.
+    
+    The framework is scaffolding. Hemali is the art."

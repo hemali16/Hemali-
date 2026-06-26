@@ -1,0 +1,10 @@
+# Installers / executables
+Claude Setup.exe
+*.exe
+
+# Local Claude Code settings
+.claude/
+
+# OS junk
+Thumbs.db
+.DS_Store

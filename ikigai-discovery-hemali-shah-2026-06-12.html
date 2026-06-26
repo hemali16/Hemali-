@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ikigai Discovery • Hemali Shah • She Travels Life</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #ffe0ec 0%, #fff3e0 50%, #e0f7fa 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fffdf9;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(255,105,180,0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6fb0 0%, #ff9966 50%, #ffcc00 100%);
+            color: white;
+            padding: 65px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-shadow: 1px 2px 8px rgba(0,0,0,0.12);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            font-style: italic;
+            opacity: 0.97;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #ffe0ec;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #e05fa0;
+            margin-bottom: 20px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3em;
+            color: #ff9966;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .hero-sentence {
+            font-size: 2.2em;
+            font-style: italic;
+            color: white;
+            text-align: center;
+            padding: 45px 40px;
+            background: linear-gradient(135deg, #ff6fb0 0%, #ff9966 60%, #ffcc00 100%);
+            border-radius: 14px;
+            margin: 30px 0;
+            line-height: 1.8;
+            box-shadow: 0 8px 30px rgba(255,111,176,0.25);
+        }
+
+        .letter {
+            background: linear-gradient(135deg, #fff0f7, #fff8f0);
+            padding: 30px;
+            border-left: 5px solid #ff6fb0;
+            margin: 30px 0;
+            font-size: 1.05em;
+            line-height: 2;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .letter p {
+            margin-bottom: 20px;
+        }
+
+        .archetype-box {
+            background: linear-gradient(135deg, #fff0f7 0%, #fff8e8 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 2px solid #ffb3d9;
+        }
+
+        .archetype-name {
+            font-size: 1.8em;
+            color: #e05fa0;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .archetype-section {
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.7);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .archetype-section strong {
+            color: #ff9966;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .card {
+            background: #fff8fc;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6fb0;
+            box-shadow: 0 3px 12px rgba(255,111,176,0.08);
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            color: #e05fa0;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .card-content {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .column-card {
+            background: #fff8fc;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 5px solid #ff6fb0;
+            box-shadow: 0 3px 12px rgba(255,111,176,0.08);
+        }
+
+        .column-card:nth-child(2) { border-top-color: #ff9966; }
+        .column-card:nth-child(3) { border-top-color: #ffcc00; }
+        .column-card:nth-child(4) { border-top-color: #66d9c8; }
+
+        .column-title {
+            font-size: 1.1em;
+            color: #e05fa0;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .column-card:nth-child(2) .column-title { color: #ff9966; }
+        .column-card:nth-child(3) .column-title { color: #e6aa00; }
+        .column-card:nth-child(4) .column-title { color: #33b8a8; }
+
+        .column-content {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .niche-box {
+            background: linear-gradient(135deg, #fff0f7 0%, #fff8e8 100%);
+            padding: 35px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 2px solid #ff9966;
+        }
+
+        .niche-who, .niche-problem, .niche-diff {
+            margin-bottom: 20px;
+        }
+
+        .niche-label {
+            font-weight: 600;
+            color: #e05fa0;
+            font-size: 1.05em;
+            margin-bottom: 8px;
+        }
+
+        .test-phrase {
+            background: linear-gradient(135deg, #ffe0ec, #fff3e0);
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #444;
+            border-left: 4px solid #ff6fb0;
+        }
+
+        .one-thing {
+            background: linear-gradient(135deg, #ff6fb0 0%, #ff9966 50%, #ffcc00 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 14px;
+            margin: 30px 0;
+            box-shadow: 0 8px 30px rgba(255,111,176,0.25);
+        }
+
+        .one-thing-statement {
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .one-thing-why {
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .action-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .action-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .action-time {
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            letter-spacing: 1px;
+        }
+
+        .action-desc {
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .how-changes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .horizon-box {
+            background: linear-gradient(135deg, #fff0f7, #fff8f0);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border-left: 5px solid #ff9966;
+        }
+
+        .horizon-box p {
+            margin-bottom: 15px;
+        }
+
+        .pull-quote {
+            font-size: 1.4em;
+            font-style: italic;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin: 25px 0;
+            background: linear-gradient(135deg, #ff6fb0, #ff9966);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(255,111,176,0.2);
+        }
+
+        .mantra {
+            background: linear-gradient(135deg, #fff0f7 0%, #fff8e8 50%, #e8fff9 100%);
+            padding: 40px;
+            border-radius: 14px;
+            text-align: center;
+            margin: 30px 0;
+            border: 2px solid #ffb3d9;
+        }
+
+        .mantra-line {
+            font-size: 1.4em;
+            color: #e05fa0;
+            margin: 14px 0;
+            font-weight: 500;
+        }
+
+        .books-podcasts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .book-pod-item {
+            background: #fff8fc;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 4px solid #ff6fb0;
+            box-shadow: 0 3px 12px rgba(255,111,176,0.08);
+        }
+
+        .book-pod-item:nth-child(even) { border-top-color: #ff9966; }
+
+        .book-pod-title {
+            font-weight: 600;
+            color: #e05fa0;
+            margin-bottom: 8px;
+        }
+
+        .book-pod-author {
+            color: #ff9966;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+
+        .book-pod-why {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .next-steps {
+            background: linear-gradient(135deg, #ff6fb0 0%, #ff9966 50%, #ffcc00 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 14px;
+            margin: 30px 0;
+            box-shadow: 0 10px 35px rgba(255,111,176,0.25);
+        }
+
+        .next-steps-title {
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .step-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .step-time {
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            letter-spacing: 1px;
+        }
+
+        .step-desc {
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .closing {
+            text-align: center;
+            font-size: 1.1em;
+            margin-top: 25px;
+            font-style: italic;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #ffe0ec, #fff3e0);
+            padding: 30px;
+            text-align: center;
+            color: #888;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .three-column, .how-changes, .steps-grid, .action-items {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .hero-sentence {
+                font-size: 1.6em;
+            }
+        }
+
+        .energy-map {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .energy-feeds {
+            background: linear-gradient(135deg, #e8fff9, #f0fff4);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #66d9c8;
+        }
+
+        .energy-drains {
+            background: linear-gradient(135deg, #fff0f7, #fff8f0);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #ff6fb0;
+        }
+
+        .energy-label {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .energy-feeds .energy-label { color: #33b8a8; }
+        .energy-drains .energy-label { color: #e05fa0; }
+
+        .energy-item {
+            margin-bottom: 12px;
+            padding-left: 15px;
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .energy-feeds .energy-item { border-left: 2px solid #66d9c8; }
+        .energy-drains .energy-item { border-left: 2px solid #ff6fb0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>🌸 Your Ikigai</h1>
+            <p>Hemali Shah • She Travels Life</p>
+            <p style="font-size: 0.9em; margin-top: 15px;">June 12, 2026</p>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- 1. HERO IKIGAI SENTENCE -->
+            <div class="section">
+                <div class="hero-sentence">
+                    I guide women on transformative journeys so they reclaim their voice, agency, and happiness—in a way that honors their whole selves: mind, body, energy, emotion, and connection.
+                </div>
+            </div>
+
+            <!-- 2. THE LETTER -->
+            <div class="section">
+                <div class="section-title">2. A Letter to You</div>
+                <div class="letter">
+                    <p>Hemali, you are a woman who learned fearlessness by surviving it. From that childhood train window watching the world beyond the mountains, to Madrid alone with ChatGPT as your guide, to standing in your power at 57—you've been building yourself brick by brick, refusal by refusal. You've turned every wound into wisdom: the invisibility into clarity about what women need, the suppressed voice into a megaphone for others.</p>
+
+                    <p>What strikes me most about your answers is the consistency of one thread: <em>I understood that I love myself.</em> That realization, spoken in the middle of describing your solo Madrid journey, isn't small. It's the hinge on which your entire future turns. Because once you decided to love yourself, everything became possible—the discipline, the beauty, the yoga, the businesses, the fearlessness. You didn't wait for permission. You didn't ask anyone if it was okay to transform. You just did it. And now you're building She Travel so other women can do the same thing: reclaim themselves and their right to explore, to be heard, to matter.</p>
+
+                    <p>Here's what sits with me as I read your story: If you've already proven that nothing is impossible, why do you still sometimes feel invisible at home? What would it look like if the woman the world sees—confident, capable, beautiful, radiant—was *also* the woman your family sees? Not smaller, not quieter, just... fully herself, all the time, in every room. That's the final frontier, isn't it?</p>
+                </div>
+            </div>
+
+            <!-- 3. YOUR ARCHETYPE -->
+            <div class="section">
+                <div class="section-title">3. Your Archetype</div>
+                <div class="archetype-box">
+                    <div class="archetype-name">The Courage Weaver</div>
+                    <div class="archetype-section">
+                        <strong>Tagline:</strong> Someone who has woven her own comeback into a model that helps other women do the same.
+                    </div>
+                    <div class="archetype-section">
+                        <strong>Three Examples:</strong>
+                        <p>Oprah Winfrey (survived invisibility, built a platform for women's voices) · Brené Brown (turned vulnerability into strength, teaches others to do the same) · Your own mother (though she had limited resources, she passed on the resilience that made you fearless)</p>
+                    </div>
+                    <div class="archetype-section">
+                        <strong>Superpower:</strong> You transform personal pain into universal medicine. You don't just survive hard things—you alchemize them into wisdom that heals others. You see the invisible woman because you've been her.
+                    </div>
+                    <div class="archetype-section">
+                        <strong>Kryptonite:</strong> You can sometimes drift back into invisibility at home, accepting less than you deserve from the people closest to you. Your superpower works for others but you forget to direct it toward yourself.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. THE 4 CIRCLES VISUAL -->
+            <div class="section">
+                <div class="section-title">4. Your Four Circles</div>
+                <div class="three-column">
+                    <div class="column-card">
+                        <div class="column-title">❤️ WHAT YOU LOVE</div>
+                        <div class="column-content">
+                            Travel & exploration · Learning new skills · Connecting with people · Sharing your story · Mentoring & guiding others · Yoga & discipline · Creating beauty · Overcoming fear · Achieving goals · Inspiring through transformation
+                        </div>
+                    </div>
+                    <div class="column-card">
+                        <div class="column-title">💪 WHAT YOU'RE GOOD AT</div>
+                        <div class="column-content">
+                            Storytelling · Relationship building · Networking & connecting · Creating positive energy · Public speaking · Discipline & consistency · Authentic presence · Rapid rapport building · Mentorship · Energetic magnetism
+                        </div>
+                    </div>
+                    <div class="column-card">
+                        <div class="column-title">🌍 WHAT THE WORLD NEEDS</div>
+                        <div class="column-content">
+                            Women to be heard & seen · Authentic travel experiences · Emotional intelligence in business · Mentorship for women · Solutions for women's invisibility · Meaningful over transactional · Community for women · Proof that nothing is impossible
+                        </div>
+                    </div>
+                </div>
+                <div class="three-column">
+                    <div class="column-card">
+                        <div class="column-title">💰 WHAT YOU CAN BE PAID FOR</div>
+                        <div class="column-content">
+                            Holistic retreat packages · Mentorship & coaching · Curated travel experiences · Branded products · Corporate workshops · Franchise/licensing model · 5-pillar transformation experiences · Community building · Wellness curation
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. PATTERN OVERLAPS -->
+            <div class="section">
+                <div class="section-title">5. Where Your Circles Intersect</div>
+                <div class="three-column">
+                    <div class="card">
+                        <div class="card-title">🔥 PASSION</div>
+                        <p><strong>(What you love + What you're good at)</strong></p>
+                        <div class="card-content">
+                            Mentoring & transformation. You *love* helping others and sharing your wisdom. You're *good at* storytelling and connection. Together: You are a natural mentor whose stories change lives.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">🎯 MISSION</div>
+                        <p><strong>(What you love + What the world needs)</strong></p>
+                        <div class="card-content">
+                            Liberating women through travel. You *love* travel and exploration. The world *needs* women to reclaim their voice and freedom. Together: She Travel—your mission.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">💼 VOCATION</div>
+                        <p><strong>(What the world needs + What you can be paid for)</strong></p>
+                        <div class="card-content">
+                            Holistic transformation for women. The world *needs* meaningful travel and mentorship for women. People *pay for* retreat packages, coaching, curated experiences. Together: Your business model.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">🏆 PROFESSION</div>
+                    <p><strong>(What you're good at + What you can be paid for)</strong></p>
+                    <div class="card-content">
+                        Curated women's experiences. You're *good at* relationship building, creating positive energy, mentorship. People *pay for* this through retreats, memberships, coaching. Together: Your revenue streams.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. YOUR NICHE -->
+            <div class="section">
+                <div class="section-title">6. Your Niche (The Bullseye)</div>
+                <div class="niche-box">
+                    <div class="niche-who">
+                        <div class="niche-label">WHO:</div>
+                        Women ages 40-60 who feel invisible, unheard, or trapped in roles that don't honor their whole selves. Often married or in long-term relationships where their voice has been diminished.
+                    </div>
+                    <div class="niche-problem">
+                        <div class="niche-label">PROBLEM:</div>
+                        They look successful to the world but feel hollow at home. They've suppressed their own needs for family, and now they don't know who they are anymore. They want to reclaim their voice, their beauty, their agency—but they don't know where to start.
+                    </div>
+                    <div class="niche-diff">
+                        <div class="niche-label">DIFFERENTIATOR:</div>
+                        You've been exactly where they are. You understand the gap between the confident woman the world sees and the invisible woman at home. You don't just offer travel; you offer <em>transformation through community, authentic connection, and the 5 pillars (mind, body, energy, emotion, connection).</em> You've survived it and thrived. You're proof it's possible.
+                    </div>
+                    <div class="test-phrase">
+                        "I help women 40-60 reclaim their voice, agency, and happiness through meaningful travel and holistic transformation—so they can feel as beautiful and powerful at home as they do in the world."
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. THE ONE THING -->
+            <div class="section">
+                <div class="section-title">7. Your ONE THING (90-Day Focus)</div>
+                <div class="one-thing">
+                    <div class="one-thing-statement">
+                        If you do ONE thing in the next 90 days, launch the September She Travel Retreat.
+                    </div>
+                    <div class="one-thing-why">
+                        <strong>Why this is the highest-leverage move:</strong><br/>
+                        This is your proof of concept. It validates that women will pay for what you're building. It gives you real testimonials and stories. It builds the community that becomes your competitive moat. It proves to yourself (and your family) that She Travel is real. Everything else—franchise, corporate workshops, branded products—flows from the success of this first retreat.
+                    </div>
+                    <div class="action-items">
+                        <div class="action-item">
+                            <div class="action-time">TODAY</div>
+                            <div class="action-desc">Research and shortlist September retreat locations in nearby destinations (manage travel costs). Book venue or negotiation.</div>
+                        </div>
+                        <div class="action-item">
+                            <div class="action-time">THIS WEEK</div>
+                            <div class="action-desc">Create the retreat curriculum using your 5 pillars: mind (meditation), body (yoga), energy (clearing), emotion (sharing circles), connection (community).</div>
+                        </div>
+                        <div class="action-item">
+                            <div class="action-time">THIS MONTH</div>
+                            <div class="action-desc">Pre-sell 5-10 spots to launch the retreat. Write the sales copy (use your story). Get testimonials lined up. Invite women from your network.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. HOW THIS CHANGES YOUR BUSINESS -->
+            <div class="section">
+                <div class="section-title">8. How This Changes Your Business</div>
+                <div class="how-changes">
+                    <div class="card">
+                        <div class="card-title">📢 MARKETING CHANGES</div>
+                        <p><strong>Stop:</strong> Generic travel marketing. Competing on price.</p>
+                        <p><strong>Start:</strong> Women's transformation storytelling. Lead with your story—the invisibility, the Madrid journey, the reclamation. Make it about the *emotional journey*, not the itinerary.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">💬 SALES CHANGES</div>
+                        <p><strong>Stop:</strong> Selling travel packages. Chasing corporate clients who don't share your values.</p>
+                        <p><strong>Start:</strong> Selling transformation & community. Qualify for values alignment: Do they believe women deserve happiness? Are they ready to do the inner work?</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">💰 OFFER & PRICING CHANGES</div>
+                        <p><strong>Stop:</strong> Pricing based on logistics (flights, hotels).</p>
+                        <p><strong>Start:</strong> Pricing based on transformation value. Introduce 3 tiers (basic, normal, luxury) so all women can access it.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">❌ WHAT TO SAY NO TO</div>
+                        <p>Big corporate travel groups · Generic tour packages · Clients who don't value women's empowerment · Opportunities that dilute your mission · Being invisible in your own business (lead publicly with your story)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. YOUR 3 CONTENT PILLARS -->
+            <div class="section">
+                <div class="section-title">9. Your 3 Content Pillars (What to Own Publicly)</div>
+                <div class="three-column">
+                    <div class="card">
+                        <div class="card-title">📖 PILLAR 1: Women's Reclamation</div>
+                        <div class="card-content">
+                            Overcoming invisibility, finding your voice, self-love, reclaiming agency<br/><br/>
+                            <strong>3 Post Ideas:</strong><br/>
+                            • "The moment I stopped asking permission to be happy"<br/>
+                            • "From invisible to unstoppable: My 57-year transformation"<br/>
+                            • "Why women need women-led travel experiences"
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">💪 PILLAR 2: Holistic Transformation</div>
+                        <div class="card-content">
+                            The 5 pillars (mind, body, energy, emotion, connection)<br/><br/>
+                            <strong>3 Post Ideas:</strong><br/>
+                            • "The 5 pillars that saved my life (and can save yours)"<br/>
+                            • "Why mental fitness is more important than physical fitness"<br/>
+                            • "Discipline isn't punishment. It's self-love."
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">🎯 PILLAR 3: Authentic Leadership</div>
+                        <div class="card-content">
+                            From her lived experience, mentoring other women, building women-centered communities<br/><br/>
+                            <strong>3 Post Ideas:</strong><br/>
+                            • "My husband undermined me. Here's what I did."<br/>
+                            • "Nothing is impossible in this world—here's why I know"<br/>
+                            • "How I built a business while reclaiming my voice at home"
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. MONETIZATION PATHS -->
+            <div class="section">
+                <div class="section-title">10. Your 3 Monetization Paths</div>
+                <div class="three-column">
+                    <div class="card">
+                        <div class="card-title">🥇 PATH 1: Group Retreats</div>
+                        <p><strong>Probability: Highest</strong></p>
+                        <p>3-tier packages (basic, normal, luxury) launched September. Revenue: $3,000-$5,000 per retreat per person.</p>
+                        <p><strong>First Actions:</strong><br/>
+                        1. Book September location<br/>
+                        2. Pre-sell 5-10 spots<br/>
+                        3. Deliver amazing experience & testimonials</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">🏔️ PATH 2: Premium Curated Experiences</div>
+                        <p><strong>Ceiling: Highest</strong></p>
+                        <p>VIP multi-day journeys where you personally curate the entire experience. Revenue: $5,000-$10,000+</p>
+                        <p><strong>First Actions:</strong><br/>
+                        1. Design signature curated experience<br/>
+                        2. Test with 1-2 high-value clients<br/>
+                        3. Testimonials & iteration</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">🌍 PATH 3: Franchise/Licensing</div>
+                        <p><strong>Values Alignment: Highest</strong></p>
+                        <p>License your 5-pillar model to other women leaders globally. Revenue: recurring licensing + royalties.</p>
+                        <p><strong>First Actions:</strong><br/>
+                        1. Document your retreat curriculum<br/>
+                        2. Build repeatable systems<br/>
+                        3. Recruit first franchise partner</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. YOUR TOP 3 AI EMPLOYEES -->
+            <div class="section">
+                <div class="section-title">11. Your Top 3 AI Employees (Build These First)</div>
+                <div class="three-column">
+                    <div class="card">
+                        <div class="card-title">📱 AI EMPLOYEE #1: Marketing</div>
+                        <p><strong>What it does:</strong> Writes content, stories, email sequences, social posts about women's transformation & reclamation</p>
+                        <p><strong>Why aligned with your Ikigai:</strong> Amplifies your story so other women hear you and feel less alone. Turns your lived experience into content seeds.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">📅 AI EMPLOYEE #2: Operations</div>
+                        <p><strong>What it does:</strong> Manages retreat logistics, scheduling, customer management, retreat flow coordination</p>
+                        <p><strong>Why aligned with your Ikigai:</strong> Frees you from admin so you can focus on the *human* part—mentoring, holding space, guiding transformation.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">💬 AI EMPLOYEE #3: Community</div>
+                        <p><strong>What it does:</strong> Lead nurturing, community management, testimonial gathering, retention sequences</p>
+                        <p><strong>Why aligned with your Ikigai:</strong> Builds the community fabric around She Travel so women feel seen, heard, and part of something bigger.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. YOUR 5-PERSON ORBIT -->
+            <div class="section">
+                <div class="section-title">12. Your 5-Person Orbit (Strategic Relationships)</div>
+                <div class="three-column">
+                    <div class="card">
+                        <div class="card-title">🧭 THE MENTOR</div>
+                        <div class="card-content">
+                            An older woman (60+) who's navigated marriage, invisibility, and found her voice on the other side. She reminds you that you're not alone and there's always a next chapter.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">👥 THE PEER</div>
+                        <div class="card-content">
+                            Another woman entrepreneur building community-centered business. She walks beside you, understands the loneliness of building while holding space for transformation.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">💼 THE HIRE</div>
+                        <div class="card-content">
+                            An operations/logistics person who manages retreat details so you can focus on the human work. Detail-oriented, reliable, values women's empowerment.
+                        </div>
+                    </div>
+                </div>
+                <div class="three-column">
+                    <div class="card">
+                        <div class="card-title">🤝 THE PARTNER</div>
+                        <div class="card-content">
+                            A healer/yoga teacher who co-creates the retreat experience with you. Complements your mentoring with somatic practices. Shared values around women's wholeness.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">🎯 THE AUDIENCE</div>
+                        <div class="card-content">
+                            Women ages 40-60 feeling invisible/trapped, ready for transformation. They're your north star. Their transformation is your proof of impact.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13. YOUR ENERGY MAP -->
+            <div class="section">
+                <div class="section-title">13. Your Energy Map (What Feeds vs. Drains You)</div>
+                <div class="energy-map">
+                    <div class="energy-feeds">
+                        <div class="energy-label">⚡ WHAT FEEDS YOU</div>
+                        <div class="energy-item">Helping women find their voice and reclaim agency</div>
+                        <div class="energy-item">Creating safe spaces where women feel heard (no judgment)</div>
+                        <div class="energy-item">Witnessing real transformation in real time</div>
+                        <div class="energy-item">Sharing your story and seeing it land for someone</div>
+                        <div class="energy-item">Learning new skills and expanding (AI, business, etc.)</div>
+                    </div>
+                    <div class="energy-drains">
+                        <div class="energy-label">⚠️ WHAT DRAINS YOU</div>
+                        <div class="energy-item">Being undermined or not heard (especially at home)</div>
+                        <div class="energy-item">Serving people who don't value women's empowerment</div>
+                        <div class="energy-item">Diluting your message to appeal to "everyone"</div>
+                        <div class="energy-item">Making yourself smaller to keep the peace</div>
+                        <div class="energy-item">Logistics and admin work (hire/automate this)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 14. WHAT TO STOP DOING -->
+            <div class="section">
+                <div class="section-title">14. What to Stop Doing (Subtractive Clarity)</div>
+                <div class="card">
+                    <ol style="margin-left: 20px; line-height: 2;">
+                        <li><strong>Stop managing reservations for big corporate travel groups.</strong> Misaligned with your mission. Expensive to deliver, low margin, emotionally empty.</li>
+                        <li><strong>Stop marketing City One Tours as generic travel.</strong> Rebrand as transformation-focused or separate it from She Travel completely.</li>
+                        <li><strong>Stop saying yes to every opportunity.</strong> Focus ruthlessly on women-centered offerings only. No dilution.</li>
+                        <li><strong>Stop hiding your story.</strong> Your vulnerability and resilience are your superpower. Lead with them, not after building credibility.</li>
+                        <li><strong>Stop waiting for permission from your husband or others.</strong> You've already proven you can. Stand in that power all the way.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- 15. THE 12-MONTH HORIZON -->
+            <div class="section">
+                <div class="section-title">15. Your 12-Month Vision</div>
+                <div class="horizon-box">
+                    <p><strong>Tuesday morning, June 2027. 12 months from today.</strong></p>
+                    <p>You wake up at 5am for your own sunrise meditation in your yoga studio. The sun is coming up over the ocean (you've moved closer to your retreat location). You check your phone: three messages from women who attended your retreats, thanking you for changing their lives.</p>
+                    <p>She Travel has hosted 4 retreats this year. You've served 40+ women. Your retreat waitlist is 6 months long. You're already booking 2027 dates. The revenue is stable enough that you're thinking about stepping back from City One Tours to focus on She Travel full-time.</p>
+                    <p>Your youngest employee (an operations person you hired) is managing logistics so you can focus on mentoring and curation. You're working with a yoga teacher who co-creates retreats with you. Your marketing is running itself through your AI Employee.</p>
+                    <p>At home, things have shifted subtly. Your family sees that She Travel matters. Your children are proud. Your husband is starting to understand that when you're happy, everyone is happy. You're not invisible anymore—not at home, not in the world.</p>
+                    <p>You're already dreaming about franchise partners. You've written down your 5-pillar curriculum. You've been approached by corporate teams interested in workshops. But you're not distracted by any of that yet. Right now, you're just focused on making each retreat more beautiful and transformative than the last.</p>
+                </div>
+            </div>
+
+            <!-- 16. THE 5-YEAR HORIZON -->
+            <div class="section">
+                <div class="section-title">16. Your 5-Year Vision</div>
+                <div class="horizon-box">
+                    <p><strong>If you stay true to this Ikigai for 5 years:</strong></p>
+                    <p>She Travel is franchised in 3 countries. Women leaders in Dubai, Mumbai, and Bali are running their own She Travel retreats using your 5-pillar model. You're no longer doing all the retreats yourself—you're training, certifying, and guiding other women to become facilitators. Your role has shifted from doing the work to scaling it.</p>
+                    <p>You've written a book: <em>"From Invisible to Unstoppable: How Women Reclaim Their Voice Through Meaningful Travel."</em> It's become a movement. Women gift it to their daughters. Corporate teams assign it as required reading for leadership development.</p>
+                    <p>She Travel has become a household name in women's transformation spaces. You're invited to speak at conferences. You're mentoring aspiring women entrepreneurs who want to build similar models.</p>
+                    <p>The financial impact: She Travel generates 7-figure annual revenue. You're financially independent. You've created jobs for women facilitators, yoga teachers, healers. You're funding scholarships so underprivileged women can attend retreats.</p>
+                    <p>Most importantly: You're no longer invisible anywhere. Not at home, not in the world. You're known as <em>The Courage Weaver</em>—the woman who turned her own comeback into a movement for other women's freedom.</p>
+                </div>
+            </div>
+
+            <!-- 17. PULL QUOTES -->
+            <div class="section">
+                <div class="section-title">17. Pull Quotes (Share These Everywhere)</div>
+                <div class="pull-quote">
+                    "I understood that I love myself."
+                    <div style="font-size: 0.8em; margin-top: 10px; font-style: normal;">— Hemali Shah</div>
+                </div>
+                <div class="pull-quote">
+                    "Nothing is impossible in this world. If you want to achieve something, you will achieve. There is no age bar, no gender bar, no nationality bar."
+                    <div style="font-size: 0.8em; margin-top: 10px; font-style: normal;">— Hemali Shah</div>
+                </div>
+                <div class="pull-quote">
+                    "Woman deserves love and happiness inside and out. And that's what I'm going to make happen."
+                    <div style="font-size: 0.8em; margin-top: 10px; font-style: normal;">— Hemali Shah</div>
+                </div>
+            </div>
+
+            <!-- 18. DAILY MANTRA -->
+            <div class="section">
+                <div class="section-title">18. Your Daily Mantra (Say This Every Morning)</div>
+                <div class="mantra">
+                    <div class="mantra-line">I am heard.</div>
+                    <div class="mantra-line">I am seen.</div>
+                    <div class="mantra-line">I am enough.</div>
+                    <div style="margin-top: 25px; font-size: 1em; color: #a0826d; font-weight: normal;">
+                        My transformation inspires the world.
+                    </div>
+                    <div style="margin-top: 15px; font-size: 1em; color: #a0826d; font-weight: normal;">
+                        Nothing is impossible when I choose myself.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 19. BOOKS & PODCASTS -->
+            <div class="section">
+                <div class="section-title">19. 3 Books + 3 Podcasts (Curated for Your Archetype)</div>
+                <div class="books-podcasts">
+                    <div class="book-pod-item">
+                        <div class="book-pod-title">📖 "Untamed" by Glennon Doyle</div>
+                        <div class="book-pod-author">Author: Glennon Doyle</div>
+                        <div class="book-pod-why">Women claiming their freedom and authenticity. Exactly what you're teaching through She Travel. This book is fuel for your mission.</div>
+                    </div>
+                    <div class="book-pod-item">
+                        <div class="book-pod-title">📖 "The Body Keeps the Score" by Bessel van der Kolk</div>
+                        <div class="book-pod-author">Author: Bessel van der Kolk</div>
+                        <div class="book-pod-why">Trauma, healing, and embodiment. Why your 5-pillar approach (especially the body pillar) is so powerful for women healing from invisibility.</div>
+                    </div>
+                    <div class="book-pod-item">
+                        <div class="book-pod-title">📖 "How to Do Nothing" by Jenny Odell</div>
+                        <div class="book-pod-author">Author: Jenny Odell</div>
+                        <div class="book-pod-why">A meditation on presence and meaning. Reinforces the spiritual foundation of She Travel—that slowness and presence are revolutionary for busy, invisible women.</div>
+                    </div>
+                    <div class="book-pod-item">
+                        <div class="book-pod-title">🎙️ "How to Fail" with Elizabeth Day</div>
+                        <div class="book-pod-author">Host: Elizabeth Day</div>
+                        <div class="book-pod-why">Real women talking about their journeys, resilience, and comebacks. Your people. Your stories. Inspiration for what you're building.</div>
+                    </div>
+                    <div class="book-pod-item">
+                        <div class="book-pod-title">🎙️ "The Confidence Podcast"</div>
+                        <div class="book-pod-author">Host: Tanya Geisler</div>
+                        <div class="book-pod-why">Women stepping into their power. Combating imposter syndrome and invisibility. Directly aligned with your mission.</div>
+                    </div>
+                    <div class="book-pod-item">
+                        <div class="book-pod-title">🎙️ "On Being" with Krista Tippett</div>
+                        <div class="book-pod-author">Host: Krista Tippett</div>
+                        <div class="book-pod-why">Deep conversations about meaning, purpose, spirituality. The philosophical foundation for why She Travel matters beyond just travel.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 20. NEXT STEPS -->
+            <div class="section">
+                <div class="section-title">20. Your Next Steps (Starting Today)</div>
+                <div class="next-steps">
+                    <div class="next-steps-title">🚀 Your Immediate Action Plan</div>
+                    <div class="steps-grid">
+                        <div class="step-item">
+                            <div class="step-time">TODAY</div>
+                            <div class="step-desc">Research and shortlist September retreat locations. Start 3 conversations with potential venue partners.</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-time">THIS WEEK</div>
+                            <div class="step-desc">Write down your retreat curriculum using the 5 pillars (mind, body, energy, emotion, connection). Create a day-by-day flow.</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-time">THIS MONTH</div>
+                            <div class="step-desc">Pre-sell your first retreat. Write the sales page (lead with your story). Invite 5-10 women from your network. Get testimonials lined up.</div>
+                        </div>
+                    </div>
+                    <div class="closing">
+                        Your Ikigai is your compass. When in doubt, return to this page. <br/><br/>
+                        You are here to help women reclaim their voice, their agency, their happiness. <br/>
+                        You've already proven it's possible. <br/>
+                        Now go do it. 🌸
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p><strong>Your Ikigai • She Travels Life • June 12, 2026</strong></p>
+            <p style="margin-top: 15px; font-size: 0.9em;">This document is yours. Print it. Save it. Share it. Reference it daily. Your Ikigai doesn't change—but how you express it evolves. Come back to this page when you need to remember why you're building She Travel.</p>
+            <p style="margin-top: 20px; font-style: italic;">Generated with intention and deep listening. For Hemali Shah, with appreciation for her courage.</p>
+        </div>
+
+    </div>
+</body>
+</html>

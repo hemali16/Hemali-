@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ikigai Master Document • Hemali Shah • She Travels Life</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #ffe0ec 0%, #fff3e0 50%, #e0f7fa 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            background: #fffdf9;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(255,105,180,0.15);
+            overflow: hidden;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #ff6fb0 0%, #ff9966 50%, #ffcc00 100%);
+            color: white;
+            padding: 70px 40px;
+            text-align: center;
+        }
+
+        .header h1 { font-size: 3em; margin-bottom: 10px; font-weight: 400; letter-spacing: 3px; text-shadow: 1px 2px 8px rgba(0,0,0,0.15); }
+        .header p { font-size: 1.2em; font-style: italic; opacity: 0.97; }
+        .header .badge { display: inline-block; margin-top: 15px; background: rgba(255,255,255,0.2); padding: 6px 20px; border-radius: 20px; font-size: 0.9em; letter-spacing: 1px; }
+
+        .content { padding: 55px 45px; }
+
+        /* SECTION */
+        .section { margin-bottom: 65px; padding-bottom: 45px; border-bottom: 2px solid #ffe0ec; }
+        .section:last-child { border-bottom: none; }
+
+        .section-title { font-size: 2em; color: #e05fa0; margin-bottom: 20px; font-weight: 400; letter-spacing: 1px; }
+        .section-subtitle { font-size: 1.1em; color: #ff9966; margin-bottom: 25px; font-style: italic; }
+
+        /* HERO SENTENCE */
+        .hero-sentence {
+            font-size: 1.9em;
+            font-style: italic;
+            color: white;
+            text-align: center;
+            padding: 50px 45px;
+            background: linear-gradient(135deg, #ff6fb0 0%, #ff9966 60%, #ffcc00 100%);
+            border-radius: 14px;
+            margin: 30px 0;
+            line-height: 1.8;
+            box-shadow: 0 8px 30px rgba(255,111,176,0.25);
+        }
+
+        /* LETTER */
+        .letter {
+            background: linear-gradient(135deg, #fff0f7, #fff8f0);
+            padding: 35px;
+            border-left: 5px solid #ff6fb0;
+            margin: 30px 0;
+            font-size: 1.05em;
+            line-height: 2.1;
+            border-radius: 0 12px 12px 0;
+        }
+        .letter p { margin-bottom: 22px; }
+        .letter em { color: #e05fa0; font-style: italic; }
+
+        /* ARCHETYPE */
+        .archetype-box {
+            background: linear-gradient(135deg, #fff0f7 0%, #fff8e8 100%);
+            padding: 35px;
+            border-radius: 14px;
+            margin: 30px 0;
+            border: 2px solid #ffb3d9;
+        }
+        .archetype-name { font-size: 2em; color: #e05fa0; margin-bottom: 8px; font-weight: 500; }
+        .archetype-tagline { font-size: 1.05em; color: #ff9966; font-style: italic; margin-bottom: 25px; }
+        .archetype-section { margin-bottom: 20px; background: rgba(255,255,255,0.7); padding: 18px; border-radius: 8px; }
+        .archetype-section strong { color: #ff9966; display: block; margin-bottom: 8px; font-size: 1em; }
+
+        /* FOUR CIRCLES */
+        .four-circles { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+        .circle-item {
+            background: linear-gradient(135deg, #fff8fc 0%, #fff0f7 100%);
+            padding: 28px;
+            border-radius: 12px;
+            border-top: 5px solid #ff6fb0;
+            box-shadow: 0 3px 15px rgba(255,111,176,0.1);
+        }
+        .circle-item:nth-child(2) { border-top-color: #ff9966; }
+        .circle-item:nth-child(3) { border-top-color: #66d9c8; }
+        .circle-item:nth-child(4) { border-top-color: #ffcc00; }
+        .circle-title { font-size: 1.05em; color: #e05fa0; margin-bottom: 15px; font-weight: 600; }
+        .circle-item:nth-child(2) .circle-title { color: #ff9966; }
+        .circle-item:nth-child(3) .circle-title { color: #33b8a8; }
+        .circle-item:nth-child(4) .circle-title { color: #c8a000; }
+        .circle-item ul { list-style: none; padding: 0; }
+        .circle-item li { padding: 7px 0; color: #555; font-size: 0.95em; border-bottom: 1px solid rgba(255,111,176,0.1); }
+        .circle-item li:last-child { border-bottom: none; }
+        .circle-item li:before { content: "✦ "; color: #ff9966; margin-right: 8px; }
+
+        /* CARDS */
+        .card {
+            background: #fff8fc;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6fb0;
+            box-shadow: 0 3px 12px rgba(255,111,176,0.08);
+        }
+        .card-title { font-size: 1.2em; color: #e05fa0; margin-bottom: 14px; font-weight: 500; }
+        .card-content { color: #555; line-height: 1.8; }
+
+        /* THREE COLUMN */
+        .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin: 25px 0; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0; }
+
+        .col-card {
+            background: #fff8fc;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 4px solid #ff6fb0;
+            box-shadow: 0 3px 12px rgba(255,111,176,0.08);
+        }
+        .col-card:nth-child(2) { border-top-color: #ff9966; }
+        .col-card:nth-child(3) { border-top-color: #ffcc00; }
+        .col-card:nth-child(4) { border-top-color: #66d9c8; }
+        .col-title { font-size: 1.05em; color: #e05fa0; margin-bottom: 14px; font-weight: 600; }
+        .col-card:nth-child(2) .col-title { color: #ff9966; }
+        .col-card:nth-child(3) .col-title { color: #c8a000; }
+        .col-card:nth-child(4) .col-title { color: #33b8a8; }
+        .col-content { font-size: 0.93em; color: #666; line-height: 1.75; }
+
+        /* NICHE BOX */
+        .niche-box {
+            background: linear-gradient(135deg, #fff0f7 0%, #fff8e8 100%);
+            padding: 38px;
+            border-radius: 14px;
+            margin: 30px 0;
+            border: 2px solid #ff9966;
+        }
+        .niche-label { font-weight: 700; color: #e05fa0; font-size: 1.05em; margin-bottom: 8px; }
+        .niche-block { margin-bottom: 22px; }
+        .test-phrase {
+            background: linear-gradient(135deg, #ffe0ec, #fff3e0);
+            padding: 22px;
+            border-radius: 10px;
+            margin-top: 25px;
+            font-style: italic;
+            color: #444;
+            border-left: 5px solid #ff6fb0;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+
+        /* ONE THING */
+        .one-thing {
+            background: linear-gradient(135deg, #ff6fb0 0%, #ff9966 50%, #ffcc00 100%);
+            color: white;
+            padding: 42px;
+            border-radius: 14px;
+            margin: 30px 0;
+            box-shadow: 0 8px 30px rgba(255,111,176,0.25);
+        }
+        .one-thing-statement { font-size: 1.35em; margin-bottom: 22px; font-weight: 500; line-height: 1.6; }
+        .one-thing-why { margin-bottom: 28px; line-height: 1.85; }
+        .action-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-top: 25px; }
+        .action-block { background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; }
+        .action-time { font-weight: 700; margin-bottom: 10px; font-size: 0.9em; letter-spacing: 1px; }
+        .action-desc { font-size: 0.88em; line-height: 1.65; }
+
+        /* BUSINESS CHANGE */
+        .biz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0; }
+
+        /* CONTENT PILLARS */
+        .pillar {
+            background: #fff8fc;
+            padding: 28px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6fb0;
+        }
+        .pillar:nth-child(2) { border-left-color: #ff9966; }
+        .pillar:nth-child(3) { border-left-color: #ffcc00; }
+        .pillar-title { font-size: 1.15em; color: #e05fa0; margin-bottom: 6px; font-weight: 600; }
+        .pillar:nth-child(2) .pillar-title { color: #ff9966; }
+        .pillar:nth-child(3) .pillar-title { color: #c8a000; }
+        .pillar-desc { font-size: 0.9em; color: #999; margin-bottom: 14px; }
+        .pillar ul { list-style: none; padding: 0; }
+        .pillar li { padding: 7px 0; color: #555; font-size: 0.93em; }
+        .pillar li:before { content: "→ "; color: #ff9966; margin-right: 8px; }
+
+        /* MONETIZATION */
+        .mono-card {
+            background: linear-gradient(135deg, #fff0f7, #fff8e8);
+            padding: 28px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6fb0;
+        }
+        .mono-card:nth-child(2) { border-left-color: #ff9966; }
+        .mono-card:nth-child(3) { border-left-color: #66d9c8; }
+        .mono-title { font-size: 1.15em; color: #e05fa0; margin-bottom: 10px; font-weight: 600; }
+        .mono-card:nth-child(2) .mono-title { color: #ff9966; }
+        .mono-card:nth-child(3) .mono-title { color: #33b8a8; }
+
+        /* AI EMPLOYEES */
+        .ai-card {
+            background: linear-gradient(135deg, #e8f4ff, #f0f8ff);
+            padding: 28px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #4682b4;
+        }
+        .ai-title { font-size: 1.15em; color: #4682b4; margin-bottom: 10px; font-weight: 600; }
+
+        /* ORBIT */
+        .orbit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0; }
+        .orbit-card {
+            background: #fff8fc;
+            padding: 22px;
+            border-radius: 10px;
+            border-top: 4px solid #ff6fb0;
+        }
+        .orbit-card:nth-child(2) { border-top-color: #ff9966; }
+        .orbit-card:nth-child(3) { border-top-color: #ffcc00; }
+        .orbit-card:nth-child(4) { border-top-color: #66d9c8; }
+        .orbit-card:nth-child(5) { border-top-color: #b39ddb; }
+        .orbit-title { font-size: 1.05em; color: #e05fa0; margin-bottom: 10px; font-weight: 600; }
+
+        /* ENERGY MAP */
+        .energy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0; }
+        .energy-feeds { background: linear-gradient(135deg, #e8fff9, #f0fff4); padding: 28px; border-radius: 12px; border-left: 5px solid #66d9c8; }
+        .energy-drains { background: linear-gradient(135deg, #fff0f7, #fff8f0); padding: 28px; border-radius: 12px; border-left: 5px solid #ff6fb0; }
+        .energy-label { font-weight: 700; margin-bottom: 18px; font-size: 1.05em; }
+        .energy-feeds .energy-label { color: #33b8a8; }
+        .energy-drains .energy-label { color: #e05fa0; }
+        .energy-entry { margin-bottom: 12px; padding-left: 14px; font-size: 0.93em; color: #555; line-height: 1.6; border-left: 2px solid #66d9c8; }
+        .energy-drains .energy-entry { border-left-color: #ff9999; }
+
+        /* STOP DOING */
+        .stop-box { background: #fff5f8; padding: 30px; border-radius: 12px; margin: 20px 0; border-left: 5px solid #e05fa0; }
+        .stop-box ol { margin-left: 22px; line-height: 2.1; color: #444; }
+        .stop-box li { margin-bottom: 10px; }
+
+        /* HORIZON */
+        .horizon-box {
+            background: linear-gradient(135deg, #fff0f7, #fff8f0);
+            padding: 35px;
+            border-radius: 14px;
+            margin: 30px 0;
+            border-left: 5px solid #ff9966;
+            line-height: 1.9;
+        }
+        .horizon-box p { margin-bottom: 18px; }
+
+        /* PULL QUOTES */
+        .pull-quote {
+            font-size: 1.35em;
+            font-style: italic;
+            color: white;
+            text-align: center;
+            padding: 30px 35px;
+            margin: 22px 0;
+            background: linear-gradient(135deg, #ff6fb0, #ff9966);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(255,111,176,0.2);
+            line-height: 1.7;
+        }
+        .pull-quote .attribution { font-size: 0.7em; margin-top: 14px; font-style: normal; opacity: 0.9; }
+
+        /* MANTRA */
+        .mantra {
+            background: linear-gradient(135deg, #fff0f7 0%, #fff8e8 50%, #e8fff9 100%);
+            padding: 50px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 30px 0;
+            border: 2px solid #ffb3d9;
+        }
+        .mantra-line { font-size: 1.5em; color: #e05fa0; margin: 16px 0; font-weight: 500; }
+        .mantra-sub { margin-top: 28px; font-size: 1em; color: #a0826d; font-style: italic; line-height: 2; }
+
+        /* BOOKS PODCASTS */
+        .reading-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0; }
+        .reading-item {
+            background: #fff8fc;
+            padding: 22px;
+            border-radius: 10px;
+            border-top: 4px solid #ff6fb0;
+            box-shadow: 0 3px 12px rgba(255,111,176,0.08);
+        }
+        .reading-item:nth-child(even) { border-top-color: #ff9966; }
+        .reading-title { font-weight: 700; color: #e05fa0; margin-bottom: 6px; font-size: 1em; }
+        .reading-author { color: #ff9966; font-size: 0.88em; margin-bottom: 10px; }
+        .reading-why { font-size: 0.88em; color: #666; line-height: 1.65; }
+
+        /* NEXT STEPS */
+        .next-steps {
+            background: linear-gradient(135deg, #ff6fb0 0%, #ff9966 50%, #ffcc00 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 16px;
+            margin: 30px 0;
+            box-shadow: 0 10px 35px rgba(255,111,176,0.25);
+        }
+        .next-title { font-size: 1.5em; margin-bottom: 28px; font-weight: 500; }
+        .steps-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 35px; }
+        .step-block { background: rgba(255,255,255,0.2); padding: 22px; border-radius: 10px; }
+        .step-time { font-weight: 700; margin-bottom: 10px; font-size: 0.9em; letter-spacing: 1px; }
+        .step-desc { font-size: 0.88em; line-height: 1.65; }
+        .closing-words { text-align: center; font-size: 1.05em; margin-top: 15px; line-height: 2; font-style: italic; }
+
+        /* FOOTER */
+        .footer {
+            background: linear-gradient(135deg, #ffe0ec, #fff3e0);
+            padding: 35px;
+            text-align: center;
+            color: #888;
+            font-size: 0.92em;
+        }
+
+        /* SECTION DIVIDER LABEL */
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6fb0, #ff9966);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .four-circles, .three-col, .two-col, .biz-grid, .action-grid, .orbit-grid, .energy-grid, .reading-grid, .steps-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 2.2em; }
+            .hero-sentence { font-size: 1.45em; }
+            .content { padding: 35px 25px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>🌸 Ikigai Master Document</h1>
+        <p>Hemali Shah • She Travels Life</p>
+        <p style="font-size:0.95em; margin-top:10px; opacity:0.85;">Dubai, UAE</p>
+        <div class="badge">✦ MASTER EDITION · June 2026 ✦</div>
+    </div>
+
+    <div class="content">
+
+        <!-- 1. IKIGAI SENTENCE -->
+        <div class="section">
+            <div class="section-badge">SECTION 1</div>
+            <div class="section-title">Your Ikigai Sentence</div>
+            <div class="hero-sentence">
+                I guide women through transformative journeys — so they reclaim their voice, agency, and happiness, learn something new, and rediscover themselves — in a way that is ethical, holistic, deeply human, and honors their whole being: mind, body, energy, emotion, and connection.
+            </div>
+            <p style="text-align:center; color:#aaa; font-style:italic; margin-top:15px;">This is your compass. Return to it whenever you're lost.</p>
+        </div>
+
+        <!-- 2. THE LETTER -->
+        <div class="section">
+            <div class="section-badge">SECTION 2</div>
+            <div class="section-title">A Letter to You</div>
+            <div class="letter">
+                <p>Dear Hemali,</p>
+
+                <p>I've been sitting with your story. Not just the 16 questions — but the voice underneath all of it. The girl who lost herself at 9 and found herself at 12. The woman who picked up henna and stitching and painting not because anyone told her to, but because something inside her needed to create. You have always found your way back to yourself. That is your defining trait.</p>
+
+                <p>What strikes me most is a single phrase you said in your earlier journey: <em>"I understood that I love myself."</em> That realization — spoken quietly, in the middle of talking about travel — is not a small thing. It is the hinge on which your entire future turns. Because once you chose to love yourself, everything became possible: the discipline, the yoga, the businesses, the fearlessness, the boundary you finally drew. You didn't wait for permission. You just did it. And now you are building She Travels Life so other women can do the same thing.</p>
+
+                <p>Here is the thread I see through all your answers: <em>scarcity became abundance, pain became purpose, and difficult people became mentors.</em> Your father's abuse separated you from your family — and you went to your grandparents and became a single child who learned independence. Your mother-in-law was strict and hard — and instead of breaking you, you asked the most important question a person can ask: <em>"What if I'm the problem?"</em> That shift transformed your most difficult relationship into your most treasured one. You call her your mentor today. That is not ordinary, Hemali. That is alchemy.</p>
+
+                <p>You survived. Then you thrived. Now you are called to help women in their own messy midlife transitions — the ones who feel invisible at home but project confidence to the world. You understand that gap intimately. That is why they will trust you. Not because you have a beautiful Instagram. Because you have <em>lived it</em>.</p>
+
+                <p>One question I want you to sit with: <em>What would shift if you truly believed you deserve the premium price point?</em> Charging 25,000 AED for a 12-day European luxury retreat is not greed. It is alignment. It attracts women who are serious about transformation, not bargain-hunters. Your story earned that price. Your 14 years of excellence earned that price. Own it.</p>
+
+                <p>You are not surviving anymore. You are thriving. And thriving deserves to be paid for.</p>
+
+                <p style="margin-top:28px; font-style:italic;">With deep admiration — Claude</p>
+            </div>
+        </div>
+
+        <!-- 3. YOUR ARCHETYPE -->
+        <div class="section">
+            <div class="section-badge">SECTION 3</div>
+            <div class="section-title">Your Archetype</div>
+            <div class="archetype-box">
+                <div class="archetype-name">The Courage Weaver</div>
+                <div class="archetype-tagline">She alchemizes her own pain into purpose — and weaves that courage into a path other women can walk.</div>
+
+                <div class="archetype-section">
+                    <strong>Who embodies this archetype:</strong>
+                    <p>Oprah Winfrey — turned childhood trauma into a platform for millions of women's voices. Cheryl Strayed — walked herself through grief and showed others the path through nature and presence. Brené Brown — turned her own vulnerability into the world's most powerful tool for connection. <em>You walk in this lineage.</em></p>
+                </div>
+
+                <div class="archetype-section">
+                    <strong>Your Superpower:</strong>
+                    <p>You transform personal pain into universal medicine. You don't just survive hard things — you alchemize them into wisdom that heals others. You've been the invisible woman, the abused child, the woman who had to fight for everything. Now you're the woman who proves it's possible to come out luminous. That is your credential. Women feel safe with you because you have already survived the things they are afraid of.</p>
+                </div>
+
+                <div class="archetype-section">
+                    <strong>Your Kryptonite:</strong>
+                    <p>You sometimes slip back into invisibility in the places closest to you — at home, with family, in rooms where your voice has historically been diminished. You also undervalue yourself commercially: you've been taught that survival is enough, that charging premium prices feels greedy. But you are not surviving anymore. You are <em>thriving</em>. Watch for the impulse to make yourself smaller to keep the peace or compete on price to win a client.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. THE 4 CIRCLES -->
+        <div class="section">
+            <div class="section-badge">SECTION 4</div>
+            <div class="section-title">Your Four Circles of Ikigai</div>
+            <div class="four-circles">
+                <div class="circle-item">
+                    <div class="circle-title">❤️ WHAT YOU LOVE</div>
+                    <ul>
+                        <li>Reading & storytelling (grandmother's bookshop)</li>
+                        <li>Creative mastery (henna, stitching, painting)</li>
+                        <li>Networking, socializing with depth</li>
+                        <li>Yoga & wellness training</li>
+                        <li>Mentoring & sharing your journey</li>
+                        <li>Learning new skills to mastery</li>
+                        <li>Meaningful travel (not Instagram travel)</li>
+                        <li>Overcoming fear, doing the uncomfortable</li>
+                    </ul>
+                </div>
+                <div class="circle-item">
+                    <div class="circle-title">💪 WHAT YOU'RE GOOD AT</div>
+                    <ul>
+                        <li>Public speaking & connecting with strangers</li>
+                        <li>Building deep trust & relationships</li>
+                        <li>Physical strength, flexibility, endurance</li>
+                        <li>Personal style & presentation</li>
+                        <li>Emotional intelligence & listening</li>
+                        <li>Radiant positive energy (people feel it)</li>
+                        <li>Creating + delivering retreat experiences</li>
+                        <li>Leading by example — walking the talk at 57</li>
+                    </ul>
+                </div>
+                <div class="circle-item">
+                    <div class="circle-title">🌍 WHAT THE WORLD NEEDS</div>
+                    <ul>
+                        <li>Women to be heard without judgment</li>
+                        <li>Holistic support during menopause & midlife</li>
+                        <li>Meaningful travel vs. Instagram culture</li>
+                        <li>Ethical, trustworthy travel businesses</li>
+                        <li>Skill-learning travel experiences</li>
+                        <li>Human connection AI can never replace</li>
+                        <li>Proof that nothing is impossible after 40</li>
+                        <li>Community for women in transition</li>
+                    </ul>
+                </div>
+                <div class="circle-item">
+                    <div class="circle-title">💰 WHAT YOU CAN BE PAID FOR</div>
+                    <ul>
+                        <li>Staycation retreats (1-night, Dubai)</li>
+                        <li>4-7 day local retreat packages</li>
+                        <li>12-day exotic luxury travel (Europe/Northern Lights)</li>
+                        <li>Monthly community (yoga + healing + mentoring)</li>
+                        <li>Healing sessions (1-on-1)</li>
+                        <li>Corporate women's leadership retreats</li>
+                        <li>Franchise/licensing model (future)</li>
+                        <li>14-year credibility + Tripadvisor Excellence (2015–2025)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. PATTERN OVERLAPS -->
+        <div class="section">
+            <div class="section-badge">SECTION 5</div>
+            <div class="section-title">Where Your Circles Intersect</div>
+            <div class="three-col">
+                <div class="card">
+                    <div class="card-title">🔥 PASSION</div>
+                    <p style="font-size:0.88em; color:#999; margin-bottom:12px;">(Love ∩ Good At)</p>
+                    <div class="card-content">Mentoring through story. You love sharing your journey AND you're gifted at making people feel seen and heard. When you speak your experience, people's lives shift. This is your natural state.</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">🎯 MISSION</div>
+                    <p style="font-size:0.88em; color:#999; margin-bottom:12px;">(Love ∩ World Needs)</p>
+                    <div class="card-content">Liberating women through travel. You love meaningful travel + exploration. The world desperately needs women in midlife to rediscover themselves and their voice. Together: She Travels Life is your mission.</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">💼 VOCATION</div>
+                    <p style="font-size:0.88em; color:#999; margin-bottom:12px;">(World Needs ∩ Paid For)</p>
+                    <div class="card-content">Holistic transformation retreats. Women need meaningful, human-centered retreat experiences. And they will pay premium prices for them. This is your revenue engine and your soul work — aligned.</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">🏆 PROFESSION</div>
+                <p style="font-size:0.88em; color:#999; margin-bottom:12px;">(Good At ∩ Paid For)</p>
+                <div class="card-content">Curated, ethical women's experiences. You are gifted at relationship building, creating positive energy, mentoring, and retreat delivery. These exact skills are what women pay premium prices for. City One's 14 years of Tripadvisor Excellence is your proof. Now you're channeling all of it into She Travels Life.</div>
+            </div>
+        </div>
+
+        <!-- 6. YOUR NICHE -->
+        <div class="section">
+            <div class="section-badge">SECTION 6</div>
+            <div class="section-title">Your Niche (The Bullseye)</div>
+            <div class="niche-box">
+                <div class="niche-block">
+                    <div class="niche-label">WHO:</div>
+                    <p>Women ages 40–60 in midlife and menopause transitions who feel stuck, unheard, or invisible — often successful in the world but hollow or diminished at home. They know something needs to change but don't know where to start.</p>
+                </div>
+                <div class="niche-block">
+                    <div class="niche-label">PROBLEM:</div>
+                    <p>They are experiencing hormonal changes, feeling invisible, comparing themselves to everyone, caught in the trap of Instagram-culture travel ("look where I've been"), and lacking meaningful transformation, community, and human connection during this pivotal life phase. Nobody is addressing menopause + holistic travel together. That gap is yours.</p>
+                </div>
+                <div class="niche-block">
+                    <div class="niche-label">DIFFERENTIATOR:</div>
+                    <p>Only Hemali Shah combines: (1) lived experience of trauma → resilience → transformation, (2) 14 years of award-winning ethical travel business, (3) yoga teacher training & wellness expertise, (4) deep emotional intelligence from years of mentoring, (5) the conviction that travel should be meaningful — not superficial, (6) commitment that women should feel <em>younger from within</em> — not just look younger on Instagram, (7) a family of her own that proves you can have roots AND wings, AND (8) walking the talk at 57 with the energy, health, and joy of a woman 20 years younger.</p>
+                </div>
+                <div class="test-phrase">
+                    <strong>Your Test Phrase (say this at your next dinner party):</strong><br><br>
+                    "I help women over 40 rediscover themselves through meaningful travel — where they learn a new skill, feel heard without judgment, and come home younger from within. Not Instagram travel. Real transformation."
+                    <br><br>
+                    <em>If they say "tell me more" — they're your person.</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. THE ONE THING -->
+        <div class="section">
+            <div class="section-badge">SECTION 7</div>
+            <div class="section-title">The ONE THING (Your 90-Day Focus)</div>
+            <div class="one-thing">
+                <div class="one-thing-statement">
+                    If you do ONE thing in the next 90 days — launch your first She Travels Life staycation retreat (1-night luxury Dubai hotel, 3,500 AED per woman, 8–12 women). This is your proof engine.
+                </div>
+                <div class="one-thing-why">
+                    <strong>Why this is the highest-leverage move:</strong><br>
+                    Right now, She Travels Life exists in your vision. The staycation is the first tangible proof — low barrier for women (no travel needed), low cost for you (minimal logistics), full model test (yoga, healing circle, meaningful conversation, skill-learning, shared meal). One successful staycation = testimonials, community, and 5–10 women ready to invest in the 12-day European luxury adventure at 25,000 AED.
+                </div>
+                <div class="action-grid">
+                    <div class="action-block">
+                        <div class="action-time">TODAY</div>
+                        <div class="action-desc">Choose a luxury Dubai hotel. Pick a weekend date. Outline the 1-night agenda: welcome circle, yoga, sound healing, henna, meaningful conversation dinner, morning meditation. Price it: 3,500 AED.</div>
+                    </div>
+                    <div class="action-block">
+                        <div class="action-time">THIS WEEK</div>
+                        <div class="action-desc">Write the retreat description (lead with your story, not the itinerary). Post on LinkedIn. Personally reach out to 20 women in your network who are 40–60 and ready for something real. Offer early-bird: 3,000 AED.</div>
+                    </div>
+                    <div class="action-block">
+                        <div class="action-time">BY DAY 90</div>
+                        <div class="action-desc">Run the retreat. Capture testimonials, before/after stories, photos. Then launch 4-day and 7-day retreats using those testimonials. Begin preselling the 12-day European Northern Lights retreat at 25,000 AED.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. HOW THIS CHANGES YOUR BUSINESS -->
+        <div class="section">
+            <div class="section-badge">SECTION 8</div>
+            <div class="section-title">How This Changes Your Business</div>
+            <div class="biz-grid">
+                <div class="card">
+                    <div class="card-title">📢 MARKETING CHANGES</div>
+                    <div class="card-content">
+                        <p><strong>STOP:</strong> Generic travel marketing. Competing on price. Talking about City One as your primary identity.</p>
+                        <br>
+                        <p><strong>START:</strong> Leading with She Travels Life. Telling YOUR story (the invisibility, the reclamation, Madrid alone). Talking about meaningful travel vs. Instagram culture. Creating content about menopause, midlife, women's voice, yoga, wellness. Making it emotional — because women buy emotions.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">💬 SALES CHANGES</div>
+                    <div class="card-content">
+                        <p><strong>WHO YOU PITCH:</strong> Women 40–60 seeking transformation, ready to invest in themselves, done with superficial travel.</p>
+                        <br>
+                        <p><strong>WHO YOU REFUSE:</strong> Budget seekers, Instagram-culture travelers, clients misaligned with your values.</p>
+                        <br>
+                        <p><strong>HOW YOU SELL:</strong> One-on-one conversations. Share your story first. Let them experience the staycation, then upsell to premium.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">💰 OFFER & PRICING CHANGES</div>
+                    <div class="card-content">
+                        <p><strong>STOP:</strong> Generic "women's tours." Budget packages. Discounting to compete.</p>
+                        <br>
+                        <p><strong>START:</strong> The tiered retreat ladder:<br>
+                        • Staycation (1 night): 3,500 AED<br>
+                        • 4-day local retreat: 8,000 AED<br>
+                        • 7-day retreat: 15,000 AED<br>
+                        • 12-day exotic luxury: 25,000 AED<br>
+                        • Monthly community: 1,000–1,500 AED/month</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">🚫 WHAT TO SAY NO TO</div>
+                    <div class="card-content">
+                        <p>• Budget travel requests outside your niche<br>
+                        • Instagram-culture clients<br>
+                        • Discounting your price to compete with big players<br>
+                        • Mixing City One and She Travels Life branding<br>
+                        • Serving all women (focus: 40–60 in transition)<br>
+                        • Waiting for permission from anyone to build this</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. YOUR 3 CONTENT PILLARS -->
+        <div class="section">
+            <div class="section-badge">SECTION 9</div>
+            <div class="section-title">Your 3 Content Pillars</div>
+            <p class="section-subtitle">Post 2x per week, rotating these themes. These are your thought-leadership zones.</p>
+
+            <div class="pillar">
+                <div class="pillar-title">🌸 PILLAR 1: Women's Reclamation & Midlife Transformation</div>
+                <div class="pillar-desc">Your lived expertise on navigating menopause, invisibility, then reclaiming your life. The personal story that makes women feel seen.</div>
+                <ul>
+                    <li>"The moment I stopped asking permission to be happy"</li>
+                    <li>"How I went from feeling invisible to feeling magnetic at 57"</li>
+                    <li>"Menopause is not an ending — it's a doorway. Here's what's on the other side."</li>
+                    <li>"Why 40+ women are actually having their best years"</li>
+                </ul>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-title">✈️ PILLAR 2: Meaningful Travel (vs. Instagram Travel)</div>
+                <div class="pillar-desc">Your position against superficial, camera-focused travel culture. The thing that makes you different from every other travel brand.</div>
+                <ul>
+                    <li>"Travel is not about the selfie. It's about who you become."</li>
+                    <li>"Why I'm done with Instagram travel — and what I do instead"</li>
+                    <li>"Travel that teaches: the skill I learned in Madrid that changed me"</li>
+                    <li>"The difference between having been somewhere and becoming someone"</li>
+                </ul>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-title">💪 PILLAR 3: Holistic Wellness + Authentic Leadership</div>
+                <div class="pillar-desc">Yoga, healing, spirituality, body confidence, inner beauty, and being a whole woman — not just a successful one.</div>
+                <ul>
+                    <li>"What yoga taught me about letting go (and why women need this)"</li>
+                    <li>"Discipline isn't punishment. It's self-love."</li>
+                    <li>"Nothing is impossible. Here is why I know this."</li>
+                    <li>"Inner beauty work: the one thing that changes everything"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 10. MONETIZATION PATHS -->
+        <div class="section">
+            <div class="section-badge">SECTION 10</div>
+            <div class="section-title">Your 3 Monetization Paths</div>
+
+            <div class="mono-card">
+                <div class="mono-title">🥇 PATH 1: The Retreat Ladder (Highest Probability)</div>
+                <p><strong>Revenue Projection:</strong> 500,000–1,000,000 AED annually at scale</p>
+                <br>
+                <p><strong>The ladder:</strong></p>
+                <ul style="margin: 12px 0 12px 20px; color:#555; line-height:2;">
+                    <li>1-night staycation: 3,500 AED × 10 women = 35,000 AED per retreat</li>
+                    <li>4-5 day local retreat: 8,000 AED × 8 women = 64,000 AED per retreat</li>
+                    <li>7-day retreat: 15,000 AED × 6 women = 90,000 AED per retreat</li>
+                    <li>12-day European luxury: 25,000 AED × 5-6 women = 125,000+ AED per retreat</li>
+                </ul>
+                <p><strong>First actions:</strong> Launch staycation this month → 4-day retreats monthly from August → Presell European retreat (October) by August.</p>
+            </div>
+
+            <div class="mono-card">
+                <div class="mono-title">🏔️ PATH 2: Recurring Community (Highest Ceiling)</div>
+                <p><strong>Revenue Projection:</strong> 200,000–1,200,000 AED annually (scalable, recurring, high-margin)</p>
+                <br>
+                <p>Monthly membership: 1,000–1,500 AED/month for yoga + healing circle + mentoring + conversation circles. If 100 women join: 1,200,000 AED/year in predictable revenue. Low marketing cost (word of mouth from retreat graduates). High impact per woman.</p>
+                <br>
+                <p><strong>First actions:</strong> Launch monthly "She Travels Life Community Circles" (yoga + sound healing + conversation). Use staycation graduates as founding members. Price: 1,500 AED/month members, 2,000 non-members.</p>
+            </div>
+
+            <div class="mono-card">
+                <div class="mono-title">🌍 PATH 3: Franchise / Premium 1-on-1 (Most Values-Aligned)</div>
+                <p><strong>Revenue Projection:</strong> 300,000–500,000 AED annually + recurring licensing</p>
+                <br>
+                <p><strong>1-on-1:</strong> Bespoke 3-week luxury journeys for high-net-worth women (50,000–100,000 AED+). Corporate women's leadership retreats (companies pay 100,000+ AED). Life coaching + healing sessions (2,000 AED/session).</p>
+                <br>
+                <p><strong>Franchise (Year 3+):</strong> License your 5-pillar model to other women leaders globally. Recurring licensing fees + royalties. Document the curriculum now — this becomes your franchise playbook.</p>
+            </div>
+        </div>
+
+        <!-- 11. TOP 3 AI EMPLOYEES -->
+        <div class="section">
+            <div class="section-badge">SECTION 11</div>
+            <div class="section-title">Your Top 3 AI Employees (Build These First)</div>
+            <p class="section-subtitle">These agents multiply your impact so you can focus on what only Hemali can do: human connection, presence, and transformation.</p>
+
+            <div class="ai-card">
+                <div class="ai-title">🧠 AI EMPLOYEE #1: Marketing Brain</div>
+                <p><strong>What it does:</strong> Generates LinkedIn posts, content calendar, email sequences, testimonial amplification — all in your voice, across your 3 content pillars. Posts 2x/week without you writing every word.</p>
+                <br>
+                <p><strong>Why first:</strong> Content drives awareness. Awareness drives bookings. 10,000+ reach/month on LinkedIn = 20–30 inbound inquiries/month from warm leads.</p>
+            </div>
+
+            <div class="ai-card">
+                <div class="ai-title">📅 AI EMPLOYEE #2: Operations Brain</div>
+                <p><strong>What it does:</strong> Manages retreat bookings, community scheduling, participant reminders, feedback surveys, post-retreat follow-up sequences. Handles logistics so you focus on <em>leading</em>, not administrating.</p>
+                <br>
+                <p><strong>Why second:</strong> Operations scales retreats. Without this, you're doing admin instead of transformation work. This AI saves you 10+ hours/week.</p>
+            </div>
+
+            <div class="ai-card">
+                <div class="ai-title">💬 AI EMPLOYEE #3: Community + Sales Brain</div>
+                <p><strong>What it does:</strong> Handles inbound inquiries, qualifies leads, nurtures community members between retreats, gathers testimonials, follows up with interested prospects. Converts browsers into bookers. Keeps retreat graduates engaged (so they become repeat clients).</p>
+                <br>
+                <p><strong>Why third:</strong> Once you have awareness (AI #1) and operations (AI #2), you need conversion and retention. This turns interest into revenue and community into loyalty.</p>
+            </div>
+        </div>
+
+        <!-- 12. YOUR 5-PERSON ORBIT -->
+        <div class="section">
+            <div class="section-badge">SECTION 12</div>
+            <div class="section-title">Your 5-Person Orbit (Strategic Relationships)</div>
+            <div class="orbit-grid">
+                <div class="orbit-card">
+                    <div class="orbit-title">🧭 THE MENTOR (Spiritual Anchor)</div>
+                    <p style="font-size:0.93em; color:#555;">A woman 60+ who has navigated midlife, built a wellness practice, found her voice. She reminds you that there's always a next chapter — and grounds you when scaling gets noisy. Look for: yoga lineage teachers, healer/coach with global reach, someone who's franchised or licensed their method.</p>
+                </div>
+                <div class="orbit-card">
+                    <div class="orbit-title">👥 THE PEER (Fellow Founder)</div>
+                    <p style="font-size:0.93em; color:#555;">Another woman entrepreneur building a community-centered, women-focused business. She walks beside you. You can be vulnerable. You celebrate wins together. Look for: EO community, mastermind groups, 10X With AI cohort peers.</p>
+                </div>
+                <div class="orbit-card">
+                    <div class="orbit-title">💼 THE HIRE (Facilitator)</div>
+                    <p style="font-size:0.93em; color:#555;">A woman (ideally 40–60, your own ICP) who loves people, is organized, and can co-facilitate retreats and run community circles. She extends your capacity when you can't be in two places. Hire part-time for staycation first, then expand.</p>
+                </div>
+                <div class="orbit-card">
+                    <div class="orbit-title">🤝 THE PARTNER (Healer + Logistics)</div>
+                    <p style="font-size:0.93em; color:#555;">A yoga teacher, sound healer, or somatic practitioner who co-creates retreat experiences with you. Also: a logistics partner (City One network) who handles flights + hotels so you focus on the magic, not the mechanics.</p>
+                </div>
+                <div class="orbit-card" style="grid-column: span 2;">
+                    <div class="orbit-title">🎯 THE AUDIENCE (Women 40–60)</div>
+                    <p style="font-size:0.93em; color:#555;">Your retreat graduates, monthly members, women in transition who have experienced your transformation. They are your feedback loop, your referrals, your testimonials, and your brand ambassadors. Listen to them constantly. Monthly community calls. Surveys. 1-on-1 check-ins. Let them shape She Travels Life.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 13. YOUR ENERGY MAP -->
+        <div class="section">
+            <div class="section-badge">SECTION 13</div>
+            <div class="section-title">Your Energy Map</div>
+            <p class="section-subtitle">Use this to make every business decision. Every YES should feed. Every NO should protect.</p>
+            <div class="energy-grid">
+                <div class="energy-feeds">
+                    <div class="energy-label">⚡ WHAT FEEDS YOU</div>
+                    <div class="energy-entry"><strong>Human connection:</strong> 1-on-1 conversations, mentoring, witnessing women's breakthroughs in real time</div>
+                    <div class="energy-entry"><strong>Presence:</strong> Leading retreats, yoga, sound healing — being fully in the moment</div>
+                    <div class="energy-entry"><strong>Learning:</strong> New skills, yoga teacher training, spiritual growth, AI, business</div>
+                    <div class="energy-entry"><strong>Movement:</strong> Yoga, hiking, gym, physical expression</div>
+                    <div class="energy-entry"><strong>Sharing your story:</strong> Speaking, writing, vulnerability that lands for someone</div>
+                    <div class="energy-entry"><strong>Building community:</strong> Gathering women, creating belonging and safety</div>
+                    <div class="energy-entry"><strong>Travel & discovery:</strong> New places, new experiences, meaningful adventure</div>
+                </div>
+                <div class="energy-drains">
+                    <div class="energy-label">⚠️ WHAT DRAINS YOU</div>
+                    <div class="energy-entry"><strong>Dishonest practices:</strong> Overpromising, underdelivering, exploitative pricing races</div>
+                    <div class="energy-entry"><strong>Superficiality:</strong> Instagram-culture travel, vanity metrics, fake connection</div>
+                    <div class="energy-entry"><strong>Comparison:</strong> Competing with big players, measuring yourself against others' prices</div>
+                    <div class="energy-entry"><strong>Undervaluing yourself:</strong> Discounting, apologizing for premium offers, seeking permission</div>
+                    <div class="energy-entry"><strong>Isolation:</strong> Doing everything alone, no team or partner to share the load</div>
+                    <div class="energy-entry"><strong>Admin overload:</strong> Logistics, scheduling, emails that could be automated or delegated</div>
+                    <div class="energy-entry"><strong>Wrong clients:</strong> Budget seekers, misaligned women, energy that doesn't match your mission</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 14. WHAT TO STOP DOING -->
+        <div class="section">
+            <div class="section-badge">SECTION 14</div>
+            <div class="section-title">What to Stop Doing (Subtractive Clarity)</div>
+            <div class="stop-box">
+                <ol>
+                    <li><strong>Stop managing big corporate travel groups.</strong> They are misaligned with your mission, expensive to deliver, and emotionally empty. Every hour spent there is an hour stolen from She Travels Life.</li>
+                    <li><strong>Stop marketing City One as your primary identity.</strong> Rebrand yourself as a transformation leader. City One is the vehicle. She Travels Life is the destination.</li>
+                    <li><strong>Stop justifying low pricing to compete.</strong> Big players will always undercut you. Your value is in transformation and ethics — not budget logistics. Charge premium or lose your soul.</li>
+                    <li><strong>Stop doing all the logistics yourself.</strong> Hire. Delegate. Automate. You are a transformation person, not a logistics person. Protect that distinction fiercely.</li>
+                    <li><strong>Stop hiding your story.</strong> Your vulnerability and resilience are your biggest competitive advantage. Lead with them everywhere. Always. The woman who survived is more credible than the woman with the perfect Instagram.</li>
+                    <li><strong>Stop waiting for permission.</strong> From your husband, from your family, from the market, from timing. You've already proven you can. The evidence is 14 years and 10 Tripadvisor Excellence awards. You don't need permission anymore. Stand in that.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- 15. 12-MONTH VISION -->
+        <div class="section">
+            <div class="section-badge">SECTION 15</div>
+            <div class="section-title">Your 12-Month Vision</div>
+            <p class="section-subtitle">Tuesday morning, June 2027. Here's what your life looks like:</p>
+            <div class="horizon-box">
+                <p>It is 6 AM. You have just finished yoga in your studio — 60 minutes, full presence, no phone. Your body feels strong. Your mind is clear. You sit with your chai and open your phone. There is a message from Shreya, who attended your first staycation retreat six months ago. She says: <em>"Hemali, I just got back from solo hiking in Portugal. I did it alone. I wasn't afraid. I don't think I could have done this before I met you."</em> You read it twice. That is what this is about.</p>
+
+                <p>This month alone, She Travels Life has generated 250,000+ AED in retreat revenue: two 4-day Dubai retreats (16 women, 8,000 AED each), one monthly community healing circle (35 women, 1,500 AED each), and two private 1-on-1 healing sessions (2,000 AED each). By September, you'll run your first 12-day European Northern Lights retreat — 6 women already confirmed at 25,000 AED each. Your AI Marketing Brain has written 8 LinkedIn posts this week (10 minutes of your review time). Your AI Operations Brain has handled all the logistics and sent every participant email. You are not in your inbox. You are present, leading, transforming.</p>
+
+                <p>Your family has shifted too. They have seen She Travels Life become real. Your children are proud. Your husband has watched what happens when you come home from retreats — the fire in your eyes, the certainty in your walk. He is starting to understand: when Hemali is happy and in her purpose, everyone around her is lifted. You are not invisible at home anymore. You are fully, unapologetically yourself — in every room.</p>
+
+                <p>You are working 30 hours a week on what you love: mentoring, facilitating, thinking strategically. Everything else is delegated or automated. You are building the movement, not managing the details.</p>
+            </div>
+        </div>
+
+        <!-- 16. 5-YEAR VISION -->
+        <div class="section">
+            <div class="section-badge">SECTION 16</div>
+            <div class="section-title">Your 5-Year Vision</div>
+            <div class="horizon-box">
+                <p><strong>Year 5: The Movement</strong></p>
+                <p>She Travels Life is recognized globally as the premier holistic travel brand for women in midlife. You have hosted 500+ women across 50+ retreats — Dubai staycations, 4-day locals, 7-day premiums, 12-day exotic luxury experiences in Europe, Southeast Asia, East Africa. Annual revenue: 2–3 million AED. Profit: 1+ million AED. Time investment: 20 hours/week on leadership, vision, and the retreats you choose personally.</p>
+
+                <p>You have franchised the 5-pillar model in 3 countries. Women leaders in Dubai, Mumbai, and Bali are running their own She Travels Life retreats using your curriculum. You are not doing every retreat — you are training, certifying, and guiding other women to become facilitators. The movement is bigger than you. That is the point.</p>
+
+                <p>You have written a book: <em>"From Invisible to Unstoppable: How Women Reclaim Their Voice Through Meaningful Travel."</em> It is gifted between women. Corporate teams assign it for leadership development. You are invited to speak globally. She Travels Life became a household name in women's wellness and transformation travel.</p>
+
+                <p>Most importantly: you have created scholarships so underprivileged women can attend retreats they otherwise couldn't access. You have funded women's old age homes or community centers — that dream you mentioned of creating something for women. The impact has compounded far beyond what you imagined standing in Dubai 5 years ago, planning a 1-night staycation for 10 women at 3,500 AED each.</p>
+
+                <p>You are not just a travel business owner. You are <em>The Courage Weaver</em> — the woman who turned her own comeback into a movement for other women's freedom. And the movement is just beginning.</p>
+            </div>
+        </div>
+
+        <!-- 17. PULL QUOTES -->
+        <div class="section">
+            <div class="section-badge">SECTION 17</div>
+            <div class="section-title">Pull Quotes (Your Words · Share These Everywhere)</div>
+
+            <div class="pull-quote">
+                "I understood that I love myself."
+                <div class="attribution">— Hemali Shah · The realization that changed everything</div>
+            </div>
+
+            <div class="pull-quote">
+                "Nothing is impossible in this world. If you want to achieve something, you will achieve it. There is no age bar, no gender bar, no nationality bar."
+                <div class="attribution">— Hemali Shah</div>
+            </div>
+
+            <div class="pull-quote">
+                "Travel is not about looking younger. It's about feeling younger — rediscovering that childlike joy where you forget the world and just experience it."
+                <div class="attribution">— Hemali Shah · She Travels Life</div>
+            </div>
+
+            <div class="pull-quote">
+                "My mother-in-law was difficult. Instead of resenting her, I asked: what if she's my greatest teacher? That shift changed everything. Difficult people are often our doorways to resilience."
+                <div class="attribution">— Hemali Shah</div>
+            </div>
+
+            <div class="pull-quote">
+                "Woman deserves love and happiness — inside and out. That is what I am going to make happen."
+                <div class="attribution">— Hemali Shah · She Travels Life</div>
+            </div>
+        </div>
+
+        <!-- 18. DAILY MANTRA -->
+        <div class="section">
+            <div class="section-badge">SECTION 18</div>
+            <div class="section-title">Your Daily Mantra</div>
+            <p class="section-subtitle">Say this every morning. Let it lead your decisions.</p>
+            <div class="mantra">
+                <div class="mantra-line">I am heard. I am seen. I am enough.</div>
+                <div class="mantra-line">I create transformation for women.</div>
+                <div class="mantra-line">I charge premium prices because my work is premium.</div>
+                <div class="mantra-line">I move fearlessly forward.</div>
+                <div class="mantra-sub">
+                    My transformation inspires the world.<br>
+                    Nothing is impossible when I choose myself.
+                </div>
+            </div>
+        </div>
+
+        <!-- 19. BOOKS & PODCASTS -->
+        <div class="section">
+            <div class="section-badge">SECTION 19</div>
+            <div class="section-title">3 Books · 3 Podcasts (Curated for The Courage Weaver)</div>
+            <div class="reading-grid">
+                <div class="reading-item">
+                    <div class="reading-title">📖 Untamed — Glennon Doyle</div>
+                    <div class="reading-author">Author: Glennon Doyle</div>
+                    <div class="reading-why">A woman reclaims her voice, her freedom, and her full self after years of making herself smaller. This is the emotional blueprint for She Travels Life. Every woman in your retreats should read this before she arrives.</div>
+                </div>
+                <div class="reading-item">
+                    <div class="reading-title">📖 Wild — Cheryl Strayed</div>
+                    <div class="reading-author">Author: Cheryl Strayed</div>
+                    <div class="reading-why">She walked herself through grief and loss and found transformation through physical presence in nature. You are creating retreats that do exactly this. She is your spiritual predecessor. Read this as the soul of She Travels Life.</div>
+                </div>
+                <div class="reading-item">
+                    <div class="reading-title">📖 The Body Keeps the Score — Bessel van der Kolk</div>
+                    <div class="reading-author">Author: Bessel van der Kolk</div>
+                    <div class="reading-why">You survived trauma (abuse, displacement, comparison). This book explains how trauma lives in the body and how movement — yoga, travel, presence — heals it. Validates your trauma-informed, holistic approach to women's transformation.</div>
+                </div>
+                <div class="reading-item">
+                    <div class="reading-title">🎙️ How to Fail — Elizabeth Day</div>
+                    <div class="reading-author">Host: Elizabeth Day</div>
+                    <div class="reading-why">Real women talking about their failures, resilience, and comebacks. Your people. Your stories. Inspiration for what you're building and fuel when the journey feels hard.</div>
+                </div>
+                <div class="reading-item">
+                    <div class="reading-title">🎙️ On Being — Krista Tippett</div>
+                    <div class="reading-author">Host: Krista Tippett</div>
+                    <div class="reading-why">Deep conversations about meaning, purpose, spirituality, and how to live authentically. The philosophical and spiritual foundation for why She Travels Life matters beyond travel.</div>
+                </div>
+                <div class="reading-item">
+                    <div class="reading-title">🎙️ On Purpose — Jay Shetty</div>
+                    <div class="reading-author">Host: Jay Shetty</div>
+                    <div class="reading-why">Interviews with thought leaders on purpose, resilience, transformation, and mindfulness. Women's wellness wisdom. Meditation and yoga philosophy. Perfect background listening during your morning yoga or walks.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 20. NEXT STEPS + CLOSING -->
+        <div class="section">
+            <div class="section-badge">SECTION 20</div>
+            <div class="section-title">Your Next Steps · Starting Today</div>
+            <div class="next-steps">
+                <div class="next-title">🚀 Your Immediate Action Plan</div>
+                <div class="steps-grid">
+                    <div class="step-block">
+                        <div class="step-time">TODAY</div>
+                        <div class="step-desc">Choose your luxury Dubai hotel. Set the date (a weekend in July). Outline your 1-night staycation agenda. Set the price: 3,500 AED. Write the first 3 sentences of your retreat description — lead with your story, not the itinerary.</div>
+                    </div>
+                    <div class="step-block">
+                        <div class="step-time">THIS WEEK</div>
+                        <div class="step-desc">Write and post your first She Travels Life LinkedIn post (use Pillar 1: Women's Reclamation). Personally reach out to 20 women in your network who are 40–60 and ready. Send a voice note — more personal than a text.</div>
+                    </div>
+                    <div class="step-block">
+                        <div class="step-time">THIS MONTH</div>
+                        <div class="step-desc">Pre-sell 8–12 spots for the staycation. Run it. Capture testimonials, photos, stories. Use those to launch your 4-day retreat (August) and begin preselling your 12-day European luxury retreat for October at 25,000 AED.</div>
+                    </div>
+                </div>
+                <div class="closing-words">
+                    Your Ikigai is your compass. When in doubt, return to this page.<br>
+                    You are here to help women reclaim their voice, their agency, their happiness.<br>
+                    You have already proven it is possible — in your own life.<br>
+                    Now go do it for them. 🌸
+                </div>
+            </div>
+        </div>
+
+    </div><!-- end content -->
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p><strong>Ikigai Master Document · Hemali Shah · She Travels Life</strong></p>
+        <p style="margin-top:10px;">Dubai, UAE · MASTER EDITION · June 2026</p>
+        <p style="margin-top:18px; font-size:0.9em; max-width:600px; margin-left:auto; margin-right:auto; line-height:1.7;">This document is yours. Print it. Save it. Share one section with a trusted person. Reference it when you are lost. Your Ikigai does not change — only how you express it evolves. Come back to this page whenever you need to remember why you are building She Travels Life.</p>
+        <p style="margin-top:20px; font-style:italic; color:#e05fa0;">Synthesized from two Ikigai journeys · Your full self, combined. 🌸</p>
+    </div>
+
+</div><!-- end container -->
+</body>
+</html>

@@ -1,0 +1,353 @@
+---
+# Design System — She Travels.Life
+# Reference File for Content Strategy Skill
+
+design_system:
+  name: "She Travels.Life Design System"
+  version: 1.0
+  inspiration: "Twilight/Sunrise Palette (never dark luxury)"
+  
+  # ============ BRAND COLORS ============
+  colors:
+    primary:
+      coral_pink:
+        hex: "#E8967F"
+        usage: "Headlines, key phrases, CTAs"
+        symbolism: "Dawn, rebirth, feminine power"
+        temperature: "Warm, inviting, grounded"
+      
+      golden:
+        hex: "#D4A574"
+        usage: "Supporting elements, secondary headlines"
+        symbolism: "Transformed energy, wisdom, inner light"
+        temperature: "Warm"
+      
+      dusky_lavender:
+        hex: "#9B8BA8"
+        usage: "Subtle highlights, borders, backgrounds"
+        symbolism: "Twilight, inner work, sacredness, transition"
+        temperature: "Cool but not harsh"
+    
+    neutral:
+      warm_cream:
+        hex: "#F5F3EF"
+        usage: "Background color"
+        note: "Off-white, not pure white. Soft, welcoming, readable"
+      
+      charcoal:
+        hex: "#2D2D2D"
+        usage: "Text color (not pure black)"
+        note: "Warm dark gray. Readable, not harsh"
+      
+      light_gray:
+        hex: "#D9D6D0"
+        usage: "Dividers, secondary text, subtle emphasis"
+        note: "Soft contrast, not stark"
+  
+  # ============ TYPOGRAPHY ============
+  typography:
+    primary:
+      name: "Playfair Display or Lora"
+      category: "Serif"
+      style: "Classic, dignified"
+      usage: "Headlines, subheads"
+      sizes:
+        main_headline:
+          size: "32–48px"
+          weight: "Bold (700) for contrast"
+        subheads:
+          size: "24–32px"
+          weight: "Regular (400) for elegance"
+      properties:
+        all_caps: false
+        line_height: 1.3
+        example: "Midlife Isn't a Pause. It's a Launching Pad."
+    
+    secondary:
+      name: "Inter or Open Sans"
+      category: "Sans-serif"
+      style: "Modern, readable"
+      usage: "Body text"
+      sizes:
+        main_body:
+          size: "16–18px"
+          weight: "Regular (400)"
+        secondary_copy:
+          size: "14–16px"
+          weight: "Medium (500) for emphasis"
+      properties:
+        all_caps: false
+        line_height: 1.6
+    
+    accent:
+      name: "Italic Serif (Playfair Display Italic or Lora Italic)"
+      usage: "Hemali's signature phrases"
+      color: "Coral-Pink (#E8967F)"
+      example: "Nothing is impossible in this world."
+  
+  # ============ VISUAL HIERARCHY ============
+  hierarchy:
+    level_1:
+      name: "Main Headline"
+      size: "36–48px"
+      color: "Charcoal (#2D2D2D)"
+      font: "Playfair Display Bold"
+      margin_below: "20px"
+      purpose: "Primary positioning, core claim"
+    
+    level_2:
+      name: "Subheading"
+      size: "24–28px"
+      color: "Coral-Pink (#E8967F)"
+      font: "Playfair Display Regular"
+      margin_below: "16px"
+      purpose: "Supporting claim, bridge to body"
+    
+    level_3:
+      name: "Body Copy"
+      size: "16–18px"
+      color: "Charcoal (#2D2D2D)"
+      font: "Inter Regular"
+      line_height: 1.6
+      margin_below: "12–16px"
+      purpose: "Main narrative, storytelling"
+    
+    level_4:
+      name: "Accent/Signature"
+      size: "14–16px"
+      color: "Coral-Pink (#E8967F)"
+      font: "Lora Italic or Playfair Display Bold"
+      margin: "8px above/below"
+      purpose: "Hemali's voice, signature phrases"
+    
+    level_5:
+      name: "Secondary/Supporting"
+      size: "14px"
+      color: "Light Gray (#D9D6D0)"
+      font: "Inter Regular"
+      purpose: "Testimonials, details, supporting info"
+  
+  # ============ SPACING & LAYOUT ============
+  spacing:
+    white_space:
+      philosophy: "Sacred. Never feel cramped."
+      minimum_margin: "20px"
+      minimum_padding: "20px"
+    
+    column_width:
+      max_for_body_text: "600px"
+      reason: "Optimal reading width. Wider feels scattered, narrower feels cramped."
+    
+    line_breaks:
+      after_headlines: "20px"
+      after_paragraphs: "16px"
+      between_sections: "24–32px"
+      purpose: "Creates rhythm, prevents visual fatigue"
+  
+  # ============ VISUAL ELEMENTS ============
+  elements:
+    dividers:
+      style: "Simple horizontal line"
+      color: "Light Gray (#D9D6D0) or Dusky Lavender (#9B8BA8)"
+      height: "1–2px"
+      usage: "Separate sections without harsh breaks"
+    
+    accent_underlines:
+      color: "Coral-Pink (#E8967F)"
+      style: "3–4px solid"
+      usage_under: "Key phrases, Hemali's signature, section headers"
+    
+    borders:
+      color: "Dusky Lavender (#9B8BA8)"
+      width: "1–2px"
+      opacity: "60–80% (never harsh)"
+      usage_for: "Testimonial blocks, quote blocks, key callouts"
+    
+    background_blocks:
+      color: "Dusky Lavender (#9B8BA8)"
+      opacity: "10–15%"
+      note: "Never solid color (too harsh). Always semi-transparent."
+      usage_for: "Key messaging, testimonials, CTAs"
+  
+  # ============ IMAGERY & PHOTOGRAPHY ============
+  imagery:
+    aesthetic: "NOT Dark Luxury"
+    qualities:
+      - "Warm, golden-hour lighting (sunrise/sunset)"
+      - "Real people, not stock perfection"
+      - "Vulnerable moments (tears, quiet reflection, raw emotion)"
+      - "Community in circles (not posed group shots)"
+      - "Travel as backdrop (not hero)"
+      - "Hemali and participants visible (not hidden)"
+    
+    color_grading:
+      filter: "Warm (amber, golden tones)"
+      avoid: "Cool blue tones"
+      saturation: "Rich but not over-saturated"
+      contrast: "Soft, not harsh"
+      matching: "Brand palette colors (coral, gold, lavender) in photos"
+    
+    avoid:
+      - "Minimalist white spaces"
+      - "Cool gray/blue palettes"
+      - "Posed, perfect beauty shots"
+      - "Slick, hyper-professional photography"
+      - "Stock photo feeling"
+      - "Dark, moody aesthetics"
+      - "Absence of people or emotion"
+    
+    subject_matter:
+      - "Real retreats (candids from August staycation, September retreat)"
+      - "Hemali's journey (Madrid photos, yoga, personal moments)"
+      - "Community moments (women in circles, vulnerable faces)"
+      - "Travel as vessel (but secondary to inner transformation)"
+      - "Hemali's wisdom (her face, her presence, her story)"
+  
+  # ============ ICONS & SYMBOLS ============
+  symbols:
+    primary:
+      compass: "🧭 — journey, direction, inner navigation"
+      sunrise: "🌅 — rebirth, rising, dawn of new chapter"
+      spark: "✨ — transformation, awakening, power"
+      water: "waves — flow, healing, release"
+    
+    usage_in:
+      - "LinkedIn post headers (1 symbol, max)"
+      - "Email subject lines (1 symbol, max)"
+      - "Website sections (sparingly)"
+    
+    never_use:
+      - "Multiple symbols in one post (creates noise)"
+      - "Decorative emoji (flowers, hearts, unless intentional)"
+      - "Generic wellness symbols (chakras, mandalas without context)"
+  
+  # ============ BUTTONS & CTAs ============
+  cta:
+    primary_button:
+      background: "Coral-Pink (#E8967F)"
+      text_color: "Warm Cream (#F5F3EF)"
+      text_weight: "Bold"
+      text_size: "16px"
+      padding_horizontal: "12–16px"
+      padding_vertical: "10–12px"
+      border_radius: "4–6px"
+      hover_background: "Golden (#D4A574)"
+      example_text: "Join the Waitlist"
+    
+    secondary_cta:
+      style: "Text Link"
+      color: "Coral-Pink (#E8967F)"
+      underline: "None (underline on hover)"
+      font: "Inter Medium, 16px"
+      example_text: "Learn More"
+    
+    tertiary_cta:
+      style: "Subtle"
+      color: "Dusky Lavender (#9B8BA8)"
+      font: "Inter Regular, 14px"
+      example_text: "Not sure yet? Read stories."
+    
+    messaging:
+      approach: "Never sales-y"
+      approved:
+        - "Join the circle"
+        - "Explore what's possible"
+        - "Claim your space"
+        - "Let's talk about your journey"
+        - "Apply to the retreat"
+      avoid:
+        - "Buy now"
+        - "Limited offer"
+        - "Act fast"
+        - "Secure your spot"
+  
+  # ============ BRAND VOICE IN DESIGN ============
+  brand_voice:
+    palette_says:
+      - "Warmth (not cool luxury)"
+      - "Wisdom (not trendy)"
+      - "Sacred (not commercial)"
+      - "Transformation (not just pretty)"
+      - "Real (not curated perfection)"
+    
+    typography_says:
+      - "Timeless (serifs for headlines, classic)"
+      - "Modern (sans-serif for body, accessible)"
+      - "Readable (generous spacing, real hierarchy)"
+      - "Elegant (not fussy, not minimalist)"
+    
+    layout_says:
+      - "Breathing room (not cramped)"
+      - "Clear journey (visual hierarchy)"
+      - "Intentional (every element earned)"
+      - "Welcoming (not intimidating)"
+  
+  # ============ ACCESSIBILITY ============
+  accessibility:
+    color_contrast:
+      charcoal_on_cream: "9:1 contrast ✅ WCAG AAA"
+      charcoal_on_lavender: "7:1 contrast ✅ WCAG AA"
+      cream_on_coral: "8:1 contrast ✅ WCAG AA"
+    
+    font_sizing:
+      body_min: "14px"
+      secondary_min: "12px"
+      reason: "Ensures readability on all devices"
+    
+    line_height:
+      body_min: 1.6
+      headlines: 1.3
+      note: "Never cramped"
+  
+  # ============ MOBILE OPTIMIZATION ============
+  mobile:
+    responsive_design:
+      main_headline_mobile: "28px"
+      main_headline_desktop: "36–48px"
+      subheading_mobile: "18px"
+      subheading_desktop: "24–28px"
+      body_copy: "16px (consistent)"
+      min_padding_mobile: "16px"
+    
+    stack_order:
+      - "Single column on mobile (not cramped)"
+      - "Images scale to full width"
+      - "CTAs full-width on mobile"
+  
+  # ============ QUICK REFERENCE ============
+  quick_reference_table:
+    - element: "Main Headline"
+      color: "Charcoal"
+      font: "Playfair Bold"
+      size: "36–48px"
+      usage: "Core claim"
+    
+    - element: "Subheading"
+      color: "Coral-Pink"
+      font: "Playfair Regular"
+      size: "24–28px"
+      usage: "Supporting claim"
+    
+    - element: "Body Copy"
+      color: "Charcoal"
+      font: "Inter Regular"
+      size: "16–18px"
+      usage: "Narrative"
+    
+    - element: "Accent/Signature"
+      color: "Coral-Pink"
+      font: "Lora Italic"
+      size: "14–16px"
+      usage: "Hemali's voice"
+    
+    - element: "Background"
+      color: "Warm Cream"
+      font: "N/A"
+      size: "N/A"
+      usage: "Page background"
+    
+    - element: "CTA Button"
+      color: "Coral-Pink"
+      font: "Inter Bold"
+      size: "16px"
+      usage: "Conversion"

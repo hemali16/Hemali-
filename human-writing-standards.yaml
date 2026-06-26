@@ -1,0 +1,392 @@
+---
+# Human Writing Standards — She Travels.Life
+# Reference File for Content Strategy Skill
+# Incorporates AI Pattern Blacklist & Specificity Standards
+
+human_writing_standards:
+  name: "She Travels.Life Human Writing Standards"
+  version: 1.0
+  philosophy: "Every word must sound like Hemali. Generic writing does not convert Reena."
+  
+  # ============ THE INVISIBILITY DIAGNOSTIC ============
+  invisibility_diagnostic:
+    purpose: "Every post must score 4/4 on these dimensions"
+    target_score: "4/4"
+    
+    test:
+      voice:
+        question: "Is this unmistakably Hemali?"
+        failing: "Generic LinkedIn language = 0"
+        passing: "Signature phrases, story rhythm, vulnerability = 1"
+      
+      pov:
+        question: "Lived Experience?"
+        failing: "Theory/frameworks = 0"
+        passing: "Specific moment, her age, her story = 1"
+      
+      specificity:
+        question: "Does Reena recognize herself?"
+        failing: "Generic 'women 40+' = 0"
+        passing: "Reena's exact pain language = 1"
+      
+      asking:
+        question: "Does it invite engagement?"
+        failing: "Hard sell or no CTA = 0"
+        passing: "Warm question Reena wants to answer = 1"
+    
+    critical_action: "If < 4/4, rewrite before posting."
+  
+  # ============ THE 9-SCRUB SYSTEM ============
+  nine_scrub_system:
+    instruction: "Run these on every completed post before publishing."
+    
+    scrub_1:
+      name: "EM DASH REMOVAL"
+      rule: "Remove every em dash (—). Every single one."
+      approach: "Never replace with hyphen. Rewrite the sentence."
+      
+      use_cases:
+        pause_mid_sentence: "Split into two sentences"
+        connecting_clauses: "Full stop. New sentence."
+        adding_emphasis: "Remove. End on strong word."
+        introducing_explanation: "Use colon or rewrite"
+      
+      example_before: "The skill works — but only if your Voice DNA is specific."
+      example_after: "The skill works. But only if your Voice DNA is specific."
+    
+    scrub_2:
+      name: "BANNED WORDS"
+      rule: "Remove or replace every word on this list (zero tolerance)"
+      
+      classic_ai_tells:
+        - "delve"
+        - "tapestry"
+        - "landscape (metaphorical)"
+        - "testament"
+        - "vibrant"
+        - "pivotal"
+        - "meticulous"
+        - "intricate"
+        - "comprehensive"
+        - "multifaceted"
+        - "nuanced (filler)"
+        - "robust"
+        - "seamless"
+        - "holistic (generic)"
+        - "cutting-edge"
+        - "innovative"
+        - "game-changer"
+        - "transformative (generic)"
+        - "revolutionary"
+        - "unprecedented"
+        - "paramount"
+        - "imperative"
+      
+      corporate_jargon:
+        - "leverage"
+        - "synergy"
+        - "ecosystem"
+        - "paradigm"
+        - "thought leadership"
+        - "value-driven"
+        - "mission-driven"
+        - "impactful"
+        - "actionable"
+        - "scalable"
+        - "deep dive"
+        - "unpack"
+        - "navigate (metaphorical)"
+        - "empower"
+        - "facilitate"
+        - "streamline"
+        - "optimize"
+        - "harness"
+        - "elevate"
+        - "unlock"
+        - "utilise"
+      
+      wellness_clichés:
+        - "find yourself"
+        - "self-care (generic)"
+        - "self-love"
+        - "wellness journey"
+        - "transformation journey"
+        - "authentic"
+        - "safe space (generic)"
+        - "healing journey"
+        - "spiritual awakening"
+        - "inner child"
+        - "ground yourself"
+        - "centered"
+    
+    scrub_3:
+      name: "BANNED PHRASES & OPENERS"
+      rule: "Remove these openers (they're AI tells)"
+      openers_to_remove:
+        - "In this article"
+        - "Have you ever wondered"
+        - "Most people don't realize"
+        - "Here's the thing"
+        - "Let me tell you"
+        - "So here's what I learned"
+        - "You probably already know"
+        - "It's important to note"
+        - "That being said / With that being said"
+        - "As we navigate"
+        - "In today's landscape"
+        - "Needless to say"
+        - "It goes without saying"
+        - "The fact of the matter is"
+      
+      instead: "Open with a specific moment, a question, or Hemali's signature phrase."
+    
+    scrub_4:
+      name: "BANNED CLOSERS"
+      rule: "Remove these endings"
+      closers_to_remove:
+        - "So there you have it"
+        - "Remember, the ball is in your court"
+        - "Long story short"
+        - "In my experience"
+        - "I'm passionate about"
+        - "You deserve it"
+        - "Living my best life"
+        - "Go get 'em"
+        - "In conclusion / To conclude / In summary"
+        - "Overall"
+        - "The bottom line is"
+        - "And that's the real talk"
+      
+      instead: "End on a warm question, an invitation, or Hemali's voice ringing through."
+    
+    scrub_5:
+      name: "SENTENCE STRUCTURE & RHYTHM"
+      rule: "Hemali's rhythm: Long narrative (25–40 words) → short payoff (5–10 words)"
+      
+      rhythm_pattern:
+        long_build: "25–40 words"
+        short_payoff: "5–10 words"
+      
+      checklist:
+        - "Do sentences feel conversational (not formal)?"
+        - "Is there rhythm contrast (varied length)?"
+        - "Does the story come before the payoff?"
+        - "Would Hemali say this aloud exactly as written?"
+      
+      action: "If any no — rewrite for rhythm."
+    
+    scrub_6:
+      name: "TONAL & LOGIC PATTERNS"
+      rule: "Remove AI patterns"
+      
+      filler_phrases:
+        - "Let's be real"
+        - "If I'm being honest"
+        - "Look, here's the thing"
+        - "The truth is (repeated)"
+        - "Not gonna lie"
+        - "Real talk (every post)"
+      
+      false_transitions:
+        - "And here's why that matters"
+        - "So here's what I did"
+        - "But wait, there's more"
+      
+      manufactured_tension:
+        - "Opening with a hook question (when the story itself is the hook)"
+        - "Creating artificial conflict"
+        - "Overstating stakes"
+      
+      one_way_broadcasts:
+        - "Stories with no engagement CTA"
+        - "Teaching with no room for Reena's voice"
+        - "Announcements with no invitation"
+      
+      checklist:
+        - "Does this feel authentic or constructed?"
+        - "Is there tension or is it forced?"
+        - "Can Reena engage, or is it one-way broadcast?"
+        - "Would Hemali feel proud reading this aloud?"
+      
+      action: "If no to any — rewrite."
+    
+    scrub_7:
+      name: "SPECIFICITY & CREDIBILITY"
+      rule: "Every claim must be grounded in specificity"
+      
+      generic_to_specific:
+        "I was unhappy": "I spent 25 years adapting to everyone else's needs"
+        "I healed": "Yoga healed my knee instead of surgery"
+        "Success is possible": "At 57, I have more energy than I did at 37"
+        "Transformation happens": "After 3 days in silence with 6 other women, something shifted"
+        "We help women": "Kalpana went from 0 income to 15,000 rupees/month in 4 months"
+      
+      credibility_checks:
+        - "Is every claim tied to proof (story, business, mentorship, demand)?"
+        - "Are numbers exact (not 'many,' 'some')?" # (25 years, 3,500 AED, 14 years, 30 people, 4.8 rating)
+        - "Are people named (Hemali, Reena, Kalpana, Sangeeta) not generic?"
+        - "Does Reena have reason to believe this works?"
+      
+      action: "If not — add specificity before posting."
+    
+    scrub_8:
+      name: "SIGNATURE PHRASE CHECK"
+      rule: "Does the post include at least one signature phrase?"
+      
+      required_phrases:
+        - "Nothing is impossible"
+        - "I understood that I love myself"
+        - "Stand on my own feet"
+        - "Create the value for others"
+        - "Honestly"
+        - "I'm so proud of myself"
+        - "Small step, consistently"
+        - "Win-win situation"
+        - "Volcano erupting inside"
+        - "I have no choice but to agree"
+      
+      action: "If no signature phrase — add one."
+    
+    scrub_9:
+      name: "FULL READ-ALOUD TEST"
+      rule: "Read the entire post aloud (in your head or out loud)"
+      
+      checklist:
+        - "Sound like Hemali (warm, wise, conversational)?"
+        - "Flow naturally (no awkward transitions)?"
+        - "Feel authentic (not constructed)?"
+        - "Invite Reena in (not broadcast at her)?"
+        - "Hold engagement throughout?"
+        - "End strong (not fizzle)?"
+      
+      action: "If no to any — rewrite."
+  
+  # ============ SPECIFICITY STANDARDS ============
+  specificity_standards:
+    names_rule: "Always Name"
+    
+    people:
+      - "Hemali"
+      - "Reena"
+      - "Kalpana"
+      - "Sangeeta"
+      - "Nawroz"
+      - "Devvrat"
+      - "Shweta"
+      - "Archana"
+    
+    people_note: "not 'a client,' 'a woman,' 'someone'"
+    
+    places:
+      - "Madrid"
+      - "Hyderabad"
+      - "Dubai"
+      - "Uganda"
+    
+    places_note: "not 'somewhere,' 'abroad,' 'a city'"
+    
+    numbers:
+      - "25 years"
+      - "50 years old"
+      - "3,500 AED"
+      - "14 years"
+      - "30 people"
+      - "4.8 rating"
+      - "10 awards"
+    
+    numbers_note: "not 'many,' 'some,' 'significant'"
+    
+    proof_layer_distribution:
+      instruction: "Across the 90-day calendar, weave all 4 proof layers so Reena sees multiple angles"
+      layers:
+        - "Lived Experience (Madrid, 25-year invisibility, yoga, menopause, age 57)"
+        - "14-Year Business (City One, Tripadvisor, Google rating, team size, offices)"
+        - "Mentorship (Kalpana, Employee 1, Employee 2)"
+        - "Organic Demand (women reaching out, franchise interest)"
+    
+    reena_language_rule:
+      instruction: "Mirror Exactly"
+      note: "Do not paraphrase. Use her verbatim phrases:"
+      phrases:
+        - "I feel invisible at home"
+        - "I keep reliving the same old pain"
+        - "I don't know who I am outside what I do for my family"
+        - "Wellness retreats only fix my body"
+        - "I've been meaning to for 3 years"
+        - "I worry about how I look instead of what I feel"
+        - "Nobody really listens to me"
+  
+  # ============ STRUCTURAL RULES ============
+  structural_rules:
+    post_structure:
+      sacred_order: true
+      rule: "Never reverse this order. Story earns the lesson, not the other way around."
+      
+      steps:
+        1: "Open: Specific moment (age, location, who was there)"
+        2: "Build: Long narrative (25–40 words) showing struggle/discovery"
+        3: "Payoff: Short sentence (5–10 words) stating the insight"
+        4: "Bridge: Connect to Reena (her pain or her potential)"
+        5: "Invite: Warm question or invitation (not hard sell)"
+    
+    paragraph_length:
+      short: "1–3 sentences (creates emphasis)"
+      medium: "4–6 sentences (default rhythm)"
+      long: "7+ sentences (only for narrative build)"
+      max: "Never longer than 8 sentences"
+    
+    line_breaks:
+      usage:
+        - "Create rhythm contrast"
+        - "Emphasize a short sentence"
+        - "Give Reena white space to breathe"
+      
+      not_for: "Turning prose into bullet points (banned)"
+  
+  # ============ ENGAGEMENT STANDARDS ============
+  engagement_standards:
+    cta_philosophy: "Hemali invites. She doesn't push."
+    
+    warm_ctas:
+      - "Where are you in this journey?"
+      - "What resonates for you?"
+      - "What's one thing you're tired of carrying?"
+      - "Tell me: who told you that you were too old?"
+      - "What would reset feel like for you?"
+    
+    hard_sell_ctas_banned:
+      - "DM me NOW"
+      - "Click the link"
+      - "Book your spot"
+      - "Limited spaces"
+      - "Don't wait"
+      - "Act now"
+    
+    engagement_invitation_rule: "Every post must have a question that Reena wants to answer."
+    
+    avoid:
+      bad: "Do you agree?" # (too generic)
+      good: "When did you stop choosing yourself?" # (specific to her pain)
+  
+  # ============ FINAL CHECKLIST ============
+  final_checklist_before_posting:
+    checklist_items:
+      - "Invisibility Diagnostic: 4/4?"
+      - "Zero em dashes?"
+      - "Zero banned words?"
+      - "Zero banned phrases/openers/closers?"
+      - "Hemali's rhythm (long → short)?"
+      - "No tonal/logic AI patterns?"
+      - "Specific names, places, numbers?"
+      - "At least 1 signature phrase?"
+      - "Proof layer included?"
+      - "Reena's language mirrored (if applicable)?"
+      - "Full read-aloud passes?"
+    
+    total_checks: 11
+    passing_score: "11/11"
+    
+    action_if_pass: "Post with confidence."
+    action_if_fail: "Rewrite before posting."
+    
+    final_note: "This standard is non-negotiable. Not to hide AI. But to ensure every word sounds like Hemali."

@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Files · Hemali Shah · She Travels Life</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #ffe0ec 0%, #fff3e0 50%, #e0f7fa 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* MASTER HEADER */
+        .master-header {
+            background: linear-gradient(135deg, #ff6fb0 0%, #ff9966 50%, #ffcc00 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 50px rgba(255,111,176,0.25);
+        }
+
+        .master-header h1 {
+            font-size: 2.8em;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 1px 2px 8px rgba(0,0,0,0.12);
+        }
+
+        .master-header p {
+            font-size: 1.15em;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        /* NAV TABS */
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .tab-btn:nth-child(1) { background: #ff6fb0; }
+        .tab-btn:nth-child(2) { background: #ff9966; }
+        .tab-btn:nth-child(3) { background: #e6aa00; }
+        .tab-btn:nth-child(4) { background: #66d9c8; color: #2c3e50; }
+        .tab-btn:nth-child(5) { background: #b06fd9; }
+
+        .tab-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .tab-btn.active { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+
+        /* BRAND FILE CARDS */
+        .brand-file {
+            background: #fffdf9;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 40px rgba(255,111,176,0.1);
+        }
+
+        .file-header {
+            padding: 40px;
+            color: white;
+        }
+
+        .file-header.pink   { background: linear-gradient(135deg, #ff6fb0, #ff9966); }
+        .file-header.orange { background: linear-gradient(135deg, #ff9966, #ffcc00); }
+        .file-header.gold   { background: linear-gradient(135deg, #ffcc00, #ff9966); color: #2c3e50; }
+        .file-header.teal   { background: linear-gradient(135deg, #66d9c8, #4fc3f7); color: #2c3e50; }
+        .file-header.purple { background: linear-gradient(135deg, #b06fd9, #ff6fb0); }
+
+        .file-number {
+            font-size: 0.85em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin-bottom: 8px;
+        }
+
+        .file-title {
+            font-size: 2.2em;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .file-subtitle {
+            font-size: 1em;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .file-body {
+            padding: 40px;
+        }
+
+        /* SECTIONS */
+        .section-block {
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            font-size: 0.8em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #ff6fb0;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .section-heading {
+            font-size: 1.4em;
+            color: #e05fa0;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+        .section-heading.orange { color: #e07040; }
+        .section-heading.gold   { color: #b07800; }
+        .section-heading.teal   { color: #33b8a8; }
+        .section-heading.purple { color: #8040b0; }
+
+        .card {
+            background: #fff8fc;
+            border-left: 5px solid #ff6fb0;
+            padding: 22px 25px;
+            border-radius: 0 10px 10px 0;
+            margin: 15px 0;
+        }
+
+        .card.orange { background: #fff8f0; border-left-color: #ff9966; }
+        .card.gold   { background: #fffde8; border-left-color: #ffcc00; }
+        .card.teal   { background: #e8fffc; border-left-color: #66d9c8; }
+        .card.purple { background: #f8f0ff; border-left-color: #b06fd9; }
+
+        .card-title {
+            font-weight: 600;
+            color: #e05fa0;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .card-title.orange { color: #e07040; }
+        .card-title.gold   { color: #b07800; }
+        .card-title.teal   { color: #33b8a8; }
+        .card-title.purple { color: #8040b0; }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .pill-box {
+            background: linear-gradient(135deg, #fff0f7, #fff8f0);
+            border-radius: 12px;
+            padding: 22px;
+            border: 1px solid #ffb3d9;
+        }
+
+        .pill-box.teal { background: linear-gradient(135deg, #e8fffc, #f0fff8); border-color: #99e8e0; }
+        .pill-box.purple { background: linear-gradient(135deg, #f8f0ff, #fff0f7); border-color: #d4a0f0; }
+
+        .pill-label {
+            font-size: 0.78em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ff6fb0;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .pill-label.teal   { color: #33b8a8; }
+        .pill-label.purple { color: #8040b0; }
+        .pill-label.orange { color: #e07040; }
+
+        .pill-value {
+            font-size: 1.05em;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ff6fb0, #ff9966);
+            color: white;
+            padding: 30px;
+            border-radius: 14px;
+            margin: 25px 0;
+            font-size: 1.1em;
+            line-height: 1.9;
+            font-style: italic;
+        }
+
+        .highlight-box.teal   { background: linear-gradient(135deg, #66d9c8, #4fc3f7); color: #1a2a2a; }
+        .highlight-box.purple { background: linear-gradient(135deg, #b06fd9, #ff6fb0); }
+        .highlight-box.gold   { background: linear-gradient(135deg, #ffcc00, #ff9966); color: #2c3e50; }
+
+        ul.styled {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul.styled li {
+            padding: 10px 0 10px 25px;
+            border-bottom: 1px solid #ffe0ec;
+            position: relative;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        ul.styled li:last-child { border-bottom: none; }
+
+        ul.styled li::before {
+            content: '🌸';
+            position: absolute;
+            left: 0;
+            font-size: 0.9em;
+        }
+
+        ul.styled.teal li { border-bottom-color: #cdf5f0; }
+        ul.styled.teal li::before { content: '✦'; color: #33b8a8; }
+        ul.styled.orange li { border-bottom-color: #ffe8d9; }
+        ul.styled.orange li::before { content: '→'; color: #ff9966; font-size: 1.1em; }
+
+        .divider {
+            height: 3px;
+            background: linear-gradient(90deg, #ff6fb0, #ff9966, #ffcc00, #66d9c8);
+            margin: 35px 0;
+            border-radius: 2px;
+        }
+
+        .big-statement {
+            font-size: 1.8em;
+            font-style: italic;
+            color: #e05fa0;
+            text-align: center;
+            padding: 30px;
+            background: #fff0f7;
+            border-radius: 12px;
+            margin: 25px 0;
+            line-height: 1.7;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #ffe0ec;
+            color: #e05fa0;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 4px;
+            font-weight: 600;
+        }
+
+        .tag.orange { background: #fff3e0; color: #e07040; }
+        .tag.teal   { background: #e0fff9; color: #33b8a8; }
+        .tag.purple { background: #f3e0ff; color: #8040b0; }
+
+        .number-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(255,111,176,0.1);
+        }
+
+        .number-big {
+            font-size: 3em;
+            color: #ff6fb0;
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .number-label {
+            font-size: 0.9em;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .two-col, .three-col { grid-template-columns: 1fr; }
+            .file-title { font-size: 1.7em; }
+            .master-header h1 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- MASTER HEADER -->
+    <div class="master-header">
+        <h1>🌸 All Brand Files</h1>
+        <p>Hemali Shah · She Travels Life · shetravels.life</p>
+        <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.85;">Built from your Ikigai · June 12, 2026</p>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- FILE 1: ICP DOC -->
+    <!-- ============================================ -->
+    <div class="brand-file">
+        <div class="file-header pink">
+            <div class="file-number">Brand File 01</div>
+            <div class="file-title">Your ICP Doc</div>
+            <div class="file-subtitle">Ideal Client Profile · The woman you were born to serve</div>
+        </div>
+        <div class="file-body">
+
+            <div class="highlight-box">
+                "Your ICP isn't a made-up avatar. She's you — 5 years ago. The woman who felt invisible, unheard, trapped between the confident person the world saw and the unseen woman at home. She's real. And she's waiting for you."
+            </div>
+
+            <div class="section-block">
+                <div class="section-label">Who She Is</div>
+                <div class="three-col">
+                    <div class="pill-box">
+                        <div class="pill-label">Age Range</div>
+                        <div class="pill-value">40 – 60 years old</div>
+                    </div>
+                    <div class="pill-box">
+                        <div class="pill-label">Location</div>
+                        <div class="pill-value">UAE, India, South Asia, expat women globally</div>
+                    </div>
+                    <div class="pill-box">
+                        <div class="pill-label">Life Stage</div>
+                        <div class="pill-value">Married or divorced, children grown or growing, re-discovering herself</div>
+                    </div>
+                </div>
+                <div class="three-col">
+                    <div class="pill-box">
+                        <div class="pill-label">Income</div>
+                        <div class="pill-value">Middle to upper-middle class. Has money but spends it on family, not herself</div>
+                    </div>
+                    <div class="pill-box">
+                        <div class="pill-label">Career</div>
+                        <div class="pill-value">Business owner, professional, or homemaker with her own income source</div>
+                    </div>
+                    <div class="pill-box">
+                        <div class="pill-label">She Already Spends On</div>
+                        <div class="pill-value">Salons, spas, yoga classes, wellness — but separately, not as a complete experience</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">Her Inner World</div>
+                <div class="section-heading">What She Feels (But Never Says Out Loud)</div>
+                <div class="two-col">
+                    <div>
+                        <div class="card">
+                            <div class="card-title">😔 The Invisible Woman</div>
+                            "The world sees me as confident and successful. But inside me there is always a clash. I feel invisible within my own family. My voice doesn't matter in my own home."
+                        </div>
+                        <div class="card">
+                            <div class="card-title">🔒 The Trapped Feeling</div>
+                            "I have spent so many years adapting to what others want — my husband, my children, my family. I don't even know what *I* want anymore. Am I really happy? I tell everyone I'm fine."
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card">
+                            <div class="card-title">🌱 The Longing</div>
+                            "I want to feel important. I want someone to hear me — really hear me. I want to travel, explore, grow, discover who I am beyond my responsibilities."
+                        </div>
+                        <div class="card">
+                            <div class="card-title">⚡ The Fear</div>
+                            "What if it's too late? I'm 45, 50, 57... is it too late to reinvent myself? Will people judge me for wanting things for myself? Am I being selfish?"
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">Her Pain Points</div>
+                <div class="section-heading">The 5 Pains She Carries</div>
+                <ul class="styled">
+                    <li><strong>Invisible at home:</strong> Her voice is undermined. Her opinions are dismissed. Her family takes her for granted. She is the support system for everyone — but who supports her?</li>
+                    <li><strong>Fragmented wellness:</strong> She spends separately on salons, spas, yoga, coaches — but nothing connects. There is no one trusted platform. She doesn't know whom to rely on.</li>
+                    <li><strong>No community of her own:</strong> She has social circles but no women who truly *get her* — women at the same life stage, with the same questions, on the same journey of reclaiming themselves.</li>
+                    <li><strong>Travel without agency:</strong> She has always traveled for others — for the family, for the husband's preference. The idea of traveling *for herself*, on her terms, feels selfish. Or scary. Or both.</li>
+                    <li><strong>The age myth:</strong> Society tells her that 50+ is too late to reinvent. She half-believes it. She needs proof — real, human proof — that it's possible. (That's you, Hemali.)</li>
+                </ul>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">Her Desires</div>
+                <div class="section-heading">What She Desperately Wants</div>
+                <div class="three-col">
+                    <div class="pill-box">
+                        <div class="pill-label">To Feel</div>
+                        <div class="pill-value">Heard. Seen. Important. Beautiful. Alive. Like herself again.</div>
+                    </div>
+                    <div class="pill-box">
+                        <div class="pill-label">To Have</div>
+                        <div class="pill-value">A community of women who get it. A safe space without judgment. Travel that transforms, not just entertains.</div>
+                    </div>
+                    <div class="pill-box">
+                        <div class="pill-label">To Become</div>
+                        <div class="pill-value">The woman she's always known was inside her. Fearless. Radiant. Free. On her own terms.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">Her Objections</div>
+                <div class="section-heading">Why She Hesitates (And Your Answers)</div>
+                <div class="two-col">
+                    <div class="card">
+                        <div class="card-title">"I don't have time / money for myself"</div>
+                        Your answer: "You already spend on salons, spas, and yoga — separately. She Travel bundles it all at one platform so you actually save money and time. And you are worth it."
+                    </div>
+                    <div class="card">
+                        <div class="card-title">"My family needs me — I can't just go"</div>
+                        Your answer: "When the lady of the house is happy, the house is happy. This isn't selfish. This is the source of everything you give."
+                    </div>
+                    <div class="card">
+                        <div class="card-title">"I'm too old to start over"</div>
+                        Your answer: "I am 57. I learned AI. I traveled to Madrid alone. I built a company. There is no age bar. I am your proof."
+                    </div>
+                    <div class="card">
+                        <div class="card-title">"I don't know if a retreat will really help"</div>
+                        Your answer: "This isn't a retreat. It's a reset, realignment, and rise. 5 pillars: mind, body, energy, emotion, connection. You return renewed — not just rested."
+                    </div>
+                </div>
+            </div>
+
+            <div class="big-statement">"She is you, 5 years ago. Serve her like you needed to be served."</div>
+
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- FILE 2: MESSAGING HOUSE -->
+    <!-- ============================================ -->
+    <div class="brand-file">
+        <div class="file-header orange">
+            <div class="file-number">Brand File 02</div>
+            <div class="file-title">Your Messaging House</div>
+            <div class="file-subtitle">The words that make your ideal client say "that's exactly me"</div>
+        </div>
+        <div class="file-body">
+
+            <div class="section-block">
+                <div class="section-label">Foundation</div>
+                <div class="section-heading orange">Your Core Message (The One Thing You Stand For)</div>
+                <div class="highlight-box gold">
+                    "Women deserve to reclaim their voice, their happiness, and their right to explore — beyond their responsibilities, beyond their age, beyond what others expect of them. Travel is the doorway. Transformation is the destination."
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">Roof</div>
+                <div class="section-heading orange">Your Tagline Options (Pick One)</div>
+                <div class="three-col">
+                    <div class="pill-box">
+                        <div class="pill-label">Option 1 (Bold)</div>
+                        <div class="pill-value" style="font-size: 1.15em; font-style: italic; color: #e07040;">"Travel Beyond Responsibility."</div>
+                    </div>
+                    <div class="pill-box">
+                        <div class="pill-label">Option 2 (Warm)</div>
+                        <div class="pill-value" style="font-size: 1.15em; font-style: italic; color: #e07040;">"Discover the Woman Within."</div>
+                    </div>
+                    <div class="pill-box">
+                        <div class="pill-label">Option 3 (Mission)</div>
+                        <div class="pill-value" style="font-size: 1.15em; font-style: italic; color: #e07040;">"Reset. Realign. Rise."</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">The 4 Pillars of Messaging</div>
+                <div class="section-heading orange">What She Travel Stands For</div>
+                <div class="two-col">
+                    <div class="card orange">
+                        <div class="card-title orange">🌸 Pillar 1 · You Are Heard</div>
+                        She Travel is built around ONE principle: women need to feel heard before they can heal. Every retreat, every conversation, every circle we hold creates space where you don't have to explain yourself. You just are.
+                        <br/><br/>
+                        <span class="tag orange">Emotional Safety</span>
+                        <span class="tag orange">No Judgment</span>
+                        <span class="tag orange">Witnessed</span>
+                    </div>
+                    <div class="card orange">
+                        <div class="card-title orange">✈️ Pillar 2 · Meaningful Travel</div>
+                        Not tourism. Not a checklist of places. Meaningful travel: curated experiences that hold your story and create the conditions for transformation. The destination is chosen for what it holds, not just what it looks like.
+                        <br/><br/>
+                        <span class="tag orange">Curated by Hemali</span>
+                        <span class="tag orange">Soul-First</span>
+                        <span class="tag orange">Purposeful</span>
+                    </div>
+                    <div class="card orange">
+                        <div class="card-title orange">💪 Pillar 3 · Nothing Is Impossible</div>
+                        Your guide traveled alone to Madrid at 57. Overcame a knee problem doctors said needed surgery. Transformed her body, her beauty, her business. She is living proof that nothing is impossible — and she's here to make you believe it too.
+                        <br/><br/>
+                        <span class="tag orange">Age Is No Bar</span>
+                        <span class="tag orange">Proof Not Theory</span>
+                        <span class="tag orange">Real Story</span>
+                    </div>
+                    <div class="card orange">
+                        <div class="card-title orange">🤝 Pillar 4 · Women Support Women</div>
+                        She Travel creates communities where women are not in competition — they're in collaboration. Where healers, coaches, business owners share their gifts alongside you. Where you can contribute AND receive. Where the whole is more powerful than the parts.
+                        <br/><br/>
+                        <span class="tag orange">Community</span>
+                        <span class="tag orange">Collaborative</span>
+                        <span class="tag orange">Generous</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">Power Phrases</div>
+                <div class="section-heading orange">Words That Belong to She Travel</div>
+                <div style="margin: 20px 0;">
+                    <span class="tag orange">Meaningful Travel</span>
+                    <span class="tag orange">Reset · Realign · Rise</span>
+                    <span class="tag orange">Discover the Woman Within</span>
+                    <span class="tag orange">Travel Beyond Responsibility</span>
+                    <span class="tag orange">Nothing Is Impossible</span>
+                    <span class="tag orange">Heard. Seen. Free.</span>
+                    <span class="tag orange">The 5 Pillars</span>
+                    <span class="tag orange">Women Support Women</span>
+                    <span class="tag orange">Experiential Curator</span>
+                    <span class="tag orange">Space Holds the Story</span>
+                    <span class="tag orange">When She Is Happy, Everyone Is Happy</span>
+                    <span class="tag orange">No Age Bar. No Gender Bar.</span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">Proof Points</div>
+                <div class="section-heading orange">Why People Should Believe You</div>
+                <ul class="styled orange">
+                    <li><strong>12 years in BNI</strong> — you understand how to build trust, relationships, and referral communities better than anyone.</li>
+                    <li><strong>Traveled alone to Madrid at 57</strong> — with ChatGPT as your only guide. Overcame fear and discovered self-love in the process.</li>
+                    <li><strong>Knee transformation</strong> — doctors said operation. You said no. Yoga, discipline, and willpower. Now a living example of what holistic self-care can do.</li>
+                    <li><strong>Built City One Tours</strong> — 12+ years running a travel business. You understand the industry from the inside.</li>
+                    <li><strong>Survived and thrived</strong> — financial hardship, personal hardships, building yourself up from scarcity. Not theory. Real life.</li>
+                    <li><strong>Physical transformation</strong> — at 57, you look 15 years younger, people ask you how you maintain yourself. You practice what you preach.</li>
+                </ul>
+            </div>
+
+            <div class="big-statement" style="color: #e07040; background: #fff8f0;">"The right words don't describe what you do. They describe how she feels when she's with you."</div>
+
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- FILE 3: THE RULE OF 1 -->
+    <!-- ============================================ -->
+    <div class="brand-file">
+        <div class="file-header gold">
+            <div class="file-number">Brand File 03</div>
+            <div class="file-title">The Rule of 1</div>
+            <div class="file-subtitle">One of everything · Clarity that cuts through the noise</div>
+        </div>
+        <div class="file-body">
+
+            <div class="highlight-box gold">
+                "The biggest mistake new businesses make is trying to be everything for everyone. The Rule of 1 forces radical clarity: one customer, one problem, one solution, one offer, one channel, one metric. This is your compass for the next 90 days."
+            </div>
+
+            <div class="section-block">
+                <div class="three-col">
+                    <div class="number-card">
+                        <div class="number-big">1</div>
+                        <div class="number-label">Customer</div>
+                    </div>
+                    <div class="number-card">
+                        <div class="number-big">1</div>
+                        <div class="number-label">Problem</div>
+                    </div>
+                    <div class="number-card">
+                        <div class="number-big">1</div>
+                        <div class="number-label">Solution</div>
+                    </div>
+                </div>
+                <div class="three-col">
+                    <div class="number-card">
+                        <div class="number-big">1</div>
+                        <div class="number-label">Offer</div>
+                    </div>
+                    <div class="number-card">
+                        <div class="number-big">1</div>
+                        <div class="number-label">Channel</div>
+                    </div>
+                    <div class="number-card">
+                        <div class="number-big">1</div>
+                        <div class="number-label">Metric</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="card gold">
+                    <div class="card-title gold">👤 ONE CUSTOMER</div>
+                    <strong>Reena.</strong> She is 52. Married 25 years. Three children. Well-dressed. Looks confident at events. But at home she is invisible — her opinions are dismissed, her voice undermined. She spends money on salons and yoga but never feels truly transformed. She has been meaning to "do something for herself" for three years. She is afraid of being alone. She has never traveled for herself. She is following Hemali Shah on Instagram and thinking — "is this woman talking directly to me?"
+                </div>
+            </div>
+
+            <div class="section-block">
+                <div class="card gold">
+                    <div class="card-title gold">😔 ONE PROBLEM</div>
+                    She is invisible in her own life — to her family, and to herself. She has spent 25+ years being what others needed her to be. She has lost track of who she is. She is tired of being fine when she is not fine. She needs a space where she is finally <em>heard</em> — and a guide who has already walked this path and come out the other side radiant.
+                </div>
+            </div>
+
+            <div class="section-block">
+                <div class="card gold">
+                    <div class="card-title gold">💡 ONE SOLUTION</div>
+                    A She Travel Retreat — a 3-5 day holistic experience built on 5 pillars (mind, body, energy, emotion, connection) where she resets, realigns, and rises. Not a holiday. Not a spa day. A guided transformation through meaningful travel, women's community, yoga, meditation, sound healing, and honest conversation — led by a woman who has lived it.
+                </div>
+            </div>
+
+            <div class="section-block">
+                <div class="card gold">
+                    <div class="card-title gold">🎁 ONE OFFER (For Your First 90 Days)</div>
+                    <strong>The She Travel September Retreat</strong><br/><br/>
+                    A 3-day transformation retreat at a nearby coastal/nature location in the UAE or India.<br/>
+                    Built around the 5 pillars: sunrise meditation · yoga flow · wellness lunch · sharing circles · fire ceremony under the stars.<br/><br/>
+                    <strong>3 Price Points:</strong><br/>
+                    • Basic (community day / sound healing event): AED 300–500<br/>
+                    • Normal (2-night retreat, 5-pillar full experience): AED 2,500–3,500<br/>
+                    • Luxury (premium location, curated extras, small group): AED 5,000–8,000<br/><br/>
+                    <strong>Launch Goal:</strong> 10 women at Normal tier = AED 25,000–35,000 from your first retreat.
+                </div>
+            </div>
+
+            <div class="section-block">
+                <div class="card gold">
+                    <div class="card-title gold">📱 ONE CHANNEL (For Launch)</div>
+                    <strong>WhatsApp + Instagram.</strong><br/><br/>
+                    Your network is your launchpad. You have 12 years of BNI relationships. You know how to build rapport with strangers. Start there:<br/>
+                    • WhatsApp: Personal outreach to 20 women in your network. "I'm building something and I want you to be first."<br/>
+                    • Instagram: 3 posts per week on your 3 content pillars. Lead with your story. Show the transformation, not the itinerary.<br/><br/>
+                    Do not build a website yet. Do not run ads yet. Sell to people who already know you first.
+                </div>
+            </div>
+
+            <div class="section-block">
+                <div class="card gold">
+                    <div class="card-title gold">📊 ONE METRIC (For the Next 90 Days)</div>
+                    <strong>Retreat seats sold.</strong><br/><br/>
+                    Not followers. Not likes. Not website traffic. Not email subscribers.<br/>
+                    <strong>Seats sold for the September retreat.</strong><br/><br/>
+                    Goal: 10 women registered before July 15th.<br/>
+                    Everything else is noise until you have this.
+                </div>
+            </div>
+
+            <div class="big-statement" style="color: #b07800; background: #fffde8;">"Clarity is the rarest currency in business. The Rule of 1 gives you all of it."</div>
+
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- FILE 4: BRAND POSITIONING -->
+    <!-- ============================================ -->
+    <div class="brand-file">
+        <div class="file-header teal">
+            <div class="file-number">Brand File 04</div>
+            <div class="file-title">Brand Positioning</div>
+            <div class="file-subtitle">Where She Travel lives in the market · and why no one can take your spot</div>
+        </div>
+        <div class="file-body">
+
+            <div class="section-block">
+                <div class="section-label">Positioning Statement</div>
+                <div class="section-heading teal">How She Travel Is Positioned in the World</div>
+                <div class="highlight-box teal">
+                    <strong>For women 40-60 who feel invisible and unheard,</strong> She Travel is the only holistic travel experience that blends meaningful travel with women's transformation — so they return renewed, reconnected, and reclaimed — <strong>because it is led by a woman who has lived the same journey and come out the other side.</strong>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">Category Design</div>
+                <div class="section-heading teal">You Are Not Competing. You Are Creating.</div>
+                <div class="two-col">
+                    <div class="card teal">
+                        <div class="card-title teal">❌ What She Travel Is NOT</div>
+                        <ul class="styled teal">
+                            <li>A wellness retreat (generic)</li>
+                            <li>A women's travel tour company (logistics-focused)</li>
+                            <li>A life coaching business (no travel)</li>
+                            <li>A luxury travel agency (no transformation)</li>
+                            <li>A yoga studio (no journey)</li>
+                        </ul>
+                    </div>
+                    <div class="card teal">
+                        <div class="card-title teal">✅ What She Travel IS</div>
+                        <ul class="styled teal">
+                            <li>A <strong>Meaningful Travel + Holistic Transformation</strong> experience for women 40-60</li>
+                            <li>A community where women are heard and supported</li>
+                            <li>A 5-pillar reset: mind · body · energy · emotion · connection</li>
+                            <li>A proof-of-concept: led by Hemali Shah, living example of everything she teaches</li>
+                            <li>A new category: <strong>Transformative Women's Travel</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">Competitive Moat</div>
+                <div class="section-heading teal">Why They Can't Copy You</div>
+                <div class="three-col">
+                    <div class="pill-box teal">
+                        <div class="pill-label teal">Moat 1 · Your Story</div>
+                        <div class="pill-value">No competitor has lived your story. The scarcity, the knee, the Madrid solo trip, the survival, the reclamation. This is irreplicable. You ARE the brand.</div>
+                    </div>
+                    <div class="pill-box teal">
+                        <div class="pill-label teal">Moat 2 · Your Network</div>
+                        <div class="pill-value">12 years of BNI. A network of trust built person by person. That referral engine powers your first 100 clients before you ever run an ad.</div>
+                    </div>
+                    <div class="pill-box teal">
+                        <div class="pill-label teal">Moat 3 · The 5 Pillars</div>
+                        <div class="pill-value">Your proprietary Reset-Realign-Rise framework integrates mind, body, energy, emotion, and connection. No one else has this specific combination.</div>
+                    </div>
+                </div>
+                <div class="three-col" style="margin-top: 20px;">
+                    <div class="pill-box teal">
+                        <div class="pill-label teal">Moat 4 · The AI + Human Blend</div>
+                        <div class="pill-value">You see the market shift: AI handles logistics, you handle the soul. This is a category-defining insight that puts you 3 years ahead of competitors.</div>
+                    </div>
+                    <div class="pill-box teal">
+                        <div class="pill-label teal">Moat 5 · Your Community</div>
+                        <div class="pill-value">You don't just create clients. You create advocates — women who became themselves through She Travel and now recruit others.</div>
+                    </div>
+                    <div class="pill-box teal">
+                        <div class="pill-label teal">Moat 6 · You Are The Proof</div>
+                        <div class="pill-value">At 57, you are the living proof that nothing is impossible. That's not a tagline — it's evidence. Every client sees herself in your story.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">Brand Personality</div>
+                <div class="section-heading teal">How She Travel Shows Up in the World</div>
+                <div class="two-col">
+                    <div>
+                        <div class="card teal"><div class="card-title teal">Voice</div> Warm, direct, no pretense. You speak from the heart — no shades of grey. Your brand sounds like a wise woman who has been through things and survived with grace and humour.</div>
+                        <div class="card teal"><div class="card-title teal">Energy</div> Positive, magnetic, fearless. You are proof that light is a choice. Your brand energy lifts the room — even through a screen.</div>
+                    </div>
+                    <div>
+                        <div class="card teal"><div class="card-title teal">Values</div> Authenticity · Courage · Beauty inside and out · Women's freedom · Discipline as self-love · Nothing is impossible</div>
+                        <div class="card teal"><div class="card-title teal">Visual Identity</div> Warm, joyful, feminine — but not girlish. Think: sunrise colors, blooming flowers, open skies, flowing fabric, women laughing together. Beauty with substance.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="big-statement" style="color: #33b8a8; background: #e8fffc;">"You are not the best travel company. You are the only Hemali Shah. That is your position."</div>
+
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- FILE 5: BUSINESS IN A BOX -->
+    <!-- ============================================ -->
+    <div class="brand-file">
+        <div class="file-header purple">
+            <div class="file-number">Brand File 05</div>
+            <div class="file-title">Business In A Box</div>
+            <div class="file-subtitle">Everything you need to launch She Travel · in one place</div>
+        </div>
+        <div class="file-body">
+
+            <div class="highlight-box purple">
+                "This is your complete She Travel operating system. Offers, pricing, delivery, AI employees, launch plan, revenue projections. Everything you need to go from idea to income — in 90 days."
+            </div>
+
+            <div class="section-block">
+                <div class="section-label">The Complete Offer Suite</div>
+                <div class="section-heading purple">Your 3-Tier Product Line</div>
+
+                <div class="card purple">
+                    <div class="card-title purple">🌸 TIER 1 · The Circle (Entry Experience)</div>
+                    <strong>What:</strong> A half-day community gathering — sound healing, women's sharing circle, guided meditation, light refreshments. Led by Hemali + 1 guest expert (healer, coach, or speaker).<br/>
+                    <strong>Where:</strong> Your yoga studio at home, a rented community space, or rooftop venue.<br/>
+                    <strong>Who:</strong> 10-20 women. Open to all. No travel required.<br/>
+                    <strong>Price:</strong> AED 200–400 per person<br/>
+                    <strong>Purpose:</strong> Community building, lead generation for retreats, proof of demand.<br/>
+                    <strong>Frequency:</strong> Monthly
+                </div>
+
+                <div class="card purple">
+                    <div class="card-title purple">✈️ TIER 2 · The Retreat (Core Experience) — LAUNCH SEPTEMBER</div>
+                    <strong>What:</strong> 3-day holistic retreat. All 5 pillars: sunrise meditation + yoga flow + breath work (morning) · wellness lunch + rest + integration (afternoon) · fire ceremony + candle release + gratitude under open sky (night).<br/>
+                    <strong>Where:</strong> Coastal, mountain, or nature location — UAE, Oman, India<br/>
+                    <strong>Who:</strong> 8–15 women. Intimate, intentional, curated.<br/>
+                    <strong>What's included:</strong> Accommodation, all meals, all sessions, 1 expert guest, She Travel journal + welcome gift<br/>
+                    <strong>Price:</strong> AED 2,500–3,500 per person<br/>
+                    <strong>Revenue at 10 women:</strong> AED 25,000–35,000<br/>
+                    <strong>Frequency:</strong> Quarterly
+                </div>
+
+                <div class="card purple">
+                    <div class="card-title purple">💎 TIER 3 · The Journey (Premium Experience)</div>
+                    <strong>What:</strong> 5-7 day curated luxury retreat to an international destination. Experiential travel: beachfront, mountain sanctuary, desert retreat, or cultural immersion. Fully curated by Hemali. Small group (4-6 women max).<br/>
+                    <strong>Where:</strong> Vietnam, Bali, Sri Lanka, Morocco, Maldives, or similar<br/>
+                    <strong>What's included:</strong> Flights, luxury accommodation, all-inclusive transformation program, 1-1 integration session with Hemali, premium gifts<br/>
+                    <strong>Price:</strong> AED 8,000–15,000 per person<br/>
+                    <strong>Revenue at 5 women:</strong> AED 40,000–75,000<br/>
+                    <strong>Frequency:</strong> 1-2 times per year
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">Adjacent Revenue</div>
+                <div class="section-heading purple">What Grows Alongside the Retreats</div>
+                <div class="two-col">
+                    <div class="card purple"><div class="card-title purple">1-on-1 Mentorship</div>Monthly coaching: AED 1,000–2,500/month per client. For women who want to go deeper after a retreat. Max 5 clients at a time.</div>
+                    <div class="card purple"><div class="card-title purple">Corporate Workshops</div>"When She Is Happy, Everyone Is Happy." Wellbeing workshops for companies. Women's leadership, resilience, emotional intelligence. AED 5,000–15,000 per workshop.</div>
+                    <div class="card purple"><div class="card-title purple">Branded Products</div>She Travel journal · yoga wear · essential oil set · welcome kit. Sold at retreats + online. AED 150–500 per set.</div>
+                    <div class="card purple"><div class="card-title purple">Franchise / Licensing</div>Year 2+. License the 5-pillar retreat model to other women facilitators globally. AED 20,000–50,000 licensing fee + revenue share.</div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">Revenue Projection</div>
+                <div class="section-heading purple">What Year 1 Looks Like</div>
+                <div class="three-col">
+                    <div class="pill-box purple">
+                        <div class="pill-label purple">Q3 2026 (Launch)</div>
+                        <div class="pill-value">1 x Circle Event: AED 4,000<br/>1 x September Retreat (10 women): AED 30,000<br/><strong>Total: ~AED 34,000</strong></div>
+                    </div>
+                    <div class="pill-box purple">
+                        <div class="pill-label purple">Q4 2026</div>
+                        <div class="pill-value">2 x Circle Events: AED 8,000<br/>1 x December Retreat (12 women): AED 36,000<br/>Mentorship (3 clients): AED 15,000<br/><strong>Total: ~AED 59,000</strong></div>
+                    </div>
+                    <div class="pill-box purple">
+                        <div class="pill-label purple">Year 1 Total</div>
+                        <div class="pill-value">Retreats + Circles + Mentorship + Products<br/><strong>Conservative: AED 150,000+</strong><br/><strong>Optimistic: AED 250,000+</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">Your 3 AI Employees</div>
+                <div class="section-heading purple">Build These First</div>
+                <div class="three-col">
+                    <div class="card purple">
+                        <div class="card-title purple">🤖 AI Employee 1 · Marketing</div>
+                        <strong>Role:</strong> Content creation, social posts, email sequences, caption writing<br/>
+                        <strong>What it produces:</strong> 3 posts/week on your 3 pillars, weekly email to community, retreat launch sequence<br/>
+                        <strong>Train it with:</strong> Your story, your voice, your 3 content pillars, your pull quotes
+                    </div>
+                    <div class="card purple">
+                        <div class="card-title purple">🤖 AI Employee 2 · Operations</div>
+                        <strong>Role:</strong> Retreat logistics, booking management, supplier coordination, itinerary planning<br/>
+                        <strong>What it produces:</strong> Retreat run-of-show, packing lists, supplier briefings, participant communications<br/>
+                        <strong>Train it with:</strong> Your 5-pillar curriculum, venue checklist, supplier contacts
+                    </div>
+                    <div class="card purple">
+                        <div class="card-title purple">🤖 AI Employee 3 · Community</div>
+                        <strong>Role:</strong> Lead nurturing, WhatsApp follow-ups, testimonial gathering, retention<br/>
+                        <strong>What it produces:</strong> Welcome sequences, post-retreat check-ins, referral ask templates, testimonial prompts<br/>
+                        <strong>Train it with:</strong> ICP Doc, your voice, your core message
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">90-Day Launch Plan</div>
+                <div class="section-heading purple">From Now to Your First Sold-Out Retreat</div>
+                <div class="card purple">
+                    <div class="card-title purple">📅 MONTH 1 · June–July 2026 · BUILD</div>
+                    <ul class="styled" style="margin-top: 10px;">
+                        <li>Finalize September retreat location + dates</li>
+                        <li>Build the 5-pillar curriculum (morning / afternoon / night flow)</li>
+                        <li>Create She Travel Instagram profile + first 3 posts (your story)</li>
+                        <li>Reach out personally to 20 women in your network via WhatsApp</li>
+                        <li>Set up simple booking (WhatsApp or Google Form — no website needed yet)</li>
+                        <li>Goal: 5 women registered</li>
+                    </ul>
+                </div>
+                <div class="card purple">
+                    <div class="card-title purple">📅 MONTH 2 · July–August 2026 · FILL</div>
+                    <ul class="styled" style="margin-top: 10px;">
+                        <li>Host 1 x Circle Event (sound healing / community day) as a preview of the retreat</li>
+                        <li>Post testimonials from Circle Event on Instagram</li>
+                        <li>Continue personal WhatsApp outreach — ask for referrals from registered women</li>
+                        <li>Brief your retreat guest expert (healer, yoga teacher, or speaker)</li>
+                        <li>Order branded welcome gifts / She Travel journals</li>
+                        <li>Goal: 10 women registered + fully sold out</li>
+                    </ul>
+                </div>
+                <div class="card purple">
+                    <div class="card-title purple">📅 MONTH 3 · September 2026 · DELIVER + RELAUNCH</div>
+                    <ul class="styled" style="margin-top: 10px;">
+                        <li>Deliver the retreat. Document everything (photos, videos, testimonials)</li>
+                        <li>Post-retreat: collect 5 written + video testimonials</li>
+                        <li>Announce December retreat to attendees first (early bird)</li>
+                        <li>Launch 1-on-1 mentorship to 2-3 retreat graduates</li>
+                        <li>Debrief: what worked, what to improve, what women asked for</li>
+                        <li>Goal: December retreat 50% filled before October</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section-block">
+                <div class="section-label">The Ripple Effect</div>
+                <div class="section-heading purple">Why She Travel Changes Everything</div>
+                <div class="highlight-box purple">
+                    "When the lady of the house is happy, the house is happy. When the family is happy, the community is happy. When the community is happy, it spreads all over the world."<br/><br/>
+                    She Travel isn't just a business. It's a movement. Every woman who goes through your retreat returns home transformed — more present, more loving, more free. Her family feels it. Her children see it. Her community is changed by it.<br/><br/>
+                    <strong>You are not selling retreats. You are creating a ripple effect of women's happiness across the world. One retreat at a time.</strong>
+                </div>
+            </div>
+
+            <div class="big-statement" style="color: #8040b0; background: #f8f0ff;">"You have everything you need. Now go. She is waiting for you."</div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div style="background: linear-gradient(135deg, #ff6fb0, #ff9966, #ffcc00); border-radius: 20px; padding: 40px; text-align: center; color: white; margin-top: 20px; box-shadow: 0 10px 35px rgba(255,111,176,0.25);">
+        <div style="font-size: 2em; margin-bottom: 15px;">🌸</div>
+        <div style="font-size: 1.4em; font-style: italic; margin-bottom: 15px;">"Nothing is impossible. There is no age bar. There is no gender bar. Everything is possible if you ask from the bottom of your heart."</div>
+        <div style="font-size: 0.95em; opacity: 0.9;">— Hemali Shah</div>
+        <div style="margin-top: 25px; font-size: 0.9em; opacity: 0.85;">All Brand Files · She Travels Life · shetravels.life · June 12, 2026</div>
+        <div style="margin-top: 10px; font-size: 0.85em; opacity: 0.75;">ICP Doc · Messaging House · Rule of 1 · Brand Positioning · Business In A Box</div>
+    </div>
+
+</div>
+</body>
+</html>
